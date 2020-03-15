@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Platforms>x86</Platforms>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <Authors>nanagami nasi</Authors>
+    <Description>Yukkuri-Pusher は合成音声作成ソフトです。</Description>
+    <RootNamespace>Voice_Pusher</RootNamespace>
+  </PropertyGroup>
+
+</Project>
