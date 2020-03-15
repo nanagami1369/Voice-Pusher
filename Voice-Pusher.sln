@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voice-Pusher", "Voice-Pusher\Voice-Pusher.csproj", "{91E8476F-EC7D-4EE3-9024-2E86B23ABB4A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{E95D9A46-15A0-409E-8B9A-99CDB2CA6957}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingModule", "Modules\SettingModule\SettingModule.csproj", "{0F6C88D1-4906-4972-9012-272EF30D0EEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,9 +27,20 @@ Global
 		{91E8476F-EC7D-4EE3-9024-2E86B23ABB4A}.Release|x64.ActiveCfg = Release|x86
 		{91E8476F-EC7D-4EE3-9024-2E86B23ABB4A}.Release|x86.ActiveCfg = Release|x86
 		{91E8476F-EC7D-4EE3-9024-2E86B23ABB4A}.Release|x86.Build.0 = Release|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Debug|x64.ActiveCfg = Debug|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Debug|x86.ActiveCfg = Debug|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Debug|x86.Build.0 = Debug|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Release|Any CPU.ActiveCfg = Release|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Release|x64.ActiveCfg = Release|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Release|x86.ActiveCfg = Release|x86
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F6C88D1-4906-4972-9012-272EF30D0EEC} = {E95D9A46-15A0-409E-8B9A-99CDB2CA6957}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {971D88E2-EB7C-476A-9A9F-1920F87EB114}
