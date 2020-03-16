@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿using CommonLibrary;
+using Prism.Ioc;
+using Prism.Modularity;
 using System.Windows;
 using Voice_Pusher.Views;
 
@@ -16,6 +18,12 @@ namespace Voice_Pusher
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IStatusSender, StatusCommunication>();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<CommonUILibrary.CommonUILibraryModule>();
         }
     }
 }
