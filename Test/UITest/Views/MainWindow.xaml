@@ -6,10 +6,11 @@
         Width="525"
         Height="350"
         prism:ViewModelLocator.AutoWireViewModel="True">
-    <StackPanel Orientation="Vertical">
-        <TextBlock Height="20" Margin="5,0" Text="ステータスバー" />
-        <Button Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
-        <ContentControl Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
-        <ContentControl Width="60" Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
-    </StackPanel>
+    <Window.Resources />
+    <WrapPanel Orientation="Vertical">
+        <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
+        <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
+        <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
+        <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
+    </WrapPanel>
 </Window>
