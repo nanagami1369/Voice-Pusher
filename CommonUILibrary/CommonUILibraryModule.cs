@@ -11,6 +11,7 @@ namespace CommonUILibrary
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("StatusBarRegion", typeof(StatusBarView));
+            regionManager.RegisterViewWithRegion("MenubarRegion", typeof(MenuBarView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
