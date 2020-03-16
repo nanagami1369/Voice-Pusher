@@ -11,6 +11,7 @@
         <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
         <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
         <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
+        <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
     </WrapPanel>
 </Window>
