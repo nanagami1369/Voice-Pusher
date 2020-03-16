@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingModule", "Modules\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonUILibrary", "CommonUILibrary\CommonUILibrary.csproj", "{B20E8271-6BCB-4DE7-871F-CB97FE4D9A91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,18 @@ Global
 		{B20E8271-6BCB-4DE7-871F-CB97FE4D9A91}.Release|x64.ActiveCfg = Release|x86
 		{B20E8271-6BCB-4DE7-871F-CB97FE4D9A91}.Release|x86.ActiveCfg = Release|x86
 		{B20E8271-6BCB-4DE7-871F-CB97FE4D9A91}.Release|x86.Build.0 = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|Any CPU.Build.0 = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|x64.ActiveCfg = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|x64.Build.0 = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|x86.ActiveCfg = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Debug|x86.Build.0 = Debug|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|Any CPU.ActiveCfg = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|Any CPU.Build.0 = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|x64.ActiveCfg = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|x64.Build.0 = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|x86.ActiveCfg = Release|x86
+		{886723EB-7CE5-4A5C-B0FE-AAED87BDDFC6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
