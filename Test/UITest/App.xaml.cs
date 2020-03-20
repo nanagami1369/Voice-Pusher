@@ -3,6 +3,7 @@ using UITest.Views;
 using System.Windows;
 using CommonLibrary;
 using Prism.Modularity;
+using CommonLibrary.Modules.StatusModule;
 
 namespace UITest
 {

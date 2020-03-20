@@ -1,4 +1,5 @@
 ﻿using CommonLibrary;
+using CommonLibrary.Modules.StatusModule;
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;

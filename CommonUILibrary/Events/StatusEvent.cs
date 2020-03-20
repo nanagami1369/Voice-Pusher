@@ -1,4 +1,4 @@
-﻿using CommonLibrary;
+﻿using CommonLibrary.Modules.StatusModule;
 using Prism.Events;
 
 namespace CommonUILibrary

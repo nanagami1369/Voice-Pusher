@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace CommonLibrary
+namespace CommonLibrary.Modules.StatusModule
 {
     public class StatusLevel
     {

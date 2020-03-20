@@ -1,4 +1,4 @@
-﻿namespace SettingModule
+﻿namespace CommonLibrary
 {
     public interface ISetting
     {

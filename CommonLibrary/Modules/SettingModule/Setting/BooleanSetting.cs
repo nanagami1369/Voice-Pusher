@@ -1,4 +1,4 @@
-﻿namespace SettingModule.Setting
+﻿namespace CommonLibrary.Modules.SettingModule.Setting
 {
     public class BooleanSetting : ISetting
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using SettingModule.Setting;
+using CommonLibrary.Modules.SettingModule.Setting;
 
-namespace SettingModule
+namespace CommonLibrary
 {
     public class CommonSettings
     {
