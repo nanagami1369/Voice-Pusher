@@ -1,26 +1,24 @@
-﻿using System.Drawing;
-
-namespace CommonLibrary.Modules.StatusModule
+﻿namespace CommonLibrary.Modules.StatusModule
 {
     public class StatusLevel
     {
         public string Text { get; }
-        public Color Color { get; }
+        public string ColorCode { get; }
 
         public string Show => "【" + Text + "】";
 
-        public static StatusLevel Warning => new StatusLevel("警告", Color.Coral);
+        public static StatusLevel Warning => new StatusLevel("警告", "#FF7F00");
 
-        public static StatusLevel Error => new StatusLevel("エラー", Color.Red);
+        public static StatusLevel Error => new StatusLevel("エラー", "#FF003F");
 
-        public static StatusLevel Log => new StatusLevel("情報", Color.Black);
+        public static StatusLevel Log => new StatusLevel("情報", "#333333");
 
-        public static StatusLevel Success => new StatusLevel("成功", Color.DarkGreen);
+        public static StatusLevel Success => new StatusLevel("成功", "#008000");
 
-        private StatusLevel(string text, Color color)
+        private StatusLevel(string text, string colorCode)
         {
             Text = text;
-            Color = color;
+            ColorCode = colorCode;
         }
     }
 }

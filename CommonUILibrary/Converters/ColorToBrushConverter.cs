@@ -9,9 +9,9 @@ namespace CommonUILibrary.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is System.Drawing.Color color)) return Binding.DoNothing;
-            var mediaColor = System.Windows.Media.Color.FromRgb(color.R, color.G, color.B);
-            return new SolidColorBrush(mediaColor);
+            if (!(value is string colorCode)) return Binding.DoNothing;
+            var converter = new BrushConverter();
+            return converter.ConvertFromString(colorCode);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

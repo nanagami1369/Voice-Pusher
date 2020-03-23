@@ -15,7 +15,7 @@
     <StatusBar Name="StatusBar" Height="20">
         <StatusBarItem>
             <TextBlock>
-                <Run FontWeight="Bold" Foreground="{Binding Path=Status.Level.Color, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=Status.Level.Show, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                <Run FontWeight="Bold" Foreground="{Binding Path=Status.Level.ColorCode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=Status.Level.Show, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
                 <Run Text="{Binding Path=Status.Message, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
             </TextBlock>
         </StatusBarItem>
