@@ -13,6 +13,7 @@ namespace CommonUILibrary
             regionManager.RegisterViewWithRegion("StatusBarRegion", typeof(StatusBarView));
             regionManager.RegisterViewWithRegion("MenubarRegion", typeof(MenuBarView));
             regionManager.RegisterViewWithRegion("CharacterLibraryRegion", typeof(CharacterLibraryView));
+            regionManager.RegisterViewWithRegion("VoiceEditorRegion", typeof(NotSelectCharacterView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

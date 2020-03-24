@@ -36,5 +36,6 @@
             </ScrollViewer>
         </Grid>
         <ContentControl Grid.Column="1" />
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="VoiceEditorRegion" />
     </Grid>
 </UserControl>
