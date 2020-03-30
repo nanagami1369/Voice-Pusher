@@ -11,7 +11,6 @@
              d:DesignWidth="300"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <Grid Background="Red">
     <UserControl.Resources>
         <CollectionViewSource x:Key="SortedCharacterLibrary" IsLiveSortingRequested="True" Source="{Binding Path=CharacterLibrary.SelectedLibrary, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='キャラクターが存在しません'}">
             <CollectionViewSource.SortDescriptions>
@@ -33,13 +32,50 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Row="0" Margin="2" FontSize="16" />
-            <Button Grid.Row="0" Grid.Column="1" Margin="2">🔍</Button>
+            <TextBox x:Name="SearchCharacterTextBox" Grid.Row="0" Margin="2" b:FocusBehavior.IsFocused="{Binding IsFocus, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="16">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding SearchCharacterCommand}" CommandParameter="{Binding Text, ElementName=SearchCharacterTextBox}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding ResetSelectorCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Up" Command="{Binding UpCharacterLibraryCommand}" />
+                    <KeyBinding Key="Down" Command="{Binding DownCharacterLibraryCommand}" />
+                    <KeyBinding Key="Enter" Command="{Binding SelectCharacterCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <Button Grid.Row="0" Grid.Column="1" Margin="2" Command="{Binding SelectCharacterCommand}">🔍</Button>
             <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2">
-                <ListBox x:Name="CharacterLibrary">
+                <ListBox SelectionMode="Single">
+                    <ListBox.Resources>
+                        <Style TargetType="{x:Type ListBox}">
+                            <Setter Property="ItemsSource" Value="{Binding Source={StaticResource SortedCharacterLibrary}}" />
+                            <Setter Property="SelectedIndex" Value="{Binding Path=CharacterLibrary.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Setter Property="SelectedItem" Value="{Binding Path=CharacterLibrary.SelectedCharacter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Style>
+                    </ListBox.Resources>
                     <i:Interaction.Behaviors>
                         <b:AutoScrollBehavior />
                     </i:Interaction.Behaviors>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding SelectCharacterCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="14"><Run Text="{Binding Name, Mode=OneWay}" /><Run Foreground="Gray" Text=" - " /><Run FontSize="12" Foreground="Gray" Text="{Binding Reading, Mode=OneWay}" />
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.InputBindings>
+                        <KeyBinding Key="Up" Command="{Binding UpCharacterLibraryCommand}" />
+                        <KeyBinding Key="Down" Command="{Binding DownCharacterLibraryCommand}" />
+                        <KeyBinding Key="Enter" Command="{Binding SelectCharacterCommand}" />
+                    </ListBox.InputBindings>
                 </ListBox>
             </ScrollViewer>
         </Grid>
