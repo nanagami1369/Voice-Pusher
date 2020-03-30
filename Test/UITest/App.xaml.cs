@@ -1,9 +1,12 @@
-﻿using Prism.Ioc;
-using UITest.Views;
-using System.Windows;
-using CommonLibrary;
-using Prism.Modularity;
+﻿using CommonLibrary;
+using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
+using CommonUILibrary.Models;
+using Prism.Ioc;
+using Prism.Modularity;
+using System.Windows;
+using UITest.Moc;
+using UITest.Views;
 
 namespace UITest
 {
@@ -20,6 +23,9 @@ namespace UITest
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IStatusSender, StatusCommunication>();
+            containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
+            containerRegistry.Register<IDialog, Dialog>();
+            containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
