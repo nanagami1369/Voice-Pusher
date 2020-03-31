@@ -40,8 +40,6 @@ namespace CommonUILibrary.Models
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Name == query));
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Reading.StartsWith(query)));
             SelectedLibrary = searchedLibrary;
-            // ListBoxのセレクターがリセットされるので再設定
-            Index = 0;
         }
 
         public void SelectCharacter()
