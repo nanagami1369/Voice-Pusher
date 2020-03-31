@@ -37,7 +37,7 @@ namespace CommonUILibrary.Models
                 return;
             }
             var searchedLibrary = new ObservableCollection<ICharacter>();
-            searchedLibrary.AddRange(originalCharacterLibrary.AsParallel().Where(item => item.Name == query));
+            searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Name == query));
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Reading.StartsWith(query)));
             SelectedLibrary = searchedLibrary;
             // ListBoxのセレクターがリセットされるので再設定
