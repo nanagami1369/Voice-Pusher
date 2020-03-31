@@ -79,7 +79,7 @@ namespace CommonUILibrary.Models
 
         public void UpCharacterLibrary()
         {
-            if (SelectedLibrary == null) return;
+            if (SelectedLibrary == null || SelectedLibrary.Count == 0) return;
             if (Index <= 0)
             {
                 Index = SelectedLibrary.Count - 1;
@@ -92,7 +92,7 @@ namespace CommonUILibrary.Models
 
         public void DownCharacterLibrary()
         {
-            if (SelectedLibrary == null) return;
+            if (SelectedLibrary == null || SelectedLibrary.Count == 0) return;
             if (Index >= SelectedLibrary.Count - 1)
             {
                 Index = 0;
@@ -105,10 +105,8 @@ namespace CommonUILibrary.Models
 
         public void ResetSelector()
         {
-            if (SelectedLibrary != null && Index == -1)
-            {
-                Index = 0;
-            }
+            if (SelectedLibrary == null || SelectedLibrary.Count == 0) return;
+            if (Index == -1) Index = 0;
         }
 
         public void SetFocus()
