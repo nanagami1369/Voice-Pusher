@@ -20,12 +20,8 @@ namespace CommonUILibrary.Models
             set => SetProperty(ref _selectedLibrary, value);
         }
 
-        private ICharacter _selectedCharacter;
 
-        public ICharacter SelectedCharacter
         {
-            get => _selectedCharacter;
-            set => SetProperty(ref _selectedCharacter, value);
         }
 
         public void SearchCharacter(string query)

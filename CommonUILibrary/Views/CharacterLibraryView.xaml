@@ -54,7 +54,6 @@
                         <Style TargetType="{x:Type ListBox}">
                             <Setter Property="ItemsSource" Value="{Binding Source={StaticResource SortedCharacterLibrary}}" />
                             <Setter Property="SelectedIndex" Value="{Binding Path=CharacterLibrary.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            <Setter Property="SelectedItem" Value="{Binding Path=CharacterLibrary.SelectedCharacter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </Style>
                     </ListBox.Resources>
                     <i:Interaction.Behaviors>

@@ -6,7 +6,6 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
     {
         ObservableCollection<ICharacter> SelectedLibrary { get; set; }
 
-        ICharacter SelectedCharacter { get; set; }
 
         void SearchCharacter(string query);
 
