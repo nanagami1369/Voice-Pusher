@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CommonLibrary.Modules.SettingModule.Setting;
+using System;
 using System.Text;
-using CommonLibrary.Modules.SettingModule.Setting;
 
 namespace CommonLibrary
 {

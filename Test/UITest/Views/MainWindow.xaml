@@ -3,15 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         Title="{Binding Title}"
-        Width="525"
-        Height="350"
+        Width="1000"
+        Height="1000"
         prism:ViewModelLocator.AutoWireViewModel="True">
-    <Window.Resources />
     <WrapPanel Orientation="Vertical">
         <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
         <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
         <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
         <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
+        <TextBlock Width="100" Height="23" Text="キャラクターライブラリー" />
+        <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="CharacterLibraryRegion" Background="Red" />
     </WrapPanel>
 </Window>

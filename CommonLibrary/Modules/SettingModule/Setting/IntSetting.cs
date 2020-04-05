@@ -1,4 +1,4 @@
-﻿namespace CommonLibrary.Setting
+﻿namespace CommonLibrary.Modules.SettingModule.Setting
 {
     public class IntSetting : ISetting
     {
