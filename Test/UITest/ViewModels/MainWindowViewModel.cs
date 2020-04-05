@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using CommonLibrary.Modules.StatusModule;
+﻿using CommonLibrary.Modules.StatusModule;
 using Prism.Commands;
 using Prism.Mvvm;
 

@@ -1,6 +1,5 @@
 ﻿using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
-using CommonUILibrary.Views;
 using Prism.Regions;
 using System;
 

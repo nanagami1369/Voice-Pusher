@@ -1,7 +1,6 @@
 ﻿using CommonLibrary.Modules.CharacterLibraryModule;
 using Prism.Mvvm;
 using Prism.Regions;
-using System;
 
 namespace UITest.ViewModels
 {

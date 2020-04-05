@@ -1,10 +1,9 @@
-﻿using NUnit.Framework;
-using CommonLibrary.Modules.CharacterLibraryModule;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+﻿using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonUILibrary.Moc;
-using CommonLibrary.Modules.StatusModule;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace CommonUILibrary.Models
 {
