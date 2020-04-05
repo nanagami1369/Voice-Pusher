@@ -40,6 +40,7 @@ namespace CommonUILibrary.Models
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Name == query));
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Reading.StartsWith(query)));
             SelectedLibrary = searchedLibrary;
+            ResetSelector();
         }
 
         public void SelectCharacter()
