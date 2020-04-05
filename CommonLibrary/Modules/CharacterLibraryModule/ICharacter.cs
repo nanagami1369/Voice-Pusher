@@ -4,5 +4,6 @@
     {
         string Name { get; set; }
         string Reading { get; set; }
+        VoiceActor VoiceActor { get; set; }
     }
 }
