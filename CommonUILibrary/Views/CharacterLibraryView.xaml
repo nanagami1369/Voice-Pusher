@@ -11,13 +11,6 @@
              d:DesignWidth="300"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <CollectionViewSource x:Key="SortedCharacterLibrary" IsLiveSortingRequested="True" Source="{Binding Path=CharacterLibrary.SelectedLibrary, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='キャラクターが存在しません'}">
-            <CollectionViewSource.SortDescriptions>
-                <scm:SortDescription Direction="Ascending" PropertyName="Reading" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="22*" />
@@ -52,7 +45,7 @@
                 <ListBox SelectionMode="Single">
                     <ListBox.Resources>
                         <Style TargetType="{x:Type ListBox}">
-                            <Setter Property="ItemsSource" Value="{Binding Source={StaticResource SortedCharacterLibrary}}" />
+                            <Setter Property="ItemsSource" Value="{Binding Path=CharacterLibrary.SelectedLibrary, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, FallbackValue='キャラクターが存在しません'}" />
                             <Setter Property="SelectedIndex" Value="{Binding Path=CharacterLibrary.Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </Style>
                     </ListBox.Resources>
