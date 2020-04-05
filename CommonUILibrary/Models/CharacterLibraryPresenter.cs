@@ -13,15 +13,19 @@ namespace CommonUILibrary.Models
         private readonly IStatusSender _statusSender;
         private readonly ICharacterLibraryGateway _gateway;
 
+        private string _searchWord;
+        public string SearchWord
+        {
+            get => _searchWord;
+            set => SetProperty(ref _searchWord, value);
+        }
+
         private ObservableCollection<ICharacter> _selectedLibrary;
+
         public ObservableCollection<ICharacter> SelectedLibrary
         {
             get => _selectedLibrary;
             set => SetProperty(ref _selectedLibrary, value);
-        }
-
-
-        {
         }
 
         public void SearchCharacter(string query)

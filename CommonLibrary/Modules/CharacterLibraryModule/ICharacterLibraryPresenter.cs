@@ -4,8 +4,9 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public interface ICharacterLibraryPresenter
     {
-        ObservableCollection<ICharacter> SelectedLibrary { get; set; }
+        string SearchWord { get; set; }
 
+        ObservableCollection<ICharacter> SelectedLibrary { get; set; }
 
         void SearchCharacter(string query);
 
