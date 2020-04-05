@@ -18,10 +18,10 @@ namespace CommonUILibrary.Models
             var gateway = new TestCharacterLibraryGateway();
             TestLibrary = new Collection<ICharacter>()
             {
-                new PartialCharacter() {Name = "霊夢", Reading = "れいむ"},
-                new PartialCharacter() {Name = "魔理沙", Reading = "まりさ"},
-                new PartialCharacter() {Name = "田舞", Reading = "まい"},
-                new PartialCharacter() {Name = "妖夢", Reading = "ようむ"},
+                new PartialCharacter("霊夢","れいむ"),
+                new PartialCharacter("魔理沙","まりさ"),
+                new PartialCharacter("舞", "まい"),
+                new PartialCharacter("妖夢", "ようむ"),
             };
             gateway.SetLibrary(TestLibrary);
             Presenter = new CharacterLibraryPresenter(
