@@ -1,6 +1,6 @@
 ﻿using CommonLibrary;
 
-namespace CharacterLibraryTest.Moc
+namespace CommonUILibrary.Moc
 {
     class TestDialog : IDialog
     {

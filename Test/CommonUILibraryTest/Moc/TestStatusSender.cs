@@ -1,6 +1,6 @@
 ﻿using CommonLibrary.Modules.StatusModule;
 
-namespace CharacterLibraryTest.Moc
+namespace CommonUILibrary.Moc
 {
     class TestStatusSender : IStatusSender
     {

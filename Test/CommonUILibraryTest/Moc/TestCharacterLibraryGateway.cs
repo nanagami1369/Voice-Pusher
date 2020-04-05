@@ -1,7 +1,7 @@
 ﻿using CommonLibrary.Modules.CharacterLibraryModule;
 using System.Collections.Generic;
 
-namespace CharacterLibraryTest.Moc
+namespace CommonUILibrary.Moc
 {
     public class TestCharacterLibraryGateway : ICharacterLibraryGateway
     {
