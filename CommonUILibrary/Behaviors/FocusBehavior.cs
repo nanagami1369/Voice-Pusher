@@ -6,7 +6,7 @@ namespace CommonUILibrary.Behaviors
     {
         public static bool GetIsFocused(DependencyObject obj)
         {
-            return (bool) obj.GetValue(IsFocusedProperty);
+            return (bool)obj.GetValue(IsFocusedProperty);
         }
 
 
@@ -25,8 +25,8 @@ namespace CommonUILibrary.Behaviors
         private static void OnIsFocusedPropertyChanged(DependencyObject d,
             DependencyPropertyChangedEventArgs e)
         {
-            var uie = (UIElement) d;
-            if ((bool) e.NewValue)
+            var uie = (UIElement)d;
+            if ((bool)e.NewValue)
             {
                 uie.Focus();
             }
