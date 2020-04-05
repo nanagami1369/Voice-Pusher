@@ -26,6 +26,8 @@ namespace UITest
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
+            containerRegistry.RegisterForNavigation<PartialView>("PartialVoiceEditorView");
+            containerRegistry.RegisterForNavigation<PartialView>("PartialCharacterEditorView");
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
