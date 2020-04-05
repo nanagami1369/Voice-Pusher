@@ -1,6 +1,8 @@
 ﻿using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonUILibrary.Models;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 
 namespace CommonUILibrary.ViewModels
 {
@@ -24,7 +26,7 @@ namespace CommonUILibrary.ViewModels
         public CharacterLibraryViewModel(ICharacterLibraryPresenter characterLibrary)
         {
             CharacterLibrary = characterLibrary;
-            SelectCharacterCommand = new DelegateCommand(CharacterLibrary.SelectCharacter);
+            SelectCharacterCommand = new DelegateCommand(CharacterLibrary.OpenVoiceEditorView);
             SearchCharacterCommand = new DelegateCommand<string>(CharacterLibrary.SearchCharacter);
             UpCharacterLibraryCommand = new DelegateCommand(CharacterLibrary.UpCharacterLibrary);
             DownCharacterLibraryCommand = new DelegateCommand(CharacterLibrary.DownCharacterLibrary);

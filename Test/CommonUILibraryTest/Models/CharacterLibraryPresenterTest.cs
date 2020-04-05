@@ -1,9 +1,11 @@
 ﻿using NUnit.Framework;
 using CommonLibrary.Modules.CharacterLibraryModule;
-using CharacterLibraryTest.Moc;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using CommonUILibrary.Moc;
+using CommonLibrary.Modules.StatusModule;
+
 namespace CommonUILibrary.Models
 {
     [TestFixture()]
@@ -11,6 +13,8 @@ namespace CommonUILibrary.Models
     {
         private ICharacterLibraryPresenter Presenter;
         private ICollection<ICharacter> TestLibrary;
+        private TestStatusSender TestStatusSender;
+        private TestViewSelectable TestViewSelectable;
 
         [SetUp]
         public void Setup()
@@ -24,11 +28,12 @@ namespace CommonUILibrary.Models
                 new PartialCharacter("妖夢", "ようむ"),
             };
             gateway.SetLibrary(TestLibrary);
+            TestStatusSender = new TestStatusSender();
+            TestViewSelectable = new TestViewSelectable();
             Presenter = new CharacterLibraryPresenter(
-                new TestStatusSender(),
-                new TestDialog(),
-                gateway
-            );
+                TestStatusSender,
+                gateway,
+                TestViewSelectable);
         }
 
         [Test()]
@@ -73,13 +78,59 @@ namespace CommonUILibrary.Models
         }
 
         [Test()]
-        public void キャラクターを検索してキャラを選択する()
+        public void ボイスエディタを開く()
         {
-            Presenter.SearchCharacter("霊夢");
-            Presenter.SelectCharacter();
-            StringAssert.AreEqualIgnoringCase("霊夢", Presenter.SelectedCharacter.Name);
+            Presenter.SearchWord = "魔理沙";
+            Presenter.Index = 1;
+            Presenter.OpenVoiceEditorView();
+            Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
+            Assert.AreEqual(1, Presenter.Index);
+            StringAssert.AreEqualIgnoringCase("", Presenter.SearchWord);
+            StringAssert.AreEqualIgnoringCase("Voice", TestViewSelectable.SelectView);
+            StringAssert.AreEqualIgnoringCase("魔理沙", TestViewSelectable.SetedCharacter.Name);
         }
 
+        [Test()]
+        public void キャラクターを選択していない時にボイスエディタを開こうとする()
+        {
+            Presenter.SearchWord = "魔理沙あ";
+            Presenter.Index = -1;
+            Presenter.SelectedLibrary = null;
+            Presenter.OpenVoiceEditorView();
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
+            Assert.AreEqual(-1, Presenter.Index);
+            StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
+            Assert.IsNull(TestViewSelectable.SelectView);
+            Assert.IsNull(TestViewSelectable.SetedCharacter);
+        }
+
+        [Test()]
+        public void キャラクターエディタを開く()
+        {
+            Presenter.Index = 1;
+            Presenter.OpenCharacterEditorView();
+            Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
+            Assert.AreEqual(1, Presenter.Index);
+            StringAssert.AreEqualIgnoringCase("", Presenter.SearchWord);
+            StringAssert.AreEqualIgnoringCase("Character", TestViewSelectable.SelectView);
+            StringAssert.AreEqualIgnoringCase("魔理沙", TestViewSelectable.SetedCharacter.Name);
+        }
+
+        [Test()]
+        public void キャラクターを選択していない時にキャラクターエディタを開こうとする()
+        {
+            Presenter.SearchWord = "魔理沙あ";
+            Presenter.Index = -1;
+            Presenter.SelectedLibrary = null;
+            Presenter.OpenVoiceEditorView();
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
+            Assert.AreEqual(-1, Presenter.Index);
+            StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
+            Assert.IsNull(TestViewSelectable.SelectView);
+            Assert.IsNull(TestViewSelectable.SetedCharacter);
+        }
 
         [Test()]
         public void 最上行で上キーを押して最下行を選択する()

@@ -2,6 +2,7 @@
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
 using Prism.Mvvm;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -9,9 +10,9 @@ namespace CommonUILibrary.Models
 {
     public class CharacterLibraryPresenter : BindableBase, ICharacterLibraryPresenter
     {
-        private readonly IDialog _dialog;
         private readonly IStatusSender _statusSender;
         private readonly ICharacterLibraryGateway _gateway;
+        private readonly IViewSelectable _viewSelectable;
 
         private string _searchWord;
         public string SearchWord
@@ -43,16 +44,45 @@ namespace CommonUILibrary.Models
             ResetSelector();
         }
 
-        public void SelectCharacter()
+        private void OpenView(Action<ICharacter> selectable)
         {
-            _dialog.ShowMessage("モック", $"まだ作ってないよ\n選択中：{SelectedCharacter.Name}");
+            ResetSelector();
+            if (Index == -1)
+            {
+                _statusSender.Send(StatusLevel.Error, "キャラクターが選択されておりません");
+                return;
+            }
+            var selectedCharacter = SelectedLibrary[Index];
+            selectable(selectedCharacter);
+            _statusSender.Send(
+                StatusLevel.Log, $"キャラクターが選択されました：{selectedCharacter.Name}");
+            var originalCharacterLibrary = new ObservableCollection<ICharacter>(_gateway.Read());
+            SearchWord = string.Empty;
+            SelectedLibrary = originalCharacterLibrary;
+            var selectedCharacterIndex = SelectedLibrary.ToList().FindIndex(c => c.Name == selectedCharacter.Name);
+            Index = selectedCharacterIndex;
         }
 
-        public CharacterLibraryPresenter(IStatusSender statusSender, IDialog dialog, ICharacterLibraryGateway gateway)
+        public void OpenVoiceEditorView()
         {
-            _dialog = dialog;
+            OpenView(_viewSelectable.SelectVoiceEditorView);
+        }
+
+        public void OpenCharacterEditorView()
+        {
+            OpenView(_viewSelectable.SelectCharacterEditorView);
+        }
+
+        public CharacterLibraryPresenter(
+            IStatusSender statusSender,
+            ICharacterLibraryGateway gateway,
+            IViewSelectable viewSelectable
+        )
+        {
             _statusSender = statusSender;
             _gateway = gateway;
+            _viewSelectable = viewSelectable;
+
             var originalCharacterLibrary = _gateway.Read();
             SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
         }
@@ -74,7 +104,6 @@ namespace CommonUILibrary.Models
             get => _index;
             set => SetProperty(ref _index, value);
         }
-
 
         public void UpCharacterLibrary()
         {

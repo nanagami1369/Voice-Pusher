@@ -10,7 +10,8 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
 
         void SearchCharacter(string query);
 
-        void SelectCharacter();
+        void OpenVoiceEditorView();
+        void OpenCharacterEditorView();
 
         #region keyboardActions
 
