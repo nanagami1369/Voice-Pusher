@@ -12,7 +12,9 @@
         <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
         <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
-        <TextBlock Width="100" Height="23" Text="キャラクターライブラリー" />
-        <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="CharacterLibraryRegion" Background="Red" />
+        <TextBlock Width="100" Height="23" Text="ボイス用キャラクターライブラリー" />
+        <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="VoiceEditorCharacterLibraryRegion" Background="Red" />
+        <TextBlock Width="100" Height="23" Text="キャラクター用キャラクターライブラリー" />
+        <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="CharacterEditorCharacterLibraryRegion" Background="Red" />
     </WrapPanel>
 </Window>

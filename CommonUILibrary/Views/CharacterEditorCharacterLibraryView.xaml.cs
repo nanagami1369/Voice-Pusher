@@ -5,13 +5,11 @@ namespace CommonUILibrary.Views
     /// <summary>
     /// Interaction logic for CharacterLibraryView
     /// </summary>
-    public partial class CharacterLibraryView : UserControl
+    public partial class CharacterEditorCharacterLibraryView : UserControl
     {
-
-        public CharacterLibraryView()
+        public CharacterEditorCharacterLibraryView()
         {
             InitializeComponent();
         }
-
     }
 }
