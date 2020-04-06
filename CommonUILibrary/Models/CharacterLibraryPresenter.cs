@@ -35,6 +35,7 @@ namespace CommonUILibrary.Models
             if (string.IsNullOrEmpty(query))
             {
                 SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
+                ResetSelector();
                 return;
             }
             var searchedLibrary = new ObservableCollection<ICharacter>();
