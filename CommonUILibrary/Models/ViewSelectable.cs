@@ -17,7 +17,8 @@ namespace CommonUILibrary.Models
 
         public void SelectCharacterEditorView(ICharacter character)
         {
-            throw new NotImplementedException();
+            var parameters = new NavigationParameters { { "CurrentCharacter", character } };
+            _regionManager.RequestNavigate("CharacterEditorRegion", character.VoiceActor.Office + "CharacterEditorView", parameters);
         }
 
         public ViewSelectable(IRegionManager regionManager)
