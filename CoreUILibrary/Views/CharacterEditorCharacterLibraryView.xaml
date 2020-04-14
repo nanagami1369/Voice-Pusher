@@ -1,12 +1,11 @@
-﻿<UserControl x:Class="CommonUILibrary.Views.VoiceEditorCharacterLibraryView"
+﻿<UserControl x:Class="CoreUILibrary.Views.CharacterEditorCharacterLibraryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:b="clr-namespace:CommonUILibrary.Behaviors"
+             xmlns:b="clr-namespace:CommonUILibrary.Behaviors;assembly=CommonUILibrary"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              d:DesignHeight="300"
              d:DesignWidth="300"
              prism:ViewModelLocator.AutoWireViewModel="True"
@@ -59,7 +58,10 @@
                     </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock FontSize="14"><Run Text="{Binding Name, Mode=OneWay}" /><Run Foreground="Gray" Text=" - " /><Run FontSize="12" Foreground="Gray" Text="{Binding Reading, Mode=OneWay}" />
+                            <TextBlock FontSize="14">
+                                <Run Text="{Binding Name, Mode=OneWay}" />
+                                <Run Foreground="Gray" Text=" - " />
+                                <Run FontSize="12" Foreground="Gray" Text="{Binding Reading, Mode=OneWay}" />
                             </TextBlock>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -71,6 +73,6 @@
                 </ListBox>
             </ScrollViewer>
         </Grid>
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="VoiceEditorRegion" />
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="CharacterEditorRegion" />
     </Grid>
 </UserControl>

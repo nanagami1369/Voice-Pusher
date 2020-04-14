@@ -6,7 +6,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace CommonUILibrary.Models
+namespace CoreUILibrary.Models
 {
     public class CharacterLibraryPresenter : BindableBase, ICharacterLibraryPresenter
     {

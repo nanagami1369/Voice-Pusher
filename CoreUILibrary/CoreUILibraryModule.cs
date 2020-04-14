@@ -1,11 +1,11 @@
-﻿using CommonUILibrary.Views;
+﻿using CoreUILibrary.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace CommonUILibrary
+namespace CoreUILibrary
 {
-    public class CommonUILibraryModule : IModule
+    public class CoreUILibraryModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {

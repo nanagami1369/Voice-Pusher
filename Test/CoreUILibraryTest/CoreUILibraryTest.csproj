@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Platforms>x86</Platforms>
     <IsPackable>false</IsPackable>
-    <RootNamespace>CommonUILibrary</RootNamespace>
+    <RootNamespace>CoreUILibrary</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonUILibrary\CommonUILibrary.csproj" />
+    <ProjectReference Include="..\..\CoreUILibrary\CoreUILibrary.csproj" />
   </ItemGroup>
 
 </Project>

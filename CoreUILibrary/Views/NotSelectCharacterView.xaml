@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CommonUILibrary.Views.NotSelectCharacterView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<UserControl x:Class="CoreUILibrary.Views.NotSelectCharacterView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <TextBlock VerticalAlignment="Center" TextAlignment="Center">
             <Run Foreground="Gray">キャラクターを選択して下さい</Run>

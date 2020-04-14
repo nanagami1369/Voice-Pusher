@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj" />
-    <ProjectReference Include="..\CommonUILibrary\CommonUILibrary.csproj" />
+    <ProjectReference Include="..\CoreUILibrary\CoreUILibrary.csproj" />
   </ItemGroup>
 
 </Project>

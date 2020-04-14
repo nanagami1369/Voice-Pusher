@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace CommonUILibrary.Views
+namespace CoreUILibrary.Views
 {
     /// <summary>
     /// Interaction logic for NotSelectCharacterView

@@ -1,5 +1,5 @@
-﻿using CommonLibrary;
-using CommonLibrary.Modules.StatusModule;
+﻿using CommonLibrary.Modules.StatusModule;
+using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
@@ -24,7 +24,7 @@ namespace Voice_Pusher
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            moduleCatalog.AddModule<CommonUILibrary.CommonUILibraryModule>();
+            moduleCatalog.AddModule<CoreUILibrary.CoreUILibraryModule>();
         }
     }
 }

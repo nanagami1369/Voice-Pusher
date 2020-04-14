@@ -2,6 +2,7 @@
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Models;
+using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
@@ -33,7 +34,7 @@ namespace UITest
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            moduleCatalog.AddModule<CommonUILibrary.CommonUILibraryModule>();
+            moduleCatalog.AddModule<CoreUILibrary.CoreUILibraryModule>();
         }
     }
 }

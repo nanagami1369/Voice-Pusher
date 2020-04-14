@@ -3,7 +3,7 @@ using CommonUILibrary;
 using Prism.Events;
 using System;
 
-namespace CommonLibrary
+namespace CoreUILibrary.Models
 {
     public class StatusCommunication : IStatusSender
     {
