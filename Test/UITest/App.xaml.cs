@@ -1,6 +1,7 @@
 ﻿using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
+using CommonUILibrary.Commands;
 using CommonUILibrary.Models;
 using CoreUILibrary.Models;
 using Prism.Ioc;
@@ -23,6 +24,7 @@ namespace UITest
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.Register<IStatusSender, StatusCommunication>();
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
             containerRegistry.Register<IDialog, Dialog>();

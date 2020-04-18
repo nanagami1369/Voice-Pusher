@@ -1,12 +1,17 @@
-﻿using CommonLibrary.Modules.StatusModule;
+﻿using CommonLibrary;
+using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonLibrary.Modules.StatusModule;
+using CommonUILibrary.Commands;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 
 namespace UITest.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
         private readonly IStatusSender _statusSender;
+        private readonly IRegionManager _regionManager;
         private string _title = "UTest";
 
         public string Title
@@ -37,7 +42,6 @@ namespace UITest.ViewModels
             }
         }
 
-        public MainWindowViewModel(IStatusSender statusSender)
         public DelegateCommand ChangeCharacterEditorCommand { get; }
 
         private bool isCharacterLibrary;
@@ -55,10 +59,21 @@ namespace UITest.ViewModels
             }
         }
 
+        private IApplicationCommands _applicationCommands;
+        public IApplicationCommands ApplicationCommands
+        {
+            get => _applicationCommands;
+            set => SetProperty(ref _applicationCommands, value);
+        }
+
+        public MainWindowViewModel(IStatusSender statusSender, IRegionManager regionManager, IApplicationCommands applicationCommands)
         {
             _statusSender = statusSender;
+            _regionManager = regionManager;
+            ApplicationCommands = applicationCommands;
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
             ChangeCharacterEditorCommand = new DelegateCommand(ChangeCharacterEditor);
+
         }
     }
 }

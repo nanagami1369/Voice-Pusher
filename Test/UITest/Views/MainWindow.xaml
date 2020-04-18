@@ -6,6 +6,9 @@
         Width="1000"
         Height="1000"
         prism:ViewModelLocator.AutoWireViewModel="True">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding ApplicationCommands.SetFocusCommand}" Gesture="Ctrl+F" />
+    </Window.InputBindings>
     <WrapPanel Orientation="Vertical">
         <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
         <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
