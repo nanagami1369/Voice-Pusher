@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="SearchCharacterTextBox" Grid.Row="0" Margin="2" b:FocusBehavior.IsFocused="{Binding Path=CharacterLibrary.IsFocus, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Text="{Binding Path=CharacterLibrary.SearchWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox x:Name="SearchCharacterTextBox" Grid.Row="0" Margin="2" b:FocusBehavior.IsFocused="{Binding Path=CharacterLibrary.IsFocus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Text="{Binding Path=CharacterLibrary.SearchWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <i:InvokeCommandAction Command="{Binding SearchCharacterCommand}" CommandParameter="{Binding Text, ElementName=SearchCharacterTextBox}" />
