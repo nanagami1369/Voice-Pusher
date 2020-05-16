@@ -1,4 +1,4 @@
-﻿using CommonLibrary;
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
 using Prism.Mvvm;
@@ -21,6 +21,16 @@ namespace CoreUILibrary.Models
             set => SetProperty(ref _searchWord, value);
         }
 
+        private ObservableCollection<ICharacter> _originalLibrart;
+        private ObservableCollection<ICharacter> OriginalLibrart
+        {
+            get=>_originalLibrart;
+            set
+            {
+                _originalLibrart = value;
+                SelectedLibrary = value;
+            }
+        }
         private ObservableCollection<ICharacter> _selectedLibrary;
 
         public ObservableCollection<ICharacter> SelectedLibrary
@@ -31,7 +41,7 @@ namespace CoreUILibrary.Models
 
         public void SearchCharacter(string query)
         {
-            var originalCharacterLibrary = _gateway.Read();
+            var originalCharacterLibrary = OriginalLibrart;
             if (string.IsNullOrEmpty(query))
             {
                 SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
@@ -57,9 +67,8 @@ namespace CoreUILibrary.Models
             selectable(selectedCharacter);
             _statusSender.Send(
                 StatusLevel.Log, $"キャラクターが選択されました：{selectedCharacter.Name}");
-            var originalCharacterLibrary = new ObservableCollection<ICharacter>(_gateway.Read());
             SearchWord = string.Empty;
-            SelectedLibrary = originalCharacterLibrary;
+            SelectedLibrary = OriginalLibrart;
             var selectedCharacterIndex = SelectedLibrary.ToList().FindIndex(c => c.Name == selectedCharacter.Name);
             Index = selectedCharacterIndex;
         }
@@ -84,8 +93,7 @@ namespace CoreUILibrary.Models
             _gateway = gateway;
             _viewSelectable = viewSelectable;
 
-            var originalCharacterLibrary = _gateway.Read();
-            SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
+            OriginalLibrart = new ObservableCollection<ICharacter>(_gateway.Read());
         }
 
         #region keyboardActions
