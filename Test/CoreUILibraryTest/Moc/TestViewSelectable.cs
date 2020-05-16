@@ -1,4 +1,4 @@
-﻿using CommonLibrary;
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CoreUILibrary.Moc
@@ -8,7 +8,12 @@ namespace CoreUILibrary.Moc
 		public ICharacter SetedCharacter { get; private set; }
 		public string SelectView { get; private set; }
 
-		public void SelectCharacterEditorView(ICharacter character)
+        public void ChangeContentView(string viewName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SelectCharacterEditorView(ICharacter character)
 		{
 			SetedCharacter = character;
 			SelectView = "Character";

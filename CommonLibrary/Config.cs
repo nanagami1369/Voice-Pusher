@@ -1,4 +1,6 @@
-﻿namespace CommonLibrary
+using CommonLibrary.Modules.MenuModule;
+
+namespace CommonLibrary
 {
     public static class Config
     {
@@ -10,10 +12,10 @@
         {
             MenuItem = new MenuItem[]
             {
-                new MenuItem("ボイスエディタ", "VolumeUp"),
-                new MenuItem("キャラクタエディタ", "AddressBookOutline"),
-                new MenuItem("台本エディタ", "FileTextOutline"),
-                new MenuItem("設定", "Cog")
+                new MenuItem("ボイスエディタ","VoiceEditorCharacterLibraryView", "VolumeUp"),
+                new MenuItem("キャラクタエディタ","CharacterEditorCharacterLibraryView", "AddressBookOutline"),
+                new MenuItem("台本エディタ",string.Empty, "FileTextOutline"),
+                new MenuItem("設定",string.Empty, "Cog")
             };
         }
     }

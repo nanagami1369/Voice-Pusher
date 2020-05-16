@@ -1,5 +1,6 @@
-﻿using CommonLibrary;
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
 using CommonUILibrary.Models;
@@ -27,6 +28,7 @@ namespace UITest
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.Register<IStatusSender, StatusCommunication>();
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
+            containerRegistry.Register<IMeunManager, MenuManager>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<IViewSelectable, ViewSelectable>();

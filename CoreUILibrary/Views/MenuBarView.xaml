@@ -4,6 +4,7 @@
              xmlns:c="clr-namespace:CommonUILibrary.Converters;assembly=CommonUILibrary"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
              d:DesignHeight="200"
@@ -23,7 +24,12 @@
         </Style>
     </UserControl.Resources>
 
-    <ListBox ItemsSource="{Binding MenuBar, Mode=OneWay}">
+    <ListBox ItemsSource="{Binding Path=MeunManager.MenuList, Mode=OneWay}" SelectedItem="{Binding Path=MeunManager.SelectedMenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="SelectionChanged">
+                <i:InvokeCommandAction Command="{Binding ChangeViewCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <ListBox.ItemContainerStyle>
             <Style TargetType="{x:Type ListBoxItem}">
                 <Setter Property="FontSize" Value="40" />

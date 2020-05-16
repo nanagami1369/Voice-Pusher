@@ -1,4 +1,4 @@
-﻿using CommonLibrary;
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using Prism.Regions;
 using System;
@@ -19,6 +19,11 @@ namespace CommonUILibrary.Models
         {
             var parameters = new NavigationParameters { { "CurrentCharacter", character } };
             _regionManager.RequestNavigate("CharacterEditorRegion", character.VoiceActor.Office + "CharacterEditorView", parameters);
+        }
+
+        public void ChangeContentView(string viewName)
+        {
+            _regionManager.RequestNavigate("ContentRegion", viewName);
         }
 
         public ViewSelectable(IRegionManager regionManager)

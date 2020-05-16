@@ -1,14 +1,21 @@
-﻿using CommonLibrary;
+using System.Windows.Controls;
+using CommonLibrary;
+using CommonLibrary.Modules.MenuModule;
+using CoreUILibrary.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace CoreUILibrary.ViewModels
 {
 	public class MenuBarViewModel : BindableBase
 	{
-		public MenuItem[] MenuBar { get; }
-		public MenuBarViewModel()
+        public IMeunManager MeunManager { get; }
+        public DelegateCommand ChangeViewCommand { get; }
+
+        public MenuBarViewModel(IMeunManager meunManager)
 		{
-			MenuBar = Config.MenuItem;
-		}
+            MeunManager = meunManager;
+            ChangeViewCommand = new DelegateCommand(MeunManager.ChangeView);
+        }
 	}
 }
