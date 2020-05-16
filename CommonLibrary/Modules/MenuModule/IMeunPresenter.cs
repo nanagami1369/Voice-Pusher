@@ -1,6 +1,6 @@
 namespace CommonLibrary.Modules.MenuModule
 {
-    public interface IMeunManager
+    public interface IMeunPresenter
     {
         MenuItem[] MenuList { get; }
 

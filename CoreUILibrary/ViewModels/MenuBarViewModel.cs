@@ -14,10 +14,10 @@ namespace CoreUILibrary.ViewModels
     {
         private readonly IApplicationCommands _applicationCommands;
 
-        public IMeunManager MeunManager { get; }
+        public IMeunPresenter MeunManager { get; }
         public DelegateCommand ChangeViewCommand { get; }
 
-        public MenuBarViewModel(IMeunManager meunManager, IApplicationCommands applicationCommands)
+        public MenuBarViewModel(IMeunPresenter meunManager, IApplicationCommands applicationCommands)
         {
             _applicationCommands = applicationCommands;
             MeunManager = meunManager;

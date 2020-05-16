@@ -5,7 +5,7 @@ using Prism.Mvvm;
 
 namespace CoreUILibrary.Models
 {
-    public class MenuManager : BindableBase, IMeunManager
+    public class MeunPresenter : BindableBase, IMeunPresenter
     {
         private readonly IViewSelectable _viewSelectable;
         public MenuItem[] MenuList { get; }
@@ -22,7 +22,7 @@ namespace CoreUILibrary.Models
             _viewSelectable.ChangeContentView(SelectedMenu.ViewName);
         }
 
-        public MenuManager(IViewSelectable viewSelectable)
+        public MeunPresenter(IViewSelectable viewSelectable)
         {
             _viewSelectable = viewSelectable;
             MenuList = Config.MenuItem;
