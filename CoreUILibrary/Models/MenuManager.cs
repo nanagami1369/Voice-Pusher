@@ -28,5 +28,21 @@ namespace CoreUILibrary.Models
             MenuList = Config.MenuItem;
             SelectedMenu = MenuList.FirstOrDefault();
         }
+
+        #region keyboardActions
+
+        public bool TryChangeMenu(int index)
+        {
+            if (0 > index || index >= MenuList.Length)
+            {
+                return false;
+            }
+            string viewName = MenuList[index].ViewName;
+            _viewSelectable.ChangeContentView(viewName);
+            SelectedMenu = MenuList[index];
+            return true;
+        }
+
+        #endregion
     }
 }

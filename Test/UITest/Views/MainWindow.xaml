@@ -8,6 +8,10 @@
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Window.InputBindings>
         <KeyBinding Command="{Binding ApplicationCommands.SetFocusCommand}" Gesture="Ctrl+F" />
+        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="0" Gesture="Alt+1" />
+        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="1" Gesture="Alt+2" />
+        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="2" Gesture="Alt+3" />
+        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="3" Gesture="Alt+4" />
     </Window.InputBindings>
     <WrapPanel Orientation="Vertical">
         <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />

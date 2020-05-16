@@ -7,5 +7,9 @@ namespace CommonLibrary.Modules.MenuModule
         MenuItem SelectedMenu { get; }
 
         void ChangeView();
+
+        #region keyboardActions
+        bool TryChangeMenu(int index);
+        #endregion
     }
 }
