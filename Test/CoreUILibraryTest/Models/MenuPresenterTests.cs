@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using CoreUILibrary.Moc;
 using CommonLibrary.Modules.MenuModule;
+using CoreUILibrary.Moc;
+using NUnit.Framework;
 
 namespace CoreUILibrary.Models
 {

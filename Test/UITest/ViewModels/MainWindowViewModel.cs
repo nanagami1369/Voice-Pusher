@@ -1,6 +1,4 @@
-﻿using CommonLibrary;
-using CommonLibrary.Modules.CharacterLibraryModule;
-using CommonLibrary.Modules.StatusModule;
+﻿using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
 using Prism.Commands;
 using Prism.Mvvm;

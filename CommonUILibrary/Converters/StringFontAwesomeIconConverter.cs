@@ -1,7 +1,7 @@
-﻿using FontAwesome.WPF;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using FontAwesome.WPF;
 
 namespace CommonUILibrary.Converters
 {

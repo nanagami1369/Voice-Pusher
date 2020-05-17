@@ -3,10 +3,10 @@ using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CoreUILibrary.Moc
 {
-	public class TestViewSelectable : IViewSelectable
-	{
-		public ICharacter SetedCharacter { get; private set; }
-		public string SelectView { get; private set; }
+    public class TestViewSelectable : IViewSelectable
+    {
+        public ICharacter SetedCharacter { get; private set; }
+        public string SelectView { get; private set; }
 
         public void ChangeContentView(string viewName)
         {
@@ -14,15 +14,15 @@ namespace CoreUILibrary.Moc
         }
 
         public void SelectCharacterEditorView(ICharacter character)
-		{
-			SetedCharacter = character;
-			SelectView = "Character";
-		}
+        {
+            SetedCharacter = character;
+            SelectView = "Character";
+        }
 
-		public void SelectVoiceEditorView(ICharacter character)
-		{
-			SetedCharacter = character;
-			SelectView = "Voice";
-		}
-	}
+        public void SelectVoiceEditorView(ICharacter character)
+        {
+            SetedCharacter = character;
+            SelectView = "Voice";
+        }
+    }
 }

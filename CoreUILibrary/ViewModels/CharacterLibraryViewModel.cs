@@ -1,9 +1,9 @@
-﻿using CommonLibrary.Modules.CharacterLibraryModule;
+﻿using System;
+using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonUILibrary.Commands;
 using Prism;
 using Prism.Commands;
 using Prism.Mvvm;
-using System;
 
 namespace CoreUILibrary.ViewModels
 {

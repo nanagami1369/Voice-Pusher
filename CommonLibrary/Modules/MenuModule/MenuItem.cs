@@ -1,6 +1,3 @@
-using System;
-using System.Data;
-
 namespace CommonLibrary.Modules.MenuModule
 {
     public class MenuItem

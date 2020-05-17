@@ -1,5 +1,5 @@
-﻿using CommonLibrary;
-using System.Windows;
+﻿using System.Windows;
+using CommonLibrary;
 
 namespace CommonUILibrary.Models
 {

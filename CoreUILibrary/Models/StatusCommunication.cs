@@ -1,7 +1,7 @@
-﻿using CommonLibrary.Modules.StatusModule;
+﻿using System;
+using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary;
 using Prism.Events;
-using System;
 
 namespace CoreUILibrary.Models
 {

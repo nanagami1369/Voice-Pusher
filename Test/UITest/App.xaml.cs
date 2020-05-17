@@ -1,3 +1,4 @@
+using System.Windows;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
@@ -7,7 +8,6 @@ using CommonUILibrary.Models;
 using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
-using System.Windows;
 using UITest.Moc;
 using UITest.Views;
 

@@ -1,7 +1,6 @@
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using Prism.Regions;
-using System;
 
 namespace CommonUILibrary.Models
 {

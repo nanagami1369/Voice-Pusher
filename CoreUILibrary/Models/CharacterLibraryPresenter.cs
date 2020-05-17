@@ -1,10 +1,10 @@
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.StatusModule;
 using Prism.Mvvm;
-using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace CoreUILibrary.Models
 {
@@ -24,7 +24,7 @@ namespace CoreUILibrary.Models
         private ObservableCollection<ICharacter> _originalLibrart;
         private ObservableCollection<ICharacter> OriginalLibrart
         {
-            get=>_originalLibrart;
+            get => _originalLibrart;
             set
             {
                 _originalLibrart = value;

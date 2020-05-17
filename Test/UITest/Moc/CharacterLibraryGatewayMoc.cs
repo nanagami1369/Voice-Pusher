@@ -1,7 +1,7 @@
-﻿using CommonLibrary;
-using CommonLibrary.Modules.CharacterLibraryModule;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using CommonLibrary;
+using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace UITest.Moc
 {

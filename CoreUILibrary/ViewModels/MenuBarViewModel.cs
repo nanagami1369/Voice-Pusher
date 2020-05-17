@@ -1,9 +1,6 @@
 using System;
-using System.Windows.Controls;
-using CommonLibrary;
 using CommonLibrary.Modules.MenuModule;
 using CommonUILibrary.Commands;
-using CoreUILibrary.Models;
 using Prism;
 using Prism.Commands;
 using Prism.Mvvm;

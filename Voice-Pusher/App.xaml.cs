@@ -1,8 +1,8 @@
-﻿using CommonLibrary.Modules.StatusModule;
+﻿using System.Windows;
+using CommonLibrary.Modules.StatusModule;
 using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
-using System.Windows;
 using Voice_Pusher.Views;
 
 namespace Voice_Pusher
