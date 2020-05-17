@@ -10,7 +10,7 @@ namespace CoreUILibrary.Moc
 
         public void ChangeContentView(string viewName)
         {
-            throw new System.NotImplementedException();
+            SelectView = viewName;
         }
 
         public void SelectCharacterEditorView(ICharacter character)
