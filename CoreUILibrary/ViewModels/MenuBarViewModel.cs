@@ -22,14 +22,15 @@ namespace CoreUILibrary.ViewModels
             _applicationCommands = applicationCommands;
             MenuManager = menuManager;
             ChangeViewCommand = new DelegateCommand(MenuManager.ChangeView);
-            TryChangeMenuCommand = new DelegateCommand<string?>(TryChageMenu);
+            TryChangeMenuCommand = new DelegateCommand<string>(TryChangeMenu);
             _applicationCommands.SelectMenuCommand.RegisterCommand(TryChangeMenuCommand);
         }
 
         #region keyboardActions
-        public DelegateCommand<string?> TryChangeMenuCommand { get; }
 
-        private void TryChageMenu(string? stringIndex)
+        public DelegateCommand<string> TryChangeMenuCommand { get; }
+
+        private void TryChangeMenu(string stringIndex)
         {
             if (int.TryParse(stringIndex, out var index))
             {
