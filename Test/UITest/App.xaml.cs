@@ -28,7 +28,7 @@ namespace UITest
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.Register<IStatusSender, StatusCommunication>();
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
-            containerRegistry.Register<IMeunPresenter, MeunPresenter>();
+            containerRegistry.Register<IMenuPresenter, MenuPresenter>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<IViewSelectable, ViewSelectable>();

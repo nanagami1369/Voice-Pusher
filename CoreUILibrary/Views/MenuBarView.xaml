@@ -24,7 +24,7 @@
         </Style>
     </UserControl.Resources>
 
-    <ListBox ItemsSource="{Binding Path=MeunManager.MenuList, Mode=OneWay}" SelectedItem="{Binding Path=MeunManager.SelectedMenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+    <ListBox ItemsSource="{Binding Path=MenuManager.MenuList, Mode=OneWay}" SelectedItem="{Binding Path=MenuManager.SelectedMenu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="SelectionChanged">
                 <i:InvokeCommandAction Command="{Binding ChangeViewCommand}" />

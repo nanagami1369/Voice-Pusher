@@ -14,14 +14,14 @@ namespace CoreUILibrary.ViewModels
     {
         private readonly IApplicationCommands _applicationCommands;
 
-        public IMeunPresenter MeunManager { get; }
+        public IMenuPresenter MenuManager { get; }
         public DelegateCommand ChangeViewCommand { get; }
 
-        public MenuBarViewModel(IMeunPresenter meunManager, IApplicationCommands applicationCommands)
+        public MenuBarViewModel(IMenuPresenter menuManager, IApplicationCommands applicationCommands)
         {
             _applicationCommands = applicationCommands;
-            MeunManager = meunManager;
-            ChangeViewCommand = new DelegateCommand(MeunManager.ChangeView);
+            MenuManager = menuManager;
+            ChangeViewCommand = new DelegateCommand(MenuManager.ChangeView);
             TryChangeMenuCommand = new DelegateCommand<string?>(TryChageMenu);
             _applicationCommands.SelectMenuCommand.RegisterCommand(TryChangeMenuCommand);
         }
@@ -33,9 +33,9 @@ namespace CoreUILibrary.ViewModels
         {
             if (int.TryParse(stringIndex, out var index))
             {
-                //ƒL[ƒ{[ƒhƒVƒ‡[ƒgƒJƒbƒg‚Åg‚¤—p
-                //”ÍˆÍŠO‚Ì’l‚ÍƒVƒ‡[ƒgƒJƒbƒg‚ª‘¶İ‚µ‚È‚¢‚¾‚¯‚È‚Ì‚ÅŒ‹‰Ê‚Íæ“¾‚µ‚È‚¢
-                _ = MeunManager.TryChangeMenu(index);
+                //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã§ä½¿ã†ç”¨
+                //ç¯„å›²å¤–ã®å€¤ã¯ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆãŒå­˜åœ¨ã—ãªã„ã ã‘ãªã®ã§çµæœã¯å–å¾—ã—ãªã„
+                _ = MenuManager.TryChangeMenu(index);
             }
         }
         #endregion
