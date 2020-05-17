@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Globalization;
+using System.Text;
 using System.Windows.Data;
-using FontAwesome.WPF;
+using FontAwesome5;
 
 namespace CommonUILibrary.Converters
 {
@@ -9,17 +10,18 @@ namespace CommonUILibrary.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is string inputString)) return FontAwesomeIcon.None;
-            if (Enum.TryParse(inputString, out FontAwesomeIcon icon)) return icon;
-            return FontAwesomeIcon.None;
+            if (!(value is string inputString)) return EFontAwesomeIcon.None;
+            var soridFontName = "Solid_" + inputString;
+            if (Enum.TryParse(soridFontName, out EFontAwesomeIcon icon)) return icon;
+            return EFontAwesomeIcon.None;
 
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is FontAwesomeIcon inputIcon)) return Binding.DoNothing;
+            if (!(value is EFontAwesomeIcon inputIcon)) return Binding.DoNothing;
 
-            return Enum.GetName(typeof(FontAwesomeIcon), inputIcon);
+            return Enum.GetName(typeof(EFontAwesomeIcon), inputIcon);
         }
     }
 }
