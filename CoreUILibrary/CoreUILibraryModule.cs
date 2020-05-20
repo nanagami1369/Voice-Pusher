@@ -1,4 +1,4 @@
-﻿using CoreUILibrary.Views;
+using CoreUILibrary.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -14,6 +14,7 @@ namespace CoreUILibrary
             regionManager.RegisterViewWithRegion("MenubarRegion", typeof(MenuBarView));
             regionManager.RegisterViewWithRegion("ContentRegion", typeof(VoiceEditorCharacterLibraryView));
             regionManager.RegisterViewWithRegion("VoiceEditorRegion", typeof(NotSelectCharacterView));
+            regionManager.RegisterViewWithRegion("OtherContentRegion", typeof(SettingEditorView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -21,6 +22,7 @@ namespace CoreUILibrary
             containerRegistry.RegisterForNavigation<VoiceEditorCharacterLibraryView>();
             containerRegistry.RegisterForNavigation<CharacterEditorCharacterLibraryView>();
             containerRegistry.RegisterForNavigation<OtherMenuView>();
+            containerRegistry.RegisterForNavigation<SettingEditorView>();
         }
     }
 }
