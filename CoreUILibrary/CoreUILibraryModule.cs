@@ -20,6 +20,7 @@ namespace CoreUILibrary
         {
             containerRegistry.RegisterForNavigation<VoiceEditorCharacterLibraryView>();
             containerRegistry.RegisterForNavigation<CharacterEditorCharacterLibraryView>();
+            containerRegistry.RegisterForNavigation<OtherMenuView>();
         }
     }
 }
