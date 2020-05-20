@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace CoreUILibrary.ViewModels
 {
-    public class OtherMenuListVIewModel : BindableBase
+    public class OtherMenuViewModel : BindableBase
     {
-        public OtherMenuListVIewModel()
+        public OtherMenuViewModel()
         {
 
         }
