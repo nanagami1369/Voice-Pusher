@@ -21,13 +21,13 @@ namespace CoreUILibrary.Models
             set => SetProperty(ref _searchWord, value);
         }
 
-        private ObservableCollection<ICharacter> _originalLibrart;
-        private ObservableCollection<ICharacter> OriginalLibrart
+        private ObservableCollection<ICharacter> _originalLibrary;
+        private ObservableCollection<ICharacter> OriginalLibrary
         {
-            get => _originalLibrart;
+            get => _originalLibrary;
             set
             {
-                _originalLibrart = value;
+                _originalLibrary = value;
                 SelectedLibrary = value;
             }
         }
@@ -41,7 +41,7 @@ namespace CoreUILibrary.Models
 
         public void SearchCharacter(string query)
         {
-            var originalCharacterLibrary = OriginalLibrart;
+            var originalCharacterLibrary = OriginalLibrary;
             if (string.IsNullOrEmpty(query))
             {
                 SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
@@ -68,7 +68,7 @@ namespace CoreUILibrary.Models
             _statusSender.Send(
                 StatusLevel.Log, $"キャラクターが選択されました：{selectedCharacter.Name}");
             SearchWord = string.Empty;
-            SelectedLibrary = OriginalLibrart;
+            SelectedLibrary = OriginalLibrary;
             var selectedCharacterIndex = SelectedLibrary.ToList().FindIndex(c => c.Name == selectedCharacter.Name);
             Index = selectedCharacterIndex;
         }
@@ -93,7 +93,7 @@ namespace CoreUILibrary.Models
             _gateway = gateway;
             _viewSelectable = viewSelectable;
 
-            OriginalLibrart = new ObservableCollection<ICharacter>(_gateway.Read());
+            OriginalLibrary = new ObservableCollection<ICharacter>(_gateway.Read());
         }
 
         #region keyboardActions
