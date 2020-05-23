@@ -30,6 +30,7 @@ namespace CommonUILibrary.Setting
             set => _outPutDirectoryPath = value;
         }
 
+        [JsonConverter(typeof(EncodingConverter))]
         public Encoding OutPutTextEncode { get; set; }
 
         public bool IsLogWrite { get; set; }
