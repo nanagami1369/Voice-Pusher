@@ -8,6 +8,21 @@ namespace CommonUILibrary.Setting
         public ICommonSetting Common { get; private set; }
         public IScriptSetting Script { get; private set; }
 
+        public ISetting Copy()
+        {
+            return new Setting
+            {
+                Common = new CommonSetting
+                {
+                    OutPutDirectoryPath = this.Common.OutPutDirectoryPath,
+                    OutPutTextEncode = this.Common.OutPutTextEncode,
+                    NameScript = this.Common.NameScript,
+                    IsLogWrite = this.Common.IsLogWrite
+                },
+                Script = new ScriptSetting {CsvEncode = this.Script.CsvEncode, OutputMode = this.Script.OutputMode}
+            };
+        }
+
         public Setting()
         {
             Common = new CommonSetting

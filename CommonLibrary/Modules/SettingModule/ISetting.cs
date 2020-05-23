@@ -4,5 +4,6 @@ namespace CommonLibrary.Modules.SettingModule
     {
         ICommonSetting Common { get; }
         IScriptSetting Script { get; }
+        ISetting Copy();
     }
 }
