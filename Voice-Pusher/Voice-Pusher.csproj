@@ -8,6 +8,7 @@
     <Authors>nanagami nasi</Authors>
     <Description>Yukkuri-Pusher は合成音声作成ソフトです。</Description>
     <RootNamespace>Voice_Pusher</RootNamespace>
+    <Copyright>Copyright (c) 2020 nanagami</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
