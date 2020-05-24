@@ -3,6 +3,7 @@ using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.StatusModule;
+using CommonLibrary.Modules.SettingModule;
 using CommonUILibrary.Commands;
 using CommonUILibrary.Models;
 using CoreUILibrary.Models;
@@ -20,11 +21,18 @@ namespace UITest
     {
         protected override Window CreateShell()
         {
+            //設定の初期化
+            var settingRegistry = Container.Resolve<ISettingRegistry>();
+            var setting = settingRegistry.Read(Config.SettingFileName, Config.SettingFileEncode);
+            var settingManager = Container.Resolve<ISettingContainer>();
+            settingManager.Register(setting);
             return Container.Resolve<MainWindow>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<ISettingRegistry, SettingRegistry>();
+            containerRegistry.Register<ISettingContainer, SettingContainer>();
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.Register<IStatusSender, StatusCommunication>();
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
