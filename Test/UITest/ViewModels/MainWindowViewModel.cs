@@ -1,4 +1,5 @@
 using CommonLibrary;
+using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.SettingModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
@@ -15,6 +16,7 @@ namespace UITest.ViewModels
         private readonly IRegionManager _regionManager;
         private readonly ISettingContainer _settingManager;
         private readonly IDialog _dialog;
+        private readonly IMenuContainer _menuContainer;
         private string _title = "UTest";
 
         public string Title
@@ -43,6 +45,14 @@ namespace UITest.ViewModels
         }
 
         public DelegateCommand ShowSettingCommand { get; }
+
+        private async Task ShowMenu()
+        {
+            var menuName = _menuContainer.Read().Name;
+            await _dialog.ShowMessage("メニューの画面", menuName);
+        }
+        public DelegateCommand ShowMenuCommand { get; }
+
         public DelegateCommand ChangeStatusBarCommand { get; }
         private int Counter { get; set; }
 
@@ -94,14 +104,17 @@ namespace UITest.ViewModels
             IRegionManager regionManager,
             ISettingContainer settingManager,
             IDialog dialog,
+            IMenuContainer menuContainer,
             IApplicationCommands applicationCommands)
         {
             _statusSender = statusSender;
             _regionManager = regionManager;
             _settingManager = settingManager;
             _dialog = dialog;
+            _menuContainer = menuContainer;
             ApplicationCommands = applicationCommands;
             ShowSettingCommand = new DelegateCommand(async () => await ShowSetting());
+            ShowMenuCommand = new DelegateCommand(async () => await ShowMenu());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
             ChangeCharacterEditorCommand = new DelegateCommand(ChangeCharacterEditor);
         }
