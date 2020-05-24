@@ -83,6 +83,11 @@ namespace CoreUILibrary.Models
             OpenView(_viewSelectable.SelectCharacterEditorView);
         }
 
+        public void ResetView()
+        {
+            _viewSelectable.SelectNotSelectCharacterView();
+        }
+
         public CharacterLibraryPresenter(
             IStatusSender statusSender,
             ICharacterLibraryGateway gateway,

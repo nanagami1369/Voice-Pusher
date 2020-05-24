@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonUILibrary.Commands;
 using Prism;
@@ -16,6 +16,8 @@ namespace CoreUILibrary.ViewModels
         public DelegateCommand SelectCharacterCommand { get; }
 
         public DelegateCommand<string> SearchCharacterCommand { get; }
+
+        public DelegateCommand ResetViewCommand { get; }
 
         #region keyboardActions
 
@@ -56,6 +58,7 @@ namespace CoreUILibrary.ViewModels
             CharacterLibrary = characterLibrary;
             SelectCharacterCommand = new DelegateCommand(CharacterLibrary.OpenCharacterEditorView);
             SearchCharacterCommand = new DelegateCommand<string>(CharacterLibrary.SearchCharacter);
+            ResetViewCommand = new DelegateCommand(CharacterLibrary.ResetView);
             UpCharacterLibraryCommand = new DelegateCommand(CharacterLibrary.UpCharacterLibrary);
             DownCharacterLibraryCommand = new DelegateCommand(CharacterLibrary.DownCharacterLibrary);
             ResetSelectorCommand = new DelegateCommand(CharacterLibrary.ResetSelector);

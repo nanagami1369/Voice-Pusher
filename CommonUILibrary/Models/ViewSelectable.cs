@@ -14,6 +14,11 @@ namespace CommonUILibrary.Models
             _regionManager.RequestNavigate("VoiceEditorRegion", character.VoiceActor.Office + "VoiceEditorView", parameters);
         }
 
+        public void SelectNotSelectCharacterView()
+        {
+            _regionManager.RequestNavigate("VoiceEditorRegion", "NotSelectCharacterView");
+        }
+
         public void SelectCharacterEditorView(ICharacter character)
         {
             var parameters = new NavigationParameters { { "CurrentCharacter", character } };

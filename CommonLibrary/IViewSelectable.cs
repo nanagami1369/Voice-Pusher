@@ -6,6 +6,7 @@ namespace CommonLibrary
     {
         void ChangeContentView(string viewName);
         void SelectVoiceEditorView(ICharacter character);
+        void SelectNotSelectCharacterView();
         void SelectCharacterEditorView(ICharacter character);
     }
 }

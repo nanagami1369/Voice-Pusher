@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 
 namespace CommonLibrary.Modules.CharacterLibraryModule
 {
@@ -9,6 +9,8 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
         ObservableCollection<ICharacter> SelectedLibrary { get; set; }
 
         void SearchCharacter(string query);
+
+        void ResetView();
 
         void OpenVoiceEditorView();
         void OpenCharacterEditorView();

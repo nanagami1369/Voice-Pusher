@@ -21,6 +21,7 @@ namespace CoreUILibrary
         {
             containerRegistry.RegisterForNavigation<VoiceEditorCharacterLibraryView>();
             containerRegistry.RegisterForNavigation<CharacterEditorCharacterLibraryView>();
+            containerRegistry.RegisterForNavigation<NotSelectCharacterView>();
             containerRegistry.RegisterForNavigation<OtherMenuView>();
             containerRegistry.RegisterForNavigation<SettingEditorView>();
         }

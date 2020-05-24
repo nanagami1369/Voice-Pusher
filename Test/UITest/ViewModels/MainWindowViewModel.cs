@@ -5,7 +5,6 @@ using CommonUILibrary.Commands;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
-using CommonUILibrary.Setting;
 using System.Threading.Tasks;
 
 namespace UITest.ViewModels
