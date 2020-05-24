@@ -14,6 +14,7 @@
         <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="3" Gesture="Alt+4" />
     </Window.InputBindings>
     <WrapPanel Orientation="Vertical">
+        <Button Width="100" Height="20" Command="{Binding ShowSettingCommand}" Content="設定を確認する" />
         <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
         <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
         <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
