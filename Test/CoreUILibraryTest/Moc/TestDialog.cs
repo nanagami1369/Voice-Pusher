@@ -10,5 +10,10 @@ namespace CoreUILibrary.Moc
         {
             ShowedMessage = message;
         }
+
+        public string OpenFolder(string title, string defaultFolder)
+        {
+            return null;
+        }
     }
 }
