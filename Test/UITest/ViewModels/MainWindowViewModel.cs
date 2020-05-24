@@ -6,6 +6,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using CommonUILibrary.Setting;
+using System.Threading.Tasks;
 
 namespace UITest.ViewModels
 {
@@ -25,7 +26,7 @@ namespace UITest.ViewModels
 
         private ISetting Setting => _settingManager.Read();
 
-        private void ShowSetting()
+        private async Task ShowSetting()
         {
             var setting = Setting;
             var settingString = @$"
@@ -39,7 +40,7 @@ namespace UITest.ViewModels
     CsvEncode: {setting.Script.CsvEncode.CodePage},
     OutputMode: {setting.Script.OutputMode}
 ";
-            _dialog.ShowMessage("設定内容", settingString);
+            await _dialog.ShowMessage("設定内容", settingString);
         }
 
         public DelegateCommand ShowSettingCommand { get; }
@@ -89,7 +90,8 @@ namespace UITest.ViewModels
             set => SetProperty(ref _applicationCommands, value);
         }
 
-        public MainWindowViewModel(IStatusSender statusSender,
+        public MainWindowViewModel(
+            IStatusSender statusSender,
             IRegionManager regionManager,
             ISettingContainer settingManager,
             IDialog dialog,
@@ -100,7 +102,7 @@ namespace UITest.ViewModels
             _settingManager = settingManager;
             _dialog = dialog;
             ApplicationCommands = applicationCommands;
-            ShowSettingCommand = new DelegateCommand(ShowSetting);
+            ShowSettingCommand = new DelegateCommand(async () => await ShowSetting());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
             ChangeCharacterEditorCommand = new DelegateCommand(ChangeCharacterEditor);
         }
