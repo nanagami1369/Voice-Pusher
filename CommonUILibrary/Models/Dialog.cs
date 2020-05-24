@@ -1,35 +1,48 @@
 using System;
-using System.Windows;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using CommonLibrary;
-using Microsoft.WindowsAPICodePack.Dialogs;
+using Windows.Storage.Pickers;
+using Windows.UI.Popups;
 
 namespace CommonUILibrary.Models
 {
     public class Dialog : IDialog
     {
-        public void ShowMessage(string title, string message)
+        public async Task ShowMessage(string title, string message)
         {
-            MessageBox.Show(message, title);
+            MessageDialog messageBox = new MessageDialog(message, title);
+            ((IInitializeWithWindow)(object)messageBox).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            await messageBox.ShowAsync();
         }
 
-        public string OpenFolder(string title, string defaultFolder = "")
+        public async Task<string> OpenFolderAsync()
         {
-            if (string.IsNullOrEmpty(defaultFolder))
+            var folderPicker = new FolderPicker()
             {
-                defaultFolder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            }
-
-            var folderDialog = new CommonOpenFileDialog()
-            {
-                IsFolderPicker = true, Title = title, DefaultDirectory = defaultFolder
+                SuggestedStartLocation = PickerLocationId.Desktop,
+                FileTypeFilter = { "*" },
             };
-
-            if (folderDialog.ShowDialog() == CommonFileDialogResult.Ok)
+            ((IInitializeWithWindow)(object)folderPicker).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            var folder = await folderPicker.PickSingleFolderAsync();
+            if (folder == null)
             {
-                return folderDialog.FileName;
+                return null;
             }
+            return folder.Path;
 
-            return null;
         }
+
+
+        //UWP関連のAPIにウィンドウハンドルを伝えるのに使う。
+        [ComImport]
+        [Guid("3E68D4BD-7135-4D10-8018-9FB6D9F33FA1")]
+        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        public interface IInitializeWithWindow
+        {
+            void Initialize(IntPtr hwnd);
+        }
+
     }
+
 }
