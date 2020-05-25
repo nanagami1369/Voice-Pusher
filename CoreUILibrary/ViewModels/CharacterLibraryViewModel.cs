@@ -7,7 +7,7 @@ using Prism.Mvvm;
 
 namespace CoreUILibrary.ViewModels
 {
-    public class CharacterEditorCharacterLibraryViewModel : BindableBase, IActiveAware
+    public class CharacterLibraryViewModel : BindableBase, IActiveAware
     {
         private readonly IApplicationCommands _applicationCommands;
 
@@ -50,13 +50,13 @@ namespace CoreUILibrary.ViewModels
 
         #endregion
 
-        public CharacterEditorCharacterLibraryViewModel(
+        public CharacterLibraryViewModel(
             ICharacterLibraryPresenter characterLibrary,
             IApplicationCommands applicationCommands)
         {
             _applicationCommands = applicationCommands;
             CharacterLibrary = characterLibrary;
-            SelectCharacterCommand = new DelegateCommand(CharacterLibrary.OpenCharacterEditorView);
+            SelectCharacterCommand = new DelegateCommand(CharacterLibrary.OpenEditorView);
             SearchCharacterCommand = new DelegateCommand<string>(CharacterLibrary.SearchCharacter);
             ResetViewCommand = new DelegateCommand(CharacterLibrary.ResetView);
             UpCharacterLibraryCommand = new DelegateCommand(CharacterLibrary.UpCharacterLibrary);

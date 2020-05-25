@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CoreUILibrary.Views.CharacterEditorCharacterLibraryView"
+﻿<UserControl x:Class="CoreUILibrary.Views.CharacterLibraryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:b="clr-namespace:CommonUILibrary.Behaviors;assembly=CommonUILibrary"
@@ -78,6 +78,6 @@
                 </ListBox>
             </ScrollViewer>
         </Grid>
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="CharacterEditorRegion" />
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="EditorRegion" />
     </Grid>
 </UserControl>

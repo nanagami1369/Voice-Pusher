@@ -1,13 +1,13 @@
-﻿using System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace CoreUILibrary.Views
 {
     /// <summary>
     /// Interaction logic for CharacterLibraryView
     /// </summary>
-    public partial class CharacterEditorCharacterLibraryView : UserControl
+    public partial class CharacterLibraryView : UserControl
     {
-        public CharacterEditorCharacterLibraryView()
+        public CharacterLibraryView()
         {
             InitializeComponent();
         }

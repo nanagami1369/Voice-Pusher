@@ -12,8 +12,9 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
 
         void ResetView();
 
-        void OpenVoiceEditorView();
-        void OpenCharacterEditorView();
+        void OpenEditorView();
+
+
 
         #region keyboardActions
 

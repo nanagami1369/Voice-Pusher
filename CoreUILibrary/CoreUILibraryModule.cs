@@ -12,15 +12,14 @@ namespace CoreUILibrary
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("StatusBarRegion", typeof(StatusBarView));
             regionManager.RegisterViewWithRegion("MenubarRegion", typeof(MenuBarView));
-            regionManager.RegisterViewWithRegion("ContentRegion", typeof(VoiceEditorCharacterLibraryView));
+            regionManager.RegisterViewWithRegion("ContentRegion", typeof(CharacterLibraryView));
             regionManager.RegisterViewWithRegion("VoiceEditorRegion", typeof(NotSelectCharacterView));
             regionManager.RegisterViewWithRegion("OtherContentRegion", typeof(SettingEditorView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<VoiceEditorCharacterLibraryView>();
-            containerRegistry.RegisterForNavigation<CharacterEditorCharacterLibraryView>();
+            containerRegistry.RegisterForNavigation<CharacterLibraryView>();
             containerRegistry.RegisterForNavigation<NotSelectCharacterView>();
             containerRegistry.RegisterForNavigation<OtherMenuView>();
             containerRegistry.RegisterForNavigation<SettingEditorView>();

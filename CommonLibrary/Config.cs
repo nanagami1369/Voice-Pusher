@@ -15,8 +15,8 @@ namespace CommonLibrary
         {
             MenuItem = new MenuItem[]
             {
-                new MenuItem("ボイスエディタ","VoiceEditorCharacterLibraryView", "VolumeUp"),
-                new MenuItem("キャラクタエディタ","CharacterEditorCharacterLibraryView", "AddressBook"),
+                new MenuItem("ボイスエディタ","CharacterLibraryView", "VolumeUp"),
+                new MenuItem("キャラクタエディタ","CharacterLibraryView", "AddressBook"),
                 new MenuItem("台本エディタ",string.Empty, "FileAlt"),
                 new MenuItem("設定","OtherMenuView", "Cog")
             };

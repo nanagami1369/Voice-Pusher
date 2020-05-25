@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.StatusModule;
 using Prism.Mvvm;
 
@@ -13,6 +14,7 @@ namespace CoreUILibrary.Models
         private readonly IStatusSender _statusSender;
         private readonly ICharacterLibraryGateway _gateway;
         private readonly IViewSelectable _viewSelectable;
+        private readonly IMenuContainer _menuContainer;
 
         private string _searchWord;
         public string SearchWord
@@ -73,14 +75,20 @@ namespace CoreUILibrary.Models
             Index = selectedCharacterIndex;
         }
 
-        public void OpenVoiceEditorView()
+        public void OpenEditorView()
         {
-            OpenView(_viewSelectable.SelectVoiceEditorView);
-        }
-
-        public void OpenCharacterEditorView()
-        {
-            OpenView(_viewSelectable.SelectCharacterEditorView);
+            var menuName = _menuContainer.Read().Name;
+            //
+            var voiceEditorMenuName = Config.MenuItem[0].Name;
+            var characterEditorMenuName = Config.MenuItem[1].Name;
+            if (menuName == voiceEditorMenuName)
+            {
+                OpenView(_viewSelectable.SelectVoiceEditorView);
+            }
+            else if (menuName == characterEditorMenuName)
+            {
+                OpenView(_viewSelectable.SelectCharacterEditorView);
+            }
         }
 
         public void ResetView()
@@ -91,12 +99,14 @@ namespace CoreUILibrary.Models
         public CharacterLibraryPresenter(
             IStatusSender statusSender,
             ICharacterLibraryGateway gateway,
-            IViewSelectable viewSelectable
+            IViewSelectable viewSelectable,
+            IMenuContainer menuContainer
         )
         {
             _statusSender = statusSender;
             _gateway = gateway;
             _viewSelectable = viewSelectable;
+            _menuContainer = menuContainer;
 
             OriginalLibrary = new ObservableCollection<ICharacter>(_gateway.Read());
         }
@@ -156,6 +166,7 @@ namespace CoreUILibrary.Models
             IsFocus = true;
             IsFocus = false;
         }
+
     }
 
     #endregion
