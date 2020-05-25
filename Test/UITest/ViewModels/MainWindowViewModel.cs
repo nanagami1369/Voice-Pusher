@@ -75,23 +75,6 @@ namespace UITest.ViewModels
             }
         }
 
-        public DelegateCommand ChangeCharacterEditorCommand { get; }
-
-        private bool isCharacterLibrary;
-        public void ChangeCharacterEditor()
-        {
-            if (isCharacterLibrary)
-            {
-                _regionManager.RequestNavigate("ContentRegion", "VoiceEditorCharacterLibraryView");
-                isCharacterLibrary = false;
-            }
-            else
-            {
-                _regionManager.RequestNavigate("ContentRegion", "CharacterEditorCharacterLibraryView");
-                isCharacterLibrary = true;
-            }
-        }
-
         private IApplicationCommands _applicationCommands;
         public IApplicationCommands ApplicationCommands
         {
@@ -116,7 +99,6 @@ namespace UITest.ViewModels
             ShowSettingCommand = new DelegateCommand(async () => await ShowSetting());
             ShowMenuCommand = new DelegateCommand(async () => await ShowMenu());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
-            ChangeCharacterEditorCommand = new DelegateCommand(ChangeCharacterEditor);
         }
     }
 }

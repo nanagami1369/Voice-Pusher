@@ -21,7 +21,6 @@
         <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
         <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
-        <Button Command="{Binding ChangeCharacterEditorCommand}" Content="ライブラリーを入れ替える" />
         <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="ContentRegion" Background="Red" />
     </WrapPanel>
 </Window>
