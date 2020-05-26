@@ -29,8 +29,9 @@ namespace CoreUILibrary.Models
             get => _originalLibrary;
             set
             {
-                _originalLibrary = value;
-                SelectedLibrary = value;
+                var sortedLibrary = value.OrderBy(character => character.Name);
+                _originalLibrary = new ObservableCollection<ICharacter>(sortedLibrary);
+                SelectedLibrary = new ObservableCollection<ICharacter>(sortedLibrary);
             }
         }
         private ObservableCollection<ICharacter> _selectedLibrary;

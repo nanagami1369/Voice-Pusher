@@ -66,7 +66,7 @@ namespace CoreUILibrary.Models
             Assert.AreEqual(4, Presenter.SelectedLibrary.Count);
             Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
 
-            StringAssert.AreEqualIgnoringCase("霊夢", Presenter.SelectedLibrary.FirstOrDefault().Name);
+            StringAssert.AreEqualIgnoringCase("舞", Presenter.SelectedLibrary.FirstOrDefault().Name);
         }
 
         [Test()]
