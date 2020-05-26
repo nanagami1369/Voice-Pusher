@@ -16,11 +16,11 @@
     <WrapPanel Orientation="Vertical">
         <Button Width="100" Height="20" Command="{Binding ShowSettingCommand}" Content="設定を確認する" />
         <Button Width="100" Height="20" Command="{Binding ShowMenuCommand}" Content="現在のメニューを確認する" />
-        <TextBlock Width="100" Height="20" Margin="5,0" Text="ステータスバー" />
-        <Button Width="100" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
-        <ContentControl Width="100" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
         <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
         <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="ContentRegion" Background="Red" />
+        <TextBlock Width="620" Height="20" Margin="5,0" Text="ステータスバー" />
+        <Button Width="620" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
+        <ContentControl Width="620" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
     </WrapPanel>
 </Window>
