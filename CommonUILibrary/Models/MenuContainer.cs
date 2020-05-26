@@ -3,7 +3,7 @@ using Unity;
 
 namespace CommonUILibrary.Models
 {
-    public class MenuContainer : IMenuContainer
+    public class MenuContainer : IMenuContainerReader, IMenuContainerRegister
     {
         private readonly IUnityContainer _container;
         public void Register(MenuItem menu)

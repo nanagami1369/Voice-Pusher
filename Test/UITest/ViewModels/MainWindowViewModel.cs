@@ -16,7 +16,7 @@ namespace UITest.ViewModels
         private readonly IRegionManager _regionManager;
         private readonly ISettingContainer _settingManager;
         private readonly IDialog _dialog;
-        private readonly IMenuContainer _menuContainer;
+        private readonly IMenuContainerReader _menuContainer;
         private string _title = "UTest";
 
         public string Title
@@ -87,7 +87,7 @@ namespace UITest.ViewModels
             IRegionManager regionManager,
             ISettingContainer settingManager,
             IDialog dialog,
-            IMenuContainer menuContainer,
+            IMenuContainerReader menuContainer,
             IApplicationCommands applicationCommands)
         {
             _statusSender = statusSender;

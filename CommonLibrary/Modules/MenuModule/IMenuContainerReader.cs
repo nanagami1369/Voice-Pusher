@@ -1,6 +1,6 @@
 namespace CommonLibrary.Modules.MenuModule
 {
-    public interface IMenuContainer
+    public interface IMenuContainerReader
     {
         MenuItem Read();
     }

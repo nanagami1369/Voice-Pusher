@@ -5,21 +5,17 @@ using Unity;
 
 namespace CoreUILibrary.Moc
 {
-    internal class TestMenuContainer : MenuContainer, IMenuContainer
+    internal class TestMenuContainer : IMenuContainerReader, IMenuContainerRegister
     {
-        public TestMenuContainer() : base(new TestContainer())
-        {
 
-        }
-
-        public new void Register(MenuItem menu)
+        public void Register(MenuItem menu)
         {
             SelectedMenu = menu;
         }
 
         public MenuItem SelectedMenu { get; private set; }
 
-        public new MenuItem Read()
+        public MenuItem Read()
         {
             return SelectedMenu;
         }

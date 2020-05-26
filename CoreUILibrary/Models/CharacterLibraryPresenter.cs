@@ -14,7 +14,7 @@ namespace CoreUILibrary.Models
         private readonly IStatusSender _statusSender;
         private readonly ICharacterLibraryGateway _gateway;
         private readonly ICharacterLibraryViewSelectable _viewSelectable;
-        private readonly IMenuContainer _menuContainer;
+        private readonly IMenuContainerReader _menuContainer;
 
         private string _searchWord;
         public string SearchWord
@@ -100,7 +100,7 @@ namespace CoreUILibrary.Models
             IStatusSender statusSender,
             ICharacterLibraryGateway gateway,
             ICharacterLibraryViewSelectable viewSelectable,
-            IMenuContainer menuContainer
+            IMenuContainerReader menuContainer
         )
         {
             _statusSender = statusSender;
