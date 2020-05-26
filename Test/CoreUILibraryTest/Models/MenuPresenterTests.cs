@@ -9,12 +9,14 @@ namespace CoreUILibrary.Models
     {
         private IMenuPresenter Presenter;
         private TestViewSelectable TestViewSelectable;
+        private TestMenuContainer TestMenuContainer;
 
         [SetUp]
         public void Setup()
         {
             TestViewSelectable = new TestViewSelectable();
-            Presenter = new MenuPresenter(TestViewSelectable);
+            TestMenuContainer = new TestMenuContainer();
+            Presenter = new MenuPresenter(TestViewSelectable, TestMenuContainer);
         }
 
         [Test()]

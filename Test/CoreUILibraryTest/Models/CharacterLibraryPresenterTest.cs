@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonLibrary.Modules.MenuModule;
 using CoreUILibrary.Moc;
 using NUnit.Framework;
 
@@ -14,6 +16,10 @@ namespace CoreUILibrary.Models
         private ICollection<ICharacter> TestLibrary;
         private TestStatusSender TestStatusSender;
         private TestViewSelectable TestViewSelectable;
+        private TestMenuContainer TestMenuContainer;
+
+        private MenuItem VoiceEditorMenu => Config.MenuItem[0];
+        private MenuItem CharacterEditorMenu => Config.MenuItem[1];
 
         [SetUp]
         public void Setup()
@@ -29,10 +35,12 @@ namespace CoreUILibrary.Models
             gateway.SetLibrary(TestLibrary);
             TestStatusSender = new TestStatusSender();
             TestViewSelectable = new TestViewSelectable();
+            TestMenuContainer = new TestMenuContainer();
             Presenter = new CharacterLibraryPresenter(
                 TestStatusSender,
                 gateway,
-                TestViewSelectable);
+                TestViewSelectable,
+                TestMenuContainer);
         }
 
         [Test()]
@@ -81,7 +89,8 @@ namespace CoreUILibrary.Models
         {
             Presenter.SearchWord = "魔理沙";
             Presenter.Index = 1;
-            Presenter.OpenVoiceEditorView();
+            TestMenuContainer.Register(VoiceEditorMenu);
+            Presenter.OpenEditorView();
             Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
             Assert.AreEqual(1, Presenter.Index);
@@ -96,7 +105,8 @@ namespace CoreUILibrary.Models
             Presenter.SearchWord = "魔理沙あ";
             Presenter.Index = -1;
             Presenter.SelectedLibrary = null;
-            Presenter.OpenVoiceEditorView();
+            TestMenuContainer.Register(VoiceEditorMenu);
+            Presenter.OpenEditorView();
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
@@ -108,7 +118,8 @@ namespace CoreUILibrary.Models
         public void キャラクターエディタを開く()
         {
             Presenter.Index = 1;
-            Presenter.OpenCharacterEditorView();
+            TestMenuContainer.Register(CharacterEditorMenu);
+            Presenter.OpenEditorView();
             Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
             Assert.AreEqual(1, Presenter.Index);
@@ -123,7 +134,8 @@ namespace CoreUILibrary.Models
             Presenter.SearchWord = "魔理沙あ";
             Presenter.Index = -1;
             Presenter.SelectedLibrary = null;
-            Presenter.OpenVoiceEditorView();
+            TestMenuContainer.Register(CharacterEditorMenu);
+            Presenter.OpenEditorView();
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
