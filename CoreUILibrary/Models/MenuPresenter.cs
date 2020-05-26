@@ -8,7 +8,7 @@ namespace CoreUILibrary.Models
 {
     public class MenuPresenter : BindableBase, IMenuPresenter
     {
-        private readonly IViewSelectable _viewSelectable;
+        private readonly IMenuViewSelectable _viewSelectable;
         private readonly MenuContainer _container;
         public MenuItem[] MenuList { get; }
 
@@ -25,7 +25,7 @@ namespace CoreUILibrary.Models
             _container.Register(SelectedMenu);
         }
 
-        public MenuPresenter(IViewSelectable viewSelectable, MenuContainer container)
+        public MenuPresenter(IMenuViewSelectable viewSelectable, MenuContainer container)
         {
             _viewSelectable = viewSelectable;
             MenuList = Config.MenuItem;

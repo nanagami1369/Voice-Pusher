@@ -1,10 +1,7 @@
-using CommonLibrary.Modules.CharacterLibraryModule;
-
-namespace CommonLibrary
+namespace CommonLibrary.Modules.CharacterLibraryModule
 {
-    public interface IViewSelectable
+    public interface ICharacterLibraryViewSelectable
     {
-        void ChangeContentView(string viewName);
         void SelectVoiceEditorView(ICharacter character);
         void SelectNotSelectCharacterView();
         void SelectCharacterEditorView(ICharacter character);
