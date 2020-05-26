@@ -4,7 +4,7 @@
         xmlns:prism="http://prismlibrary.com/"
         Title="{Binding Title}"
         Width="1000"
-        Height="1000"
+        Height="500"
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Window.InputBindings>
         <KeyBinding Command="{Binding ApplicationCommands.SetFocusCommand}" Gesture="Ctrl+F" />
