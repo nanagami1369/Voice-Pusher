@@ -22,7 +22,7 @@ namespace UITest.Moc
 
         public void Write(ICharacter character)
         {
-            _dialog.ShowMessage(
+            _dialog.ShowMessageAsync(
                 "モック",
                 $"書き込まれるはずのキャラクター{character.Name}"
             );

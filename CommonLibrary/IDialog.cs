@@ -4,7 +4,7 @@ namespace CommonLibrary
 {
     public interface IDialog
     {
-        Task ShowMessage(string title, string message);
+        Task ShowMessageAsync(string title, string message);
 
         Task<string> OpenFolderAsync();
     }

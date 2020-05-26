@@ -7,7 +7,7 @@ namespace CoreUILibrary.Moc
     {
         public string ShowedTitle { get; private set; }
         public string ShowedMessage { get; private set; }
-        public Task ShowMessage(string title, string message)
+        public Task ShowMessageAsync(string title, string message)
         {
             ShowedMessage = message;
             // テストでは非同期である必要は無いので暫定でこのようにする。

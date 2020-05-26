@@ -27,7 +27,7 @@ namespace UITest.ViewModels
 
         private ISetting Setting => _settingManager.Read();
 
-        private async Task ShowSetting()
+        private async Task ShowSettingAsync()
         {
             var setting = Setting;
             var settingString = @$"
@@ -41,15 +41,15 @@ namespace UITest.ViewModels
     CsvEncode: {setting.Script.CsvEncode.CodePage},
     OutputMode: {setting.Script.OutputMode}
 ";
-            await _dialog.ShowMessage("設定内容", settingString);
+            await _dialog.ShowMessageAsync("設定内容", settingString);
         }
 
         public DelegateCommand ShowSettingCommand { get; }
 
-        private async Task ShowMenu()
+        private async Task ShowMenuAsync()
         {
             var menuName = _menuContainer.Read().Name;
-            await _dialog.ShowMessage("メニューの画面", menuName);
+            await _dialog.ShowMessageAsync("メニューの画面", menuName);
         }
         public DelegateCommand ShowMenuCommand { get; }
 
@@ -96,8 +96,8 @@ namespace UITest.ViewModels
             _dialog = dialog;
             _menuContainer = menuContainer;
             ApplicationCommands = applicationCommands;
-            ShowSettingCommand = new DelegateCommand(async () => await ShowSetting());
-            ShowMenuCommand = new DelegateCommand(async () => await ShowMenu());
+            ShowSettingCommand = new DelegateCommand(async () => await ShowSettingAsync());
+            ShowMenuCommand = new DelegateCommand(async () => await ShowMenuAsync());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
         }
     }

@@ -9,7 +9,7 @@ namespace CommonUILibrary.Models
 {
     public class Dialog : IDialog
     {
-        public async Task ShowMessage(string title, string message)
+        public async Task ShowMessageAsync(string title, string message)
         {
             MessageDialog messageBox = new MessageDialog(message, title);
             ((IInitializeWithWindow)(object)messageBox).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
