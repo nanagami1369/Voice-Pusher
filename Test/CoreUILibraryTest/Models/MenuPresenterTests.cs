@@ -1,3 +1,4 @@
+using CommonLibrary;
 using CommonLibrary.Modules.MenuModule;
 using CoreUILibrary.Moc;
 using NUnit.Framework;
@@ -30,6 +31,13 @@ namespace CoreUILibrary.Models
         {
             Presenter.ChangeView();
             Assert.AreEqual(TestViewSelectable.SelectView, Presenter.MenuList[0].ViewName);
+        }
+
+        [Test()]
+        public void SelectedMenuが現在のメニューの状態を登録しているか()
+        {
+            Presenter.ChangeView();
+            Assert.AreEqual(TestMenuContainer.Read().Name, Config.MenuItem[0].Name);
         }
 
         [Test()]
