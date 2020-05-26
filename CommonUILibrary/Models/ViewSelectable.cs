@@ -1,9 +1,10 @@
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using Prism.Regions;
 
 namespace CommonUILibrary.Models
 {
-    public class CharacterLibrartViewSelectable : ICharacterLibrartViewSelectable
+    public class ViewSelectable : IViewSelectable
     {
         private readonly IRegionManager _regionManager;
 
@@ -29,7 +30,7 @@ namespace CommonUILibrary.Models
             _regionManager.RequestNavigate("ContentRegion", viewName);
         }
 
-        public CharacterLibrartViewSelectable(IRegionManager regionManager)
+        public ViewSelectable(IRegionManager regionManager)
         {
             _regionManager = regionManager;
         }

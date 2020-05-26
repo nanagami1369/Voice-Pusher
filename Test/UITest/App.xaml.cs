@@ -11,8 +11,6 @@ using Prism.Ioc;
 using Prism.Modularity;
 using UITest.Moc;
 using UITest.Views;
-using System.Windows.Controls;
-using CommonUILibrary.ViewSelectable;
 
 namespace UITest
 {
@@ -38,13 +36,11 @@ namespace UITest
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.Register<IStatusSender, StatusCommunication>();
             containerRegistry.Register<ICharacterLibraryPresenter, CharacterLibraryPresenter>();
-            containerRegistry.Register<ISettingEditorPresenter, SettingEditorPresenter>();
             containerRegistry.Register<IMenuPresenter, MenuPresenter>();
             containerRegistry.Register<IMenuContainer, MenuContainer>();
-            containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
-            containerRegistry.Register<ICharacterLibrartViewSelectable, CharacterLibrartViewSelectable>();
+            containerRegistry.Register<IViewSelectable, ViewSelectable>();
             containerRegistry.RegisterForNavigation<PartialView>("PartialVoiceEditorView");
             containerRegistry.RegisterForNavigation<PartialView>("PartialCharacterEditorView");
         }

@@ -1,8 +1,9 @@
+using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CoreUILibrary.Moc
 {
-    public class TestViewSelectable : ICharacterLibrartViewSelectable
+    public class TestViewSelectable : IViewSelectable
     {
         public ICharacter SetedCharacter { get; private set; }
         public string SelectView { get; private set; }
