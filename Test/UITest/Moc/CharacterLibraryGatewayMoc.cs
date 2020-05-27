@@ -9,9 +9,9 @@ namespace UITest.Moc
     {
         private readonly IDialog _dialog;
 
-        public ICollection<ICharacter> Read()
+        public ICollection<Character> Read()
         {
-            return new ObservableCollection<ICharacter>()
+            return new ObservableCollection<Character>()
             {
                 new PartialCharacter("霊夢","れいむ"),
                 new PartialCharacter("魔理沙","まりさ"),
@@ -20,7 +20,7 @@ namespace UITest.Moc
             };
         }
 
-        public void Write(ICharacter character)
+        public void Write(Character character)
         {
             _dialog.ShowMessageAsync(
                 "モック",

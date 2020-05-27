@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public interface ICharacterLibraryGateway
     {
-        ICollection<ICharacter> Read();
-        void Write(ICharacter character);
+        ICollection<Character> Read();
+        void Write(Character character);
     }
 }

@@ -5,7 +5,7 @@ namespace CoreUILibrary.Moc
 {
     public class TestViewSelectable : ICharacterLibraryViewSelectable, IMenuViewSelectable
     {
-        public ICharacter SetedCharacter { get; private set; }
+        public Character SetedCharacter { get; private set; }
         public string SelectView { get; private set; }
 
         public void ChangeContentView(string viewName)
@@ -18,13 +18,13 @@ namespace CoreUILibrary.Moc
             SelectView = "NotSelectCharacterView";
         }
 
-        public void SelectCharacterEditorView(ICharacter character)
+        public void SelectCharacterEditorView(Character character)
         {
             SetedCharacter = character;
             SelectView = "Character";
         }
 
-        public void SelectVoiceEditorView(ICharacter character)
+        public void SelectVoiceEditorView(Character character)
         {
             SetedCharacter = character;
             SelectView = "Voice";

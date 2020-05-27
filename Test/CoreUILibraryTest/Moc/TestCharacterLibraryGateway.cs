@@ -5,19 +5,19 @@ namespace CoreUILibrary.Moc
 {
     public class TestCharacterLibraryGateway : ICharacterLibraryGateway
     {
-        public ICollection<ICharacter> TestLibrary { get; private set; }
+        public ICollection<Character> TestLibrary { get; private set; }
 
-        public void SetLibrary(ICollection<ICharacter> library)
+        public void SetLibrary(ICollection<Character> library)
         {
             TestLibrary = library;
         }
 
-        public ICollection<ICharacter> Read()
+        public ICollection<Character> Read()
         {
             return TestLibrary;
         }
 
-        public void Write(ICharacter character)
+        public void Write(Character character)
         {
             TestLibrary.Add(character);
         }

@@ -23,20 +23,20 @@ namespace CoreUILibrary.Models
             set => SetProperty(ref _searchWord, value);
         }
 
-        private ObservableCollection<ICharacter> _originalLibrary;
-        private ObservableCollection<ICharacter> OriginalLibrary
+        private ObservableCollection<Character> _originalLibrary;
+        private ObservableCollection<Character> OriginalLibrary
         {
             get => _originalLibrary;
             set
             {
                 var sortedLibrary = value.OrderBy(character => character.Name);
-                _originalLibrary = new ObservableCollection<ICharacter>(sortedLibrary);
-                SelectedLibrary = new ObservableCollection<ICharacter>(sortedLibrary);
+                _originalLibrary = new ObservableCollection<Character>(sortedLibrary);
+                SelectedLibrary = new ObservableCollection<Character>(sortedLibrary);
             }
         }
-        private ObservableCollection<ICharacter> _selectedLibrary;
+        private ObservableCollection<Character> _selectedLibrary;
 
-        public ObservableCollection<ICharacter> SelectedLibrary
+        public ObservableCollection<Character> SelectedLibrary
         {
             get => _selectedLibrary;
             set => SetProperty(ref _selectedLibrary, value);
@@ -47,18 +47,18 @@ namespace CoreUILibrary.Models
             var originalCharacterLibrary = OriginalLibrary;
             if (string.IsNullOrEmpty(query))
             {
-                SelectedLibrary = new ObservableCollection<ICharacter>(originalCharacterLibrary);
+                SelectedLibrary = new ObservableCollection<Character>(originalCharacterLibrary);
                 ResetSelector();
                 return;
             }
-            var searchedLibrary = new ObservableCollection<ICharacter>();
+            var searchedLibrary = new ObservableCollection<Character>();
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Name == query));
             searchedLibrary.AddRange(originalCharacterLibrary.Where(item => item.Reading.StartsWith(query)));
             SelectedLibrary = searchedLibrary;
             ResetSelector();
         }
 
-        private void OpenView(Action<ICharacter> selectable)
+        private void OpenView(Action<Character> selectable)
         {
             ResetSelector();
             if (Index == -1)
@@ -109,7 +109,7 @@ namespace CoreUILibrary.Models
             _viewSelectable = viewSelectable;
             _menuContainer = menuContainer;
 
-            OriginalLibrary = new ObservableCollection<ICharacter>(_gateway.Read());
+            OriginalLibrary = new ObservableCollection<Character>(_gateway.Read());
         }
 
         #region keyboardActions

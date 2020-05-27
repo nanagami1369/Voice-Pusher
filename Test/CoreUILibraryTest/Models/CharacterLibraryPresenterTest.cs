@@ -13,7 +13,7 @@ namespace CoreUILibrary.Models
     public class CharacterLibraryPresenterTest
     {
         private ICharacterLibraryPresenter Presenter;
-        private ICollection<ICharacter> TestLibrary;
+        private ICollection<Character> TestLibrary;
         private TestStatusSender TestStatusSender;
         private TestViewSelectable TestViewSelectable;
         private TestMenuContainer TestMenuContainer;
@@ -25,7 +25,7 @@ namespace CoreUILibrary.Models
         public void Setup()
         {
             var gateway = new TestCharacterLibraryGateway();
-            TestLibrary = new Collection<ICharacter>()
+            TestLibrary = new Collection<Character>()
             {
                 new PartialCharacter("霊夢","れいむ"),
                 new PartialCharacter("魔理沙","まりさ"),
@@ -193,7 +193,7 @@ namespace CoreUILibrary.Models
             Presenter.ResetSelector();
             Assert.AreEqual(-1, Presenter.Index);
             Presenter.Index = -1;
-            Presenter.SelectedLibrary = new ObservableCollection<ICharacter>();
+            Presenter.SelectedLibrary = new ObservableCollection<Character>();
             Presenter.ResetSelector();
             Assert.AreEqual(-1, Presenter.Index);
         }
@@ -208,7 +208,7 @@ namespace CoreUILibrary.Models
             Presenter.DownCharacterLibrary();
             Assert.AreEqual(-1, Presenter.Index);
             Presenter.Index = -1;
-            Presenter.SelectedLibrary = new ObservableCollection<ICharacter>();
+            Presenter.SelectedLibrary = new ObservableCollection<Character>();
             Presenter.UpCharacterLibrary();
             Presenter.UpCharacterLibrary();
             Presenter.DownCharacterLibrary();

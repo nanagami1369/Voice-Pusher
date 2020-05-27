@@ -1,11 +1,7 @@
 namespace CommonLibrary.Modules.CharacterLibraryModule
 {
-    public class PartialCharacter : ICharacter
+    public class PartialCharacter : Character
     {
-        public string Name { get; set; }
-        public string Reading { get; set; }
-        public VoiceActor VoiceActor { get; set; }
-
         public PartialCharacter(string name, string reading)
         {
             Name = name;
