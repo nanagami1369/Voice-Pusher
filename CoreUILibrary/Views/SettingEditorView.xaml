@@ -26,12 +26,7 @@
                 <Setter Property="FontSize" Value="16" />
             </Style>
         </Grid.Resources>
-        <StackPanel Grid.Column="0">
-            <Button Content="設定" />
-            <Button Content="{Binding Title, Mode=OneTime}" ContentStringFormat="{}{0}について" />
-            <Button Content="使用ライブラリー" />
-        </StackPanel>
-        <ScrollViewer Grid.Column="1" Background="White">
+        <ScrollViewer Background="White">
             <StackPanel>
                 <Expander Header="出力設定" IsExpanded="True">
                     <StackPanel>
