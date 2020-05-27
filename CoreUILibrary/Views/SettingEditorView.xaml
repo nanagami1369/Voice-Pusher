@@ -8,8 +8,8 @@
              d:DesignWidth="200"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <Grid>
-        <Grid.Resources>
+    <ScrollViewer Background="White">
+        <ScrollViewer.Resources>
             <Style TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="16" />
             </Style>
@@ -25,71 +25,69 @@
             <Style TargetType="{x:Type TextBlock}">
                 <Setter Property="FontSize" Value="16" />
             </Style>
-        </Grid.Resources>
-        <ScrollViewer Background="White">
-            <StackPanel>
-                <Expander Header="出力設定" IsExpanded="True">
-                    <StackPanel>
-                        <Label Content="出力するフォルダ" />
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="25" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="25" />
-                                <RowDefinition Height="2" />
-                            </Grid.RowDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" BorderThickness="0" IsReadOnly="True" />
-                            <Button Grid.Row="0" Grid.Column="1" Width="25" Height="25" Content="📂" />
-                            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
-                        </Grid>
-                        <Label Content="出力時に使用する文字コード" />
-                        <ComboBox>
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <Label Content="命名規則" />
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Content="テスト→" />
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="" />
-                        </Grid>
-                        <TextBox />
-                        <WrapPanel>
-                            <Button Width="50" CommandParameter="{}{Number}" Content="連番" />
-                            <Button Width="50" CommandParameter="{}{Name}" Content="名前" />
-                            <Button Width="50" CommandParameter="{}{Script}" Content="台本" />
-                            <Button Width="50" CommandParameter="{}{VoiceActorName}" Content="声優" />
-                            <Button CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
-                            <Button CommandParameter="{}{LibraryVersion}" Content="ライブラリのバージョン" />
-                        </WrapPanel>
-                        <Label Content="ログの設定" />
-                        <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Center" Content="ログを残す" />
-                    </StackPanel>
-                </Expander>
-                <Expander Header="台本設定" IsExpanded="True">
-                    <StackPanel>
-                        <Label Content="CSVファイルの文字コード" />
-                        <ComboBox>
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <Label Content="一括出力の出力オプション" />
-                        <CheckBox Content="フォルダにファイルがある状態での出力を許可" />
-                        <TextBlock FontSize="14" Text="※フォルダにファイルがある状態で一括出力すると同名のファイルが上書きされます" TextWrapping="Wrap" />
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+        </ScrollViewer.Resources>
+        <StackPanel>
+            <Expander Header="出力設定" IsExpanded="True">
+                <StackPanel>
+                    <Label Content="出力するフォルダ" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="25" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="2" />
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" Grid.Column="0" BorderThickness="0" IsReadOnly="True" />
+                        <Button Grid.Row="0" Grid.Column="1" Width="25" Height="25" Content="📂" />
+                        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
+                    </Grid>
+                    <Label Content="出力時に使用する文字コード" />
+                    <ComboBox>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label Content="命名規則" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="テスト→" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="" />
+                    </Grid>
+                    <TextBox />
+                    <WrapPanel>
+                        <Button Width="50" CommandParameter="{}{Number}" Content="連番" />
+                        <Button Width="50" CommandParameter="{}{Name}" Content="名前" />
+                        <Button Width="50" CommandParameter="{}{Script}" Content="台本" />
+                        <Button Width="50" CommandParameter="{}{VoiceActorName}" Content="声優" />
+                        <Button CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
+                        <Button CommandParameter="{}{LibraryVersion}" Content="ライブラリのバージョン" />
+                    </WrapPanel>
+                    <Label Content="ログの設定" />
+                    <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Center" Content="ログを残す" />
+                </StackPanel>
+            </Expander>
+            <Expander Header="台本設定" IsExpanded="True">
+                <StackPanel>
+                    <Label Content="CSVファイルの文字コード" />
+                    <ComboBox>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label Content="一括出力の出力オプション" />
+                    <CheckBox Content="フォルダにファイルがある状態での出力を許可" />
+                    <TextBlock FontSize="14" Text="※フォルダにファイルがある状態で一括出力すると同名のファイルが上書きされます" TextWrapping="Wrap" />
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
