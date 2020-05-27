@@ -4,7 +4,7 @@ namespace CommonLibrary.Modules.MenuModule
     {
         public string Name { get; }
         public string ViewName { get; }
-        public string IconName { get;  }
+        public string IconName { get; }
 
         public MenuItem(string name, string viewName, string iconName)
         {

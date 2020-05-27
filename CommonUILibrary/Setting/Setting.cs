@@ -19,7 +19,7 @@ namespace CommonUILibrary.Setting
                     NameScript = this.Common.NameScript,
                     IsLogWrite = this.Common.IsLogWrite
                 },
-                Script = new ScriptSetting {CsvEncode = this.Script.CsvEncode, OutputMode = this.Script.OutputMode}
+                Script = new ScriptSetting { CsvEncode = this.Script.CsvEncode, OutputMode = this.Script.OutputMode }
             };
         }
 
@@ -32,7 +32,7 @@ namespace CommonUILibrary.Setting
                 IsLogWrite = false,
                 NameScript = "{Number}_{Name}_{Script}"
             };
-            Script = new ScriptSetting {CsvEncode = new UTF8Encoding(false), OutputMode = ScriptOutPutMode.Remake,};
+            Script = new ScriptSetting { CsvEncode = new UTF8Encoding(false), OutputMode = ScriptOutPutMode.Remake, };
         }
     }
 }
