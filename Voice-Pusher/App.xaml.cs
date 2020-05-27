@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using CommonLibrary.Modules.StatusModule;
 using CoreUILibrary.Models;
 using Prism.Ioc;

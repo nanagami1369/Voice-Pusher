@@ -1,4 +1,4 @@
-﻿using CommonLibrary.Modules.StatusModule;
+using CommonLibrary.Modules.StatusModule;
 using CoreUILibrary.Models;
 using Prism.Mvvm;
 

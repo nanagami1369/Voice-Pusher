@@ -1,4 +1,4 @@
-﻿namespace CommonLibrary.Modules.CharacterLibraryModule
+namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public class PartialCharacter : ICharacter
     {

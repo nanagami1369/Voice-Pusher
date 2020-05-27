@@ -1,4 +1,4 @@
-﻿namespace CommonLibrary.Modules.StatusModule
+namespace CommonLibrary.Modules.StatusModule
 {
     public class Status
     {

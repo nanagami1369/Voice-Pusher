@@ -1,4 +1,4 @@
-﻿using CommonLibrary;
+using CommonLibrary;
 using Prism.Mvvm;
 
 namespace Voice_Pusher.ViewModels

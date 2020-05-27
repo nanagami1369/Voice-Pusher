@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CommonLibrary;
 using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.SettingModule;
@@ -6,7 +7,6 @@ using CommonUILibrary.Commands;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
-using System.Threading.Tasks;
 
 namespace UITest.ViewModels
 {

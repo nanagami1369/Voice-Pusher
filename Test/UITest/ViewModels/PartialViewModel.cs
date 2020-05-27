@@ -1,4 +1,4 @@
-﻿using CommonLibrary.Modules.CharacterLibraryModule;
+using CommonLibrary.Modules.CharacterLibraryModule;
 using Prism.Mvvm;
 using Prism.Regions;
 

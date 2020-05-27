@@ -2,17 +2,16 @@ using System.Windows;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
-using CommonLibrary.Modules.StatusModule;
 using CommonLibrary.Modules.SettingModule;
+using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
 using CommonUILibrary.Models;
+using CommonUILibrary.ViewSelectable;
 using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
 using UITest.Moc;
 using UITest.Views;
-using System.Windows.Controls;
-using CommonUILibrary.ViewSelectable;
 
 namespace UITest
 {

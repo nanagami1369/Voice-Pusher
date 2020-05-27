@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
@@ -7,7 +8,6 @@ using CommonLibrary.Modules.SettingModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Setting;
 using Prism.Mvvm;
-using System.Linq;
 
 namespace CoreUILibrary.Models
 {
