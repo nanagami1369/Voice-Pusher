@@ -6,9 +6,9 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
         {
             Name = name;
             Reading = reading;
-            VoiceActor = new VoiceActor("", "Partial", 0);
+            VoiceActor = new PartialVoiceActor("", "Partial", 0);
         }
-        public PartialCharacter(string name, string reading, VoiceActor voiceActor)
+        public PartialCharacter(string name, string reading, PartialVoiceActor voiceActor)
         {
             Name = name;
             Reading = reading;
