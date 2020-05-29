@@ -92,7 +92,7 @@ namespace CoreUILibrary.Models
             TestMenuContainer.Register(VoiceEditorMenu);
             Presenter.OpenEditorView();
             Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
-            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("", Presenter.SearchWord);
             StringAssert.AreEqualIgnoringCase("Voice", TestViewSelectable.SelectView);
@@ -107,7 +107,7 @@ namespace CoreUILibrary.Models
             Presenter.SelectedLibrary = null;
             TestMenuContainer.Register(VoiceEditorMenu);
             Presenter.OpenEditorView();
-            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
             Assert.IsNull(TestViewSelectable.SelectView);
@@ -121,7 +121,7 @@ namespace CoreUILibrary.Models
             TestMenuContainer.Register(CharacterEditorMenu);
             Presenter.OpenEditorView();
             Assert.That(TestLibrary, Is.EquivalentTo(Presenter.SelectedLibrary));
-            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SendedMessage.Message);
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されました：魔理沙", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("", Presenter.SearchWord);
             StringAssert.AreEqualIgnoringCase("Character", TestViewSelectable.SelectView);
@@ -136,7 +136,7 @@ namespace CoreUILibrary.Models
             Presenter.SelectedLibrary = null;
             TestMenuContainer.Register(CharacterEditorMenu);
             Presenter.OpenEditorView();
-            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SendedMessage.Message);
+            StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
             Assert.IsNull(TestViewSelectable.SelectView);
