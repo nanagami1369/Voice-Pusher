@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreUILibrary", "CoreUILibr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreUILibraryTest", "Test\CoreUILibraryTest\CoreUILibraryTest.csproj", "{55BEE880-1AED-4567-BFE0-9F2BF97DBA91}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VoiceLibrary", "VoiceLibrary", "{B92FA6E3-B5DF-4BB0-9443-856DB60DA980}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP", "VoiceLibrary\SAP\SAP.csproj", "{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{55BEE880-1AED-4567-BFE0-9F2BF97DBA91}.Release|x64.ActiveCfg = Release|x86
 		{55BEE880-1AED-4567-BFE0-9F2BF97DBA91}.Release|x86.ActiveCfg = Release|x86
 		{55BEE880-1AED-4567-BFE0-9F2BF97DBA91}.Release|x86.Build.0 = Release|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Debug|x64.ActiveCfg = Debug|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Debug|x86.ActiveCfg = Debug|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Debug|x86.Build.0 = Debug|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Release|Any CPU.ActiveCfg = Release|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Release|x64.ActiveCfg = Release|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Release|x86.ActiveCfg = Release|x86
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +98,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BB737463-7A4B-4D55-9AB1-9680F0A40E77} = {541DEEDD-A1A7-43C0-B6EE-53BA4A01E13F}
 		{55BEE880-1AED-4567-BFE0-9F2BF97DBA91} = {541DEEDD-A1A7-43C0-B6EE-53BA4A01E13F}
+		{4BA541FC-1A6D-4051-A6CF-24F8E46B7D1E} = {B92FA6E3-B5DF-4BB0-9443-856DB60DA980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {971D88E2-EB7C-476A-9A9F-1920F87EB114}
