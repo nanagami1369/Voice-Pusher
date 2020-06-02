@@ -1,5 +1,6 @@
 using System.Windows;
 using CommonLibrary;
+using CommonLibrary.Modules;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.SettingModule;
@@ -12,7 +13,6 @@ using Prism.Ioc;
 using Prism.Modularity;
 using UITest.Moc;
 using UITest.Views;
-
 namespace UITest
 {
     /// <summary>
@@ -44,6 +44,7 @@ namespace UITest
             containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
+            containerRegistry.Register<IFileNameConverter, FileNameConverter>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
             containerRegistry.RegisterForNavigation<PartialView>("PartialVoiceEditorView");
