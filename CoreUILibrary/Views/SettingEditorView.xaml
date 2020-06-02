@@ -61,22 +61,34 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                     <Label Content="命名規則" />
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="テスト→" />
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="" />
-                    </Grid>
-                    <TextBox Text="{Binding Path=SettingEditor.NameScript, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock>
+                        <Run Text="テスト→" />
+                        <Run Text="{Binding Path=SettingEditor.RenamedNameExsample, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </TextBlock>
+                    <TextBox Text="{Binding Path=SettingEditor.NameScript, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding NamingCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
                     <WrapPanel>
-                        <Button Width="50" CommandParameter="{}{Number}" Content="連番" />
-                        <Button Width="50" CommandParameter="{}{Name}" Content="名前" />
-                        <Button Width="50" CommandParameter="{}{Script}" Content="台本" />
-                        <Button Width="50" CommandParameter="{}{VoiceActorName}" Content="声優" />
+                        <WrapPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Command" Value="{Binding AddNameScriptCommand}" />
+                            </Style>
+                        </WrapPanel.Resources>
+                        <Button CommandParameter="{}{Number}" Content="連番" />
+                        <Button CommandParameter="{}{Name}" Content="名前" />
+                        <Button CommandParameter="{}{Script}" Content="台本" />
+                        <Button CommandParameter="{}{VoiceActorName}" Content="声優" />
                         <Button CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
-                        <Button CommandParameter="{}{LibraryVersion}" Content="ライブラリのバージョン" />
+                        <Button CommandParameter="{}{yyyy}" Content="年" />
+                        <Button CommandParameter="{}{MM}" Content="月" />
+                        <Button CommandParameter="{}{dd}" Content="日" />
+                        <Button CommandParameter="{}{HH}" Content="時" />
+                        <Button CommandParameter="{}{mm}" Content="分" />
+                        <Button CommandParameter="{}{ss}" Content="秒" />
                     </WrapPanel>
                     <Label Content="ログの設定" />
                     <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Center" Content="ログを残す" IsChecked="{Binding Path=SettingEditor.IsLogWrite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
