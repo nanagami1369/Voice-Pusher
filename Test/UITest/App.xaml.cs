@@ -54,6 +54,7 @@ namespace UITest
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             moduleCatalog.AddModule<CoreUILibrary.CoreUILibraryModule>();
+            moduleCatalog.AddModule<SAP.SAPModule>();
         }
     }
 }
