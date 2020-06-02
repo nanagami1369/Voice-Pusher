@@ -13,6 +13,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using UITest.Moc;
 using UITest.Views;
+
 namespace UITest
 {
     /// <summary>
@@ -44,6 +45,7 @@ namespace UITest
             containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
+            containerRegistry.Register<IRecorder, Recorder>();
             containerRegistry.Register<IFileNameConverter, FileNameConverter>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
