@@ -43,6 +43,7 @@ namespace UITest
             containerRegistry.Register<IMenuContainerReader, MenuContainer>();
             containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
             containerRegistry.Register<IDialog, Dialog>();
+            containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
             containerRegistry.RegisterForNavigation<PartialView>("PartialVoiceEditorView");
