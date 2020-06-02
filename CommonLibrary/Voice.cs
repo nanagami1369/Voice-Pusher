@@ -8,6 +8,8 @@ namespace CommonLibrary
         public byte[] VoiceData { get; }
         public Character Character { get; }
 
+        public string ToLineScript() => Script.Replace("\n", string.Empty).Replace("\r", string.Empty);
+
         public static Voice Create(Character character, string script, byte[] voiceData)
         {
             return new Voice(character, script, voiceData);
