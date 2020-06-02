@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
+using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.SettingModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Setting;
@@ -17,6 +18,7 @@ namespace CoreUILibrary.Models
         private readonly IDialog _dialog;
         private readonly ISettingRegistry _registry;
         private readonly ISettingContainer _container;
+        private readonly IFileNameConverter _fileNameConverter;
 
         #region SettingProperty
 
@@ -62,6 +64,8 @@ namespace CoreUILibrary.Models
                 WriterAndRegisterSettingAsync();
             }
         }
+
+        public string RenamedNameExsample => _fileNameConverter.Naming(TestVoice, NameScript, 0) + ".wav";
 
         private string _nameScript;
 
@@ -121,6 +125,19 @@ namespace CoreUILibrary.Models
             set => SetProperty(ref _isEnabled, value);
         }
 
+        private Voice TestVoice { get; }
+
+        public void Naming()
+        {
+            RaisePropertyChanged(nameof(RenamedNameExsample));
+        }
+
+        public void AddNameScript(string script)
+        {
+            NameScript += script;
+        }
+
+
         public async Task LoadSettingAsync()
         {
             _statusSender.Send(StatusLevel.Log, "読込中");
@@ -144,12 +161,14 @@ namespace CoreUILibrary.Models
             ISettingRegistry settingRegistry,
             IStatusSender statusSender,
             IDialog dialog,
+            IFileNameConverter fileNameConverter,
             ISettingContainer container
         )
         {
             _statusSender = statusSender;
             _dialog = dialog;
             _registry = settingRegistry;
+            _fileNameConverter = fileNameConverter;
             _container = container;
 
             // Shift-Jisを使えるようにする
@@ -157,6 +176,9 @@ namespace CoreUILibrary.Models
             EncodeList = new List<Encoding> { Encoding.GetEncoding(932), new UTF8Encoding(false) };
 
             ScriptOutPutModeList = Enum.GetValues(typeof(ScriptOutPutMode)).Cast<ScriptOutPutMode>();
+            var testVoiceActor = new PartialVoiceActor("Haruka Desktop", "SAP", 0);
+            var testCharacter = new PartialCharacter("Haruka", "ハルカ", testVoiceActor);
+            TestVoice = Voice.Create(testCharacter, "こんにちは", null);
         }
 
         private async void WriterAndRegisterSettingAsync()

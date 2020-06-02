@@ -15,6 +15,10 @@ namespace CoreUILibrary.ViewModels
 
         public DelegateCommand SelectOutPutDirectoryPathCommand { get; }
 
+        public DelegateCommand NamingCommand { get; }
+
+        public DelegateCommand<string> AddNameScriptCommand { get; }
+
         public SettingEditorViewModel(ISettingEditorPresenter settingEditor)
         {
             SettingEditor = settingEditor;
@@ -24,6 +28,8 @@ namespace CoreUILibrary.ViewModels
             SelectOutPutDirectoryPathCommand = new DelegateCommand(
                 async () => { await SettingEditor.SelectOutPutDirectoryPathAsync(); }
             );
+            NamingCommand = new DelegateCommand(SettingEditor.Naming);
+            AddNameScriptCommand = new DelegateCommand<string>(SettingEditor.AddNameScript);
         }
     }
 }
