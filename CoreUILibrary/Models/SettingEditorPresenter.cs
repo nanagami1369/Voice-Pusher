@@ -65,7 +65,7 @@ namespace CoreUILibrary.Models
             }
         }
 
-        public string RenamedNameExsample => _fileNameConverter.Naming(TestVoice, NameScript, 0) + ".wav";
+        public string RenamedNameExsample => _fileNameConverter.Naming(TestCharacter, "こんにちは", NameScript, 0) + ".wav";
 
         private string _nameScript;
 
@@ -125,7 +125,7 @@ namespace CoreUILibrary.Models
             set => SetProperty(ref _isEnabled, value);
         }
 
-        private Voice TestVoice { get; }
+        private Character TestCharacter { get; }
 
         public void Naming()
         {
@@ -177,8 +177,7 @@ namespace CoreUILibrary.Models
 
             ScriptOutPutModeList = Enum.GetValues(typeof(ScriptOutPutMode)).Cast<ScriptOutPutMode>();
             var testVoiceActor = new PartialVoiceActor("Haruka Desktop", "SAP", 0);
-            var testCharacter = new PartialCharacter("Haruka", "ハルカ", testVoiceActor);
-            TestVoice = Voice.Create(testCharacter, "こんにちは", null);
+            TestCharacter = new PartialCharacter("Haruka", "ハルカ", testVoiceActor);
         }
 
         private async void WriterAndRegisterSettingAsync()
