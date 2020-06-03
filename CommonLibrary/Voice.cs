@@ -10,7 +10,8 @@ namespace CommonLibrary
 
         public string ToLineScript() => Script.Replace("\n", string.Empty).Replace("\r", string.Empty);
 
-        public static string ToLineScript(string script) => script.Replace("\n", string.Empty).Replace("\r", string.Empty);
+        public static string ToLineScript(string script)
+            => script?.Replace("\n", string.Empty).Replace("\r", string.Empty) ?? string.Empty;
 
         public static Voice Create(Character character, string script, byte[] voiceData)
         {
