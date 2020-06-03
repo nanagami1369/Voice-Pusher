@@ -1,27 +1,29 @@
 using System;
+using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CommonLibrary.Modules
 {
     public class FileNameConverter : IFileNameConverter
     {
-        public string Naming(Voice voice, string nameScript, int count = 0)
+        public string Naming(Character character, string script, string nameScript, int count = 0)
         {
-            if (nameScript == null) {
+            if (nameScript == null)
+            {
                 nameScript = "";
             }
-                var script = voice.ToLineScript();
-            if (script.Length > 20)
+            var lineScript = Voice.ToLineScript(script);
+            if (lineScript.Length > 20)
             {
-                script = script.Substring(0, 18) + "...";
+                lineScript = lineScript.Substring(0, 18) + "...";
             }
 
             return nameScript
                 .Replace("{Number}", count.ToString())
-                .Replace("{Name}", voice.Character.Name)
-                .Replace("{Script}", script)
-                .Replace("{VoiceActorName}", voice.Character.VoiceActor.Name)
-                .Replace("{LibraryName}", voice.Character.VoiceActor.Office)
-                .Replace("{LibraryVersion}", voice.Character.VoiceActor.Version.ToString())
+                .Replace("{Name}", character.Name)
+                .Replace("{Script}", lineScript)
+                .Replace("{VoiceActorName}", character.VoiceActor.Name)
+                .Replace("{LibraryName}", character.VoiceActor.Office)
+                .Replace("{LibraryVersion}", character.VoiceActor.Version.ToString())
                 .Replace("{yyyy}", DateTime.Now.ToString("yyyy"))
                 .Replace("{MM}", DateTime.Now.ToString("MM"))
                 .Replace("{dd}", DateTime.Now.ToString("dd"))
