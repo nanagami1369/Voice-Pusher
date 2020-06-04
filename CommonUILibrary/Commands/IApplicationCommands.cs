@@ -7,5 +7,7 @@ namespace CommonUILibrary.Commands
         CompositeCommand SetFocusCommand { get; }
 
         CompositeCommand SelectMenuCommand { get; }
+        CompositeCommand SpeakCommand { get; }
+        CompositeCommand SaveCommand { get; }
     }
 }
