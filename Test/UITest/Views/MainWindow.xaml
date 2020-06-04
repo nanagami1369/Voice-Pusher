@@ -12,6 +12,8 @@
         <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="1" Gesture="Alt+2" />
         <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="2" Gesture="Alt+3" />
         <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="3" Gesture="Alt+4" />
+        <KeyBinding Command="{Binding ApplicationCommands.SpeakCommand}" Gesture="F5" />
+        <KeyBinding Command="{Binding ApplicationCommands.SaveCommand}" Gesture="Ctrl+S" />
     </Window.InputBindings>
     <WrapPanel Orientation="Vertical">
         <Button Width="100" Height="20" Command="{Binding ShowSettingCommand}" Content="設定を確認する" />
