@@ -16,6 +16,24 @@ namespace CommonUILibrary.Models
             await messageBox.ShowAsync();
         }
 
+        public async Task<bool> ShowConfirmationMessageAsync(
+            string title,
+            string message,
+            string okButtonMessage = "はい",
+            string noButtonMessage = "いいえ")
+        {
+            var messageBox = new MessageDialog(message, title);
+            messageBox.Commands.Add(new UICommand(okButtonMessage, null, true));
+            messageBox.Commands.Add(new UICommand(noButtonMessage, null, false));
+            messageBox.DefaultCommandIndex = 1;
+            messageBox.CancelCommandIndex = 1;
+            ((IInitializeWithWindow)(object)messageBox).Initialize(System.Diagnostics.Process.GetCurrentProcess()
+                .MainWindowHandle);
+            var selectedCommand = await messageBox.ShowAsync();
+            var messageBoxResult = (bool)selectedCommand.Id;
+            return messageBoxResult;
+        }
+
         public async Task<string> OpenFolderAsync()
         {
             var folderPicker = new FolderPicker()

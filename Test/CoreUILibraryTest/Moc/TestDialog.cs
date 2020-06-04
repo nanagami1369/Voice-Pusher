@@ -19,5 +19,10 @@ namespace CoreUILibrary.Moc
         {
             return null;
         }
+
+        public Task<bool> ShowConfirmationMessageAsync(string title, string message, string okButtonMessage = "はい", string noButtonMessage = "いいえ")
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
