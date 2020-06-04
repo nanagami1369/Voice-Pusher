@@ -5,6 +5,6 @@ namespace CommonLibrary
 {
     public interface IRecorder
     {
-        Task RecordingAsync(Voice voice, string nameScript, string baseDirectoryPath, Encoding encode);
+        Task RecordingAsync(Voice voice, string baseFileName, string baseDirectoryPath, Encoding encode);
     }
 }
