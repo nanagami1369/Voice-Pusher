@@ -7,20 +7,16 @@ namespace CommonLibrary.Modules
     {
         public string Naming(Character character, string script, string nameScript, int count = 0)
         {
-            if (nameScript == null)
+            var fileNameScript = Voice.ToLineScript(script);
+            fileNameScript = fileNameScript.Replace("[\\/:*?\"<>|]", "");
+            if (fileNameScript.Length > 20)
             {
-                nameScript = "";
+                fileNameScript = fileNameScript.Substring(0, 18) + "...";
             }
-            var lineScript = Voice.ToLineScript(script);
-            if (lineScript.Length > 20)
-            {
-                lineScript = lineScript.Substring(0, 18) + "...";
-            }
-
             return nameScript
                 .Replace("{Number}", count.ToString())
                 .Replace("{Name}", character.Name)
-                .Replace("{Script}", lineScript)
+                .Replace("{Script}", fileNameScript)
                 .Replace("{VoiceActorName}", character.VoiceActor.Name)
                 .Replace("{LibraryName}", character.VoiceActor.Office)
                 .Replace("{LibraryVersion}", character.VoiceActor.Version.ToString())
