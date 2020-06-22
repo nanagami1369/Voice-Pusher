@@ -65,7 +65,7 @@ namespace CoreUILibrary.Models
             }
         }
 
-        public string RenamedNameExsample
+        public string RenamedNameExample
         {
             get
             {
