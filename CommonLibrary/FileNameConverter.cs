@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CommonLibrary.Modules
@@ -8,7 +9,7 @@ namespace CommonLibrary.Modules
         public string Naming(Character character, string script, string nameScript, int count = 0)
         {
             var fileNameScript = Voice.ToLineScript(script);
-            fileNameScript = fileNameScript.Replace("[\\/:*?\"<>|]", "");
+            fileNameScript = Regex.Replace(fileNameScript, "[\\/:*?\"<>|]", string.Empty);
             if (fileNameScript.Length > 20)
             {
                 fileNameScript = fileNameScript.Substring(0, 18) + "...";
