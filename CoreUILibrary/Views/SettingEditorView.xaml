@@ -63,7 +63,7 @@
                     <Label Content="命名規則" />
                     <TextBlock>
                         <Run Text="テスト→" />
-                        <Run Text="{Binding Path=SettingEditor.RenamedNameExsample, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <Run Text="{Binding Path=SettingEditor.RenamedNameExample, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                     </TextBlock>
                     <TextBox Text="{Binding Path=SettingEditor.NameScript, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <i:Interaction.Triggers>

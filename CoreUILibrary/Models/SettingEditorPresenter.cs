@@ -139,7 +139,7 @@ namespace CoreUILibrary.Models
 
         public void Naming()
         {
-            RaisePropertyChanged(nameof(RenamedNameExsample));
+            RaisePropertyChanged(nameof(RenamedNameExample));
         }
 
         public void AddNameScript(string script)

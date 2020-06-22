@@ -11,7 +11,7 @@ namespace CommonLibrary.Modules.SettingModule
         bool IsEnabled { get; set; }
         List<Encoding> EncodeList { get; }
 
-        string RenamedNameExsample { get; }
+        string RenamedNameExample { get; }
 
         IEnumerable<ScriptOutPutMode> ScriptOutPutModeList { get; }
 
