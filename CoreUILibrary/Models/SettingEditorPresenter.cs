@@ -65,7 +65,17 @@ namespace CoreUILibrary.Models
             }
         }
 
-        public string RenamedNameExsample => _fileNameConverter.Naming(TestCharacter, "こんにちは", NameScript, 0) + ".wav";
+        public string RenamedNameExample
+        {
+            get
+            {
+                if (NameScript == null)
+                {
+                    return string.Empty;
+                }
+                return _fileNameConverter.Naming(TestCharacter, "こんにちは", NameScript, 0) + ".wav";
+            }
+        }
 
         private string _nameScript;
 

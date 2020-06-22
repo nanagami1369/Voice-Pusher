@@ -14,5 +14,10 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
             Reading = reading;
             VoiceActor = voiceActor;
         }
+
+        public override string ScriptToOutputText(string script)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
