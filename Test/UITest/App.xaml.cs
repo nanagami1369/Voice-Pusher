@@ -47,6 +47,7 @@ namespace UITest
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();
             containerRegistry.RegisterSingleton<ICounter, Counter>();
+            containerRegistry.RegisterSingleton<IVoiceActorCatalog, VoiceActorCatalog>();
             containerRegistry.Register<IFileNameConverter, FileNameConverter>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
