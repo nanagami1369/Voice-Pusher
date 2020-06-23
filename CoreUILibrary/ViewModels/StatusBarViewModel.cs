@@ -1,3 +1,4 @@
+using CommonLibrary;
 using CommonLibrary.Modules.StatusModule;
 using CoreUILibrary.Models;
 using Prism.Mvvm;
@@ -15,10 +16,12 @@ namespace CoreUILibrary.ViewModels
             set => SetProperty(ref _status, value);
         }
 
+        public ICounter Counter { get; }
 
 
-        public StatusBarViewModel(StatusCommunication statusCommunication)
+        public StatusBarViewModel(StatusCommunication statusCommunication, ICounter counter)
         {
+            Counter = counter;
             _statusCommunication = statusCommunication;
             _statusCommunication.Receive(status => Status = status);
         }
