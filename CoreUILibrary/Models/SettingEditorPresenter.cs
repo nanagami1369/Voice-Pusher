@@ -152,7 +152,7 @@ namespace CoreUILibrary.Models
         {
             _statusSender.Send(StatusLevel.Log, "読込中");
             IsEnabled = false;
-            var setting = await _registry.ReadAsync(Config.SettingFileName, Config.SettingFileEncode)
+            var setting = await _registry.ReadAsync(Config.SettingFileName, Config.ApplicationFileEncode)
                 .ConfigureAwait(false);
             EditedSetting = setting;
             OutPutDirectoryPath = setting.Common.OutPutDirectoryPath;
@@ -193,7 +193,7 @@ namespace CoreUILibrary.Models
         private async void WriterAndRegisterSettingAsync()
         {
             _container.Register(EditedSetting);
-            await _registry.WriterAsync(EditedSetting, Config.SettingFileName, Config.SettingFileEncode)
+            await _registry.WriterAsync(EditedSetting, Config.SettingFileName, Config.ApplicationFileEncode)
                 .ConfigureAwait(false);
         }
     }
