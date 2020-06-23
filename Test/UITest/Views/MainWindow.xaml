@@ -23,6 +23,6 @@
         <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="ContentRegion" Background="Red" />
         <TextBlock Width="620" Height="20" Margin="5,0" Text="ステータスバー" />
         <Button Width="620" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
-        <ContentControl Width="620" Height="20" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
+        <ContentControl Width="620" Height="25" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
     </WrapPanel>
 </Window>

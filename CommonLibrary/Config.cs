@@ -7,7 +7,8 @@ namespace CommonLibrary
     {
         public static string Title = "Voice-Pusher";
         public static readonly string SettingFileName = "Setting.json";
-        public static readonly Encoding SettingFileEncode = new UTF8Encoding(false);
+        public static readonly Encoding ApplicationFileEncode = new UTF8Encoding(false);
+        public static readonly string CounterFileName = "count.bin";
 
         public static readonly MenuItem[] MenuItem;
 

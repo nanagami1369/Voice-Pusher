@@ -25,7 +25,7 @@ namespace UITest
         {
             //設定の初期化
             var settingRegistry = Container.Resolve<ISettingRegistry>();
-            var setting = settingRegistry.Read(Config.SettingFileName, Config.SettingFileEncode);
+            var setting = settingRegistry.Read(Config.SettingFileName, Config.ApplicationFileEncode);
             var settingManager = Container.Resolve<ISettingContainer>();
             settingManager.Register(setting);
             return Container.Resolve<MainWindow>();
@@ -46,6 +46,7 @@ namespace UITest
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();
+            containerRegistry.RegisterSingleton<ICounter, Counter>();
             containerRegistry.Register<IFileNameConverter, FileNameConverter>();
             containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
