@@ -13,7 +13,6 @@ namespace UITest.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private readonly IStatusSender _statusSender;
-        private readonly IRegionManager _regionManager;
         private readonly ISettingContainer _settingManager;
         private readonly IDialog _dialog;
         private readonly IMenuContainerReader _menuContainer;
@@ -84,14 +83,12 @@ namespace UITest.ViewModels
 
         public MainWindowViewModel(
             IStatusSender statusSender,
-            IRegionManager regionManager,
             ISettingContainer settingManager,
             IDialog dialog,
             IMenuContainerReader menuContainer,
             IApplicationCommands applicationCommands)
         {
             _statusSender = statusSender;
-            _regionManager = regionManager;
             _settingManager = settingManager;
             _dialog = dialog;
             _menuContainer = menuContainer;
