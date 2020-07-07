@@ -6,7 +6,6 @@ using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
 using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Regions;
 
 namespace UITest.ViewModels
 {

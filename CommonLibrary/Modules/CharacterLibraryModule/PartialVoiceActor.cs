@@ -1,5 +1,3 @@
-using System;
-
 namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public class PartialVoiceActor : VoiceActor
