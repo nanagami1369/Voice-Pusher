@@ -13,7 +13,7 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
         // ディスプレイの表示をカスタマイズする
         public abstract override string ToString();
 
-        public VoiceActor(string name, string office, float version)
+        protected VoiceActor(string name, string office, float version)
         {
             Name = name;
             Office = office;
