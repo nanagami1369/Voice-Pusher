@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Windows;
 using CommonLibrary;
 using CommonLibrary.Modules;
@@ -11,7 +12,6 @@ using CommonUILibrary.ViewSelectable;
 using CoreUILibrary.Models;
 using Prism.Ioc;
 using Prism.Modularity;
-using UITest.Moc;
 using UITest.Views;
 
 namespace UITest
