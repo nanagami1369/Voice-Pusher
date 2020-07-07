@@ -19,6 +19,8 @@ namespace CoreUILibrary.ViewModels
 
         public DelegateCommand ResetViewCommand { get; }
 
+        public DelegateCommand LoadCharacterCommand { get; }
+
         #region keyboardActions
 
         public DelegateCommand UpCharacterLibraryCommand { get; }
@@ -64,6 +66,7 @@ namespace CoreUILibrary.ViewModels
             ResetSelectorCommand = new DelegateCommand(CharacterLibrary.ResetSelector);
             SetFocusCommand = new DelegateCommand(CharacterLibrary.SetFocus);
             _applicationCommands.SetFocusCommand.RegisterCommand(SetFocusCommand);
+            LoadCharacterCommand = new DelegateCommand(async () => { await CharacterLibrary.LoadCharacterAsync(); });
         }
     }
 }

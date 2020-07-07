@@ -1,25 +1,28 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using CommonLibrary.Modules.CharacterLibraryModule;
 
 namespace CoreUILibrary.Moc
 {
     public class TestCharacterLibraryGateway : ICharacterLibraryGateway
     {
-        public ICollection<Character> TestLibrary { get; private set; }
+        public List<Character> TestLibrary { get; private set; }
 
-        public void SetLibrary(ICollection<Character> library)
-        {
-            TestLibrary = library;
-        }
-
-        public ICollection<Character> Read()
+        public async Task<ICollection<Character>> ReadAsync()
         {
             return TestLibrary;
         }
 
-        public void Write(Character character)
+        public async Task WriteAsync(ICollection<Character> characters)
         {
-            TestLibrary.Add(character);
+            TestLibrary.AddRange(characters);
+        }
+
+        public void SetDefaultCharacters(ICollection<Character> characters)
+        {
+            TestLibrary = characters.ToList();
         }
     }
 }

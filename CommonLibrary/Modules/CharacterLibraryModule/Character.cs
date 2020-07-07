@@ -6,6 +6,7 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
         public string Reading { get; set; }
         public VoiceActor VoiceActor { get; set; }
 
+        public string Office => VoiceActor.Office;
         public abstract string ScriptToOutputText(string script);
     }
 }
