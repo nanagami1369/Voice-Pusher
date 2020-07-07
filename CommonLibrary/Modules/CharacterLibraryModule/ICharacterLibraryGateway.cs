@@ -5,7 +5,9 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public interface ICharacterLibraryGateway
     {
-        ICollection<Character> Read();
-        void Write(Character character);
+        void SetDefaultCharacters(ICollection<Character> characters);
+
+        Task<ICollection<Character>> ReadAsync();
+        Task WriteAsync(ICollection<Character> characters);
     }
 }

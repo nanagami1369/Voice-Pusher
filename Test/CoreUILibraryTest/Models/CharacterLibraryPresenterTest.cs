@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
@@ -22,7 +23,7 @@ namespace CoreUILibrary.Models
         private MenuItem CharacterEditorMenu => Config.MenuItem[1];
 
         [SetUp]
-        public void Setup()
+        public async Task Setup()
         {
             var gateway = new TestCharacterLibraryGateway();
             TestLibrary = new Collection<Character>()
@@ -32,7 +33,7 @@ namespace CoreUILibrary.Models
                 new PartialCharacter("舞", "まい"),
                 new PartialCharacter("妖夢", "ようむ"),
             };
-            gateway.SetLibrary(TestLibrary);
+            gateway.SetDefaultCharacters(TestLibrary);
             TestStatusSender = new TestStatusSender();
             TestViewSelectable = new TestViewSelectable();
             TestMenuContainer = new TestMenuContainer();
@@ -41,6 +42,8 @@ namespace CoreUILibrary.Models
                 gateway,
                 TestViewSelectable,
                 TestMenuContainer);
+            await Presenter.LoadCharacterAsync();
+            Presenter.ResetView();
         }
 
         [Test()]
@@ -110,7 +113,7 @@ namespace CoreUILibrary.Models
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
-            Assert.IsNull(TestViewSelectable.SelectView);
+            StringAssert.AreEqualIgnoringCase("NotSelectCharacterView", TestViewSelectable.SelectView);
             Assert.IsNull(TestViewSelectable.SetedCharacter);
         }
 
@@ -139,7 +142,7 @@ namespace CoreUILibrary.Models
             StringAssert.AreEqualIgnoringCase("キャラクターが選択されておりません", TestStatusSender.SentMessage.Message);
             Assert.AreEqual(-1, Presenter.Index);
             StringAssert.AreEqualIgnoringCase("魔理沙あ", Presenter.SearchWord);
-            Assert.IsNull(TestViewSelectable.SelectView);
+            StringAssert.AreEqualIgnoringCase("NotSelectCharacterView", TestViewSelectable.SelectView);
             Assert.IsNull(TestViewSelectable.SetedCharacter);
         }
 

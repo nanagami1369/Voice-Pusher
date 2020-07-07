@@ -1,6 +1,8 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
@@ -15,6 +17,13 @@ namespace CoreUILibrary.Models
         private readonly ICharacterLibraryGateway _gateway;
         private readonly ICharacterLibraryViewSelectable _viewSelectable;
         private readonly IMenuContainerReader _menuContainer;
+
+        private bool _isEnabled;
+        public bool IsEnabled
+        {
+            get => _isEnabled;
+            set => SetProperty(ref _isEnabled, value);
+        }
 
         private string _searchWord;
         public string SearchWord
@@ -97,6 +106,18 @@ namespace CoreUILibrary.Models
             _viewSelectable.SelectNotSelectCharacterView();
         }
 
+        public async Task LoadCharacterAsync()
+        {
+            if (OriginalLibrary == null ||OriginalLibrary.Count == 0)
+            {
+                IsEnabled = false;
+                _statusSender.Send(StatusLevel.Log, "キャラクターの読込中しました");
+                OriginalLibrary = new ObservableCollection<Character>(await _gateway.ReadAsync());
+                IsEnabled = true;
+                _statusSender.Send(StatusLevel.Success, "キャラクターの読込完了しました");
+            }
+        }
+
         public CharacterLibraryPresenter(
             IStatusSender statusSender,
             ICharacterLibraryGateway gateway,
@@ -108,8 +129,7 @@ namespace CoreUILibrary.Models
             _gateway = gateway;
             _viewSelectable = viewSelectable;
             _menuContainer = menuContainer;
-
-            OriginalLibrary = new ObservableCollection<Character>(_gateway.Read());
+            OriginalLibrary = new ObservableCollection<Character>();
         }
 
         #region keyboardActions

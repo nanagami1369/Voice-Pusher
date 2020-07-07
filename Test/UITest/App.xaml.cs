@@ -28,6 +28,14 @@ namespace UITest
             var setting = settingRegistry.Read(Config.SettingFileName, Config.ApplicationFileEncode);
             var settingManager = Container.Resolve<ISettingContainer>();
             settingManager.Register(setting);
+            var gateway = Container.Resolve<ICharacterLibraryGateway>();
+            gateway.SetDefaultCharacters(new Collection<Character>()
+            {
+                new PartialCharacter("霊夢", "れいむ"),
+                new PartialCharacter("魔理沙", "まりさ"),
+                new PartialCharacter("舞", "まい"),
+                new PartialCharacter("妖夢", "ようむ"),
+            });
             return Container.Resolve<MainWindow>();
         }
 
@@ -47,9 +55,10 @@ namespace UITest
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();
             containerRegistry.RegisterSingleton<ICounter, Counter>();
+            containerRegistry.Register<ITryJsonToCharacterConverter, PartialTryJsonToCharacter>(nameof(PartialTryJsonToCharacter));
             containerRegistry.RegisterSingleton<IVoiceActorCatalog, VoiceActorCatalog>();
             containerRegistry.Register<IFileNameConverter, FileNameConverter>();
-            containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGatewayMoc>();
+            containerRegistry.RegisterSingleton<ICharacterLibraryGateway, CharacterLibraryGateway>();
             containerRegistry.Register<ICharacterLibraryViewSelectable, CharacterLibraryViewSelectable>();
             containerRegistry.RegisterForNavigation<PartialView>("PartialVoiceEditorView");
             containerRegistry.RegisterForNavigation<PartialView>("PartialCharacterEditorView");

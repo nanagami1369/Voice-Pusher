@@ -1,9 +1,12 @@
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace CommonLibrary.Modules.CharacterLibraryModule
 {
     public interface ICharacterLibraryPresenter
     {
+        bool IsEnabled { get; set; }
+
         string SearchWord { get; set; }
 
         ObservableCollection<Character> SelectedLibrary { get; set; }
@@ -14,7 +17,7 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
 
         void OpenEditorView();
 
-
+        Task LoadCharacterAsync();
 
         #region keyboardActions
 

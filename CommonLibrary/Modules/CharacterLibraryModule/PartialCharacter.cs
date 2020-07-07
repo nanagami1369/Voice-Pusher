@@ -15,6 +15,14 @@ namespace CommonLibrary.Modules.CharacterLibraryModule
             VoiceActor = voiceActor;
         }
 
+        //JsonConverter用
+        public PartialCharacter()
+        {
+            Name = string.Empty;
+            Reading = string.Empty;
+            VoiceActor = new PartialVoiceActor("", "", 0.0f);
+        }
+
         public override string ScriptToOutputText(string script)
         {
             throw new System.NotImplementedException();

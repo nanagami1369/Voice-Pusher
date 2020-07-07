@@ -9,10 +9,12 @@
              d:DesignHeight="300"
              d:DesignWidth="300"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             IsEnabled="{Binding Path=CharacterLibrary.IsEnabled, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
              mc:Ignorable="d">
     <Grid>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadCharacterCommand}" />
                 <i:InvokeCommandAction Command="{Binding ResetViewCommand}" />
             </i:EventTrigger>
         </i:Interaction.Triggers>
