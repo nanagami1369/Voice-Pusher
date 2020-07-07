@@ -10,17 +10,12 @@ namespace CommonLibrary
         public static readonly Encoding ApplicationFileEncode = new UTF8Encoding(false);
         public static readonly string CounterFileName = "count.bin";
 
-        public static readonly MenuItem[] MenuItem;
-
-        static Config()
+        public static readonly MenuItem[] MenuItem = new MenuItem[]
         {
-            MenuItem = new MenuItem[]
-            {
                 new MenuItem("ボイスエディタ","CharacterLibraryView", "VolumeUp"),
                 new MenuItem("キャラクタエディタ","CharacterLibraryView", "AddressBook"),
                 new MenuItem("台本エディタ",string.Empty, "FileAlt"),
                 new MenuItem("設定","OtherMenuView", "Cog")
-            };
-        }
+        };
     }
 }
