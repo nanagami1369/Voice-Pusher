@@ -17,7 +17,14 @@
             <TextBlock>
                 <Run FontWeight="Bold" Foreground="{Binding Path=Status.Level.ColorCode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=Status.Level.Show, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
                 <Run Text="{Binding Path=Status.Message, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                <TextBlock.ToolTip>
+                    <TextBlock>
+                        <Run FontWeight="Bold" Foreground="{Binding Path=Status.Level.ColorCode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=Status.Level.Show, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                        <Run Text="{Binding Path=Status.Message, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                    </TextBlock>
+                </TextBlock.ToolTip>
             </TextBlock>
+
         </StatusBarItem>
         <StatusBarItem HorizontalAlignment="Right">
             <Grid>
