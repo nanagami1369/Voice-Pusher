@@ -18,6 +18,12 @@
         </i:Interaction.Triggers>
         <ScrollViewer.Resources>
             <c:ScriptOutputModeToStringConverter x:Key="ScriptOutputModeStringConverter" />
+            <ControlTemplate x:Key="ValidationTemplate">
+                <StackPanel>
+                    <TextBlock Background="White" FontSize="16" Foreground="Red" Text="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedelem}" />
+                    <AdornedElementPlaceholder x:Name="adornedelem" />
+                </StackPanel>
+            </ControlTemplate>
             <Style TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="16" />
             </Style>
@@ -65,7 +71,7 @@
                         <Run Text="テスト→" />
                         <Run Text="{Binding Path=SettingEditor.RenamedNameExample, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                     </TextBlock>
-                    <TextBox Text="{Binding Path=SettingEditor.NameScript, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox Text="{Binding Path=SettingEditor.NameScript, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
                                 <i:InvokeCommandAction Command="{Binding NamingCommand}" />

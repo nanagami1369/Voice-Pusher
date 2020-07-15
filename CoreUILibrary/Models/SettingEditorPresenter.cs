@@ -1,7 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
@@ -12,7 +17,7 @@ using Prism.Mvvm;
 
 namespace CoreUILibrary.Models
 {
-    public class SettingEditorPresenter : BindableBase, ISettingEditorPresenter
+    public class SettingEditorPresenter : BindableBase, ISettingEditorPresenter, INotifyDataErrorInfo
     {
         private readonly IStatusSender _statusSender;
         private readonly IDialog _dialog;
@@ -79,6 +84,7 @@ namespace CoreUILibrary.Models
 
         private string _nameScript;
 
+        [RegularExpression("^[^\\\\/:*?\"<>|]*$", ErrorMessage = "使用出来ない文字列が含まれてます[\\/:*?\"<>|]")]
         public string NameScript
         {
             get => _nameScript;
@@ -86,7 +92,11 @@ namespace CoreUILibrary.Models
             {
                 SetProperty(ref _nameScript, value);
                 EditedSetting.Common.NameScript = value;
-                WriterAndRegisterSettingAsync();
+                ValidateProperty(value);
+                if (!Regex.IsMatch(value, "[\\\\/:*?\"<>|]"))
+                {
+                    WriterAndRegisterSettingAsync();
+                };
             }
         }
 
@@ -167,6 +177,32 @@ namespace CoreUILibrary.Models
             _statusSender.Send(StatusLevel.Success, "設定の読み込みが完了しました");
         }
 
+        #region Error
+        private readonly ErrorsContainer<string> _errors;
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+        public IEnumerable GetErrors(string propertyName) => _errors.GetErrors(propertyName);
+        public bool HasErrors => _errors.HasErrors;
+        private void OnErrorsChanged([CallerMemberName] string propertyName = null)
+            => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        protected void ValidateProperty(object value, [CallerMemberName] string propertyName = null)
+        {
+            var context = new ValidationContext(this)
+            {
+                MemberName = propertyName
+            };
+            var validationErrors = new List<ValidationResult>();
+            if (!Validator.TryValidateProperty(value, context, validationErrors))
+            {
+                _errors.SetErrors(propertyName, validationErrors.Select(error => error.ErrorMessage));
+            }
+            else
+            {
+                _errors.ClearErrors(propertyName);
+            }
+        }
+        #endregion
+
+
         public SettingEditorPresenter(
             ISettingRegistry settingRegistry,
             IStatusSender statusSender,
@@ -181,6 +217,7 @@ namespace CoreUILibrary.Models
             _fileNameConverter = fileNameConverter;
             _container = container;
 
+            _errors = new ErrorsContainer<string>(OnErrorsChanged);
             // Shift-Jisを使えるようにする
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             EncodeList = new List<Encoding> { Encoding.GetEncoding(932), new UTF8Encoding(false) };
