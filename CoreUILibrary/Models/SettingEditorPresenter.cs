@@ -152,10 +152,32 @@ namespace CoreUILibrary.Models
             RaisePropertyChanged(nameof(RenamedNameExample));
         }
 
+        private string _insertText;
+        public string InsertText
+        {
+            get => _insertText;
+            set => SetProperty(ref _insertText, value);
+        }
+        private bool _insertMacroSetFlag;
+        public bool InsertMacroSetFlag
+        {
+            get => _insertMacroSetFlag;
+            set => SetProperty(ref _insertMacroSetFlag, value);
+        }
+
+        private void SetFlag()
+        {
+            InsertMacroSetFlag = true;
+            InsertMacroSetFlag = false;
+        }
+
+
         public void AddNameScript(string script)
         {
-            NameScript += script;
+            InsertText = script;
+            SetFlag();
         }
+
 
 
         public async Task LoadSettingAsync()
@@ -182,6 +204,7 @@ namespace CoreUILibrary.Models
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
         public IEnumerable GetErrors(string propertyName) => _errors.GetErrors(propertyName);
         public bool HasErrors => _errors.HasErrors;
+
         private void OnErrorsChanged([CallerMemberName] string propertyName = null)
             => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
         protected void ValidateProperty(object value, [CallerMemberName] string propertyName = null)
