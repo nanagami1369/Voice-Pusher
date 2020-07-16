@@ -14,7 +14,7 @@ namespace CommonLibrary.Modules
             {
                 fileNameScript = fileNameScript.Substring(0, 18) + "...";
             }
-            return nameScript
+            var filename = nameScript
                 .Replace("{Number}", count.ToString())
                 .Replace("{Name}", character.Name)
                 .Replace("{Script}", fileNameScript)
@@ -27,6 +27,7 @@ namespace CommonLibrary.Modules
                 .Replace("{HH}", DateTime.Now.ToString("HH"))
                 .Replace("{mm}", DateTime.Now.ToString("mm"))
                 .Replace("{ss}", DateTime.Now.ToString("ss"));
+            return Regex.Replace(filename, "[\\\\/:*?\"<>|¥]", string.Empty);
         }
     }
 }
