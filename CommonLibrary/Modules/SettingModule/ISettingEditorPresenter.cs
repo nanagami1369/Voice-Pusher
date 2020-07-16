@@ -12,6 +12,9 @@ namespace CommonLibrary.Modules.SettingModule
 
         string RenamedNameExample { get; }
 
+        string InsertText { get; set; }
+        bool InsertMacroSetFlag { get; set; }
+
         IEnumerable<ScriptOutPutMode> ScriptOutPutModeList { get; }
 
         Task SelectOutPutDirectoryPathAsync();
