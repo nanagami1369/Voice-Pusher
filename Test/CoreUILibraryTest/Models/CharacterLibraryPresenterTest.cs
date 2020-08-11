@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
+using CommonUILibrary.Models;
 using CoreUILibrary.Moc;
 using NUnit.Framework;
 

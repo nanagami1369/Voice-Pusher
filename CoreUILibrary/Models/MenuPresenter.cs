@@ -1,6 +1,7 @@
 using System.Linq;
 using CommonLibrary;
 using CommonLibrary.Modules.MenuModule;
+using CommonUILibrary.Models;
 using Prism.Mvvm;
 
 namespace CoreUILibrary.Models

@@ -1,5 +1,5 @@
 using CommonLibrary;
-using CommonLibrary.Modules.SettingModule;
+using CommonUILibrary.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 

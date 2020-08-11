@@ -3,7 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonUILibrary.Setting;
 
-namespace CommonLibrary.Modules.SettingModule
+namespace CommonUILibrary.Models
 {
     public interface ISettingEditorPresenter
     {

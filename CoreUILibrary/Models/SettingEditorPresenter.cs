@@ -12,6 +12,7 @@ using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.SettingModule;
 using CommonLibrary.Modules.StatusModule;
+using CommonUILibrary.Models;
 using CommonUILibrary.Setting;
 using Prism.Mvvm;
 

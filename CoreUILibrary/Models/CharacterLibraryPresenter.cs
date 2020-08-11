@@ -6,6 +6,7 @@ using CommonLibrary;
 using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.StatusModule;
+using CommonUILibrary.Models;
 using Prism.Mvvm;
 
 namespace CoreUILibrary.Models

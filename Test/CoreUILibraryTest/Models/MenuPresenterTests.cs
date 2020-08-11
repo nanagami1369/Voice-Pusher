@@ -1,5 +1,5 @@
 using CommonLibrary;
-using CommonLibrary.Modules.MenuModule;
+using CommonUILibrary.Models;
 using CoreUILibrary.Moc;
 using NUnit.Framework;
 
