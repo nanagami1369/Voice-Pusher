@@ -1,6 +1,6 @@
 using System;
-using CommonLibrary.Modules.CharacterLibraryModule;
 using CommonUILibrary.Commands;
+using CommonUILibrary.Models;
 using Prism;
 using Prism.Commands;
 using Prism.Mvvm;

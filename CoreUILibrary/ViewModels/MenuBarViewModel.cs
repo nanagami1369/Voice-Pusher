@@ -1,6 +1,6 @@
 using System;
-using CommonLibrary.Modules.MenuModule;
 using CommonUILibrary.Commands;
+using CommonUILibrary.Models;
 using Prism;
 using Prism.Commands;
 using Prism.Mvvm;

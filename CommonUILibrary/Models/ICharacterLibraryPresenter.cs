@@ -1,7 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using CommonLibrary.Modules.CharacterLibraryModule;
 
-namespace CommonLibrary.Modules.CharacterLibraryModule
+namespace CommonUILibrary.Models
 {
     public interface ICharacterLibraryPresenter
     {

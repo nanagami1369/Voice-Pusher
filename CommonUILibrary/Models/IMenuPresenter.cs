@@ -1,4 +1,6 @@
-namespace CommonLibrary.Modules.MenuModule
+using CommonLibrary.Modules.MenuModule;
+
+namespace CommonUILibrary.Models
 {
     public interface IMenuPresenter
     {
