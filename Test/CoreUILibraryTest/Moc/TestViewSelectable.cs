@@ -1,5 +1,5 @@
 using CommonLibrary.Modules.CharacterLibraryModule;
-using CommonLibrary.Modules.MenuModule;
+using CommonUILibrary.Models;
 
 namespace CoreUILibrary.Moc
 {
