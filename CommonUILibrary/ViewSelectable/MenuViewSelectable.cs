@@ -1,4 +1,4 @@
-using CommonLibrary.Modules.MenuModule;
+using CommonUILibrary.Models;
 using Prism.Regions;
 
 namespace CommonUILibrary.ViewSelectable

@@ -1,4 +1,6 @@
-namespace CommonLibrary.Modules.CharacterLibraryModule
+using CommonLibrary.Modules.CharacterLibraryModule;
+
+namespace CommonUILibrary.Models
 {
     public interface ICharacterLibraryViewSelectable
     {
