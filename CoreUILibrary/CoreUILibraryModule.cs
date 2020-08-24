@@ -24,6 +24,7 @@ namespace CoreUILibrary
             containerRegistry.RegisterForNavigation<OtherMenuView>();
             containerRegistry.RegisterForNavigation<SettingEditorView>();
             containerRegistry.RegisterForNavigation<AboutView>();
+            containerRegistry.RegisterForNavigation<UsedLibraryView>();
         }
     }
 }

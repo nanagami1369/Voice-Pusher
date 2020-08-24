@@ -53,6 +53,7 @@ namespace UITest
             containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
             containerRegistry.Register<IOtherMenuPresenter, OtherMenuPresenter>();
             containerRegistry.Register<IOtherMenuViewSelectable, OtherMenuViewSelectable>();
+            containerRegistry.Register<IUsedLibraryPresenter, UsedLibraryPresenter>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();
