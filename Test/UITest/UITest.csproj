@@ -11,4 +11,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\CoreUILibrary\CoreUILibrary.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Licence.json" Link="Licence\Licence.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

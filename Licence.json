@@ -1,0 +1,23 @@
+[
+    {
+        "ProjectName": "Newtonsoft.Json",
+        "Name": "James Newton-King",
+        "Year": "2007",
+        "License": "MIT",
+        "LicensePath": "https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md"
+    },
+    {
+        "ProjectName": "MahApps.Metro",
+        "Name": ".NET Foundation and Contributors. All rights reserved.",
+        "Year": "",
+        "License": "MIT",
+        "LicensePath": "https://github.com/MahApps/MahApps.Metro/blob/master/LICENSE"
+    },
+    {
+        "ProjectName": "FontAwesome5",
+        "Name": "MartinTopfstedt",
+        "Year": "2018",
+        "License": "MIT",
+        "LicensePath": "https://github.com/MartinTopfstedt/FontAwesome5/blob/master/LICENSE"
+    }
+]
