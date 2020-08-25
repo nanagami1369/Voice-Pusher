@@ -1,6 +1,8 @@
 ﻿<Window x:Class="UITest.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:b="clr-namespace:CommonUILibrary.Behaviors;assembly=CommonUILibrary"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:prism="http://prismlibrary.com/"
         Title="{Binding Title}"
         Width="1000"
@@ -22,6 +24,12 @@
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
         <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="ContentRegion" Background="Red" />
         <TextBlock Width="620" Height="20" Margin="5,0" Text="ステータスバー" />
+        <TextBlock Width="620" Height="20" Margin="5,0" Text="キー入力チェック" />
+        <TextBox Width="620" Height="20" Margin="5,0">
+            <i:Interaction.Behaviors>
+                <b:HotKeyBehavior />
+            </i:Interaction.Behaviors>
+        </TextBox>
         <Button Width="620" Height="20" Command="{Binding ChangeStatusBarCommand}" Content="変更" />
         <ContentControl Width="620" Height="25" prism:RegionManager.RegionName="StatusBarRegion" Background="AliceBlue" />
     </WrapPanel>
