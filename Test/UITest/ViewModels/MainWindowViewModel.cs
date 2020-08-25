@@ -76,6 +76,13 @@ namespace UITest.ViewModels
 
         public IHotKeyContainer HotKeyContainer { get; }
 
+        private async Task ShowHotKeysAsync()
+        {
+            await _dialog.ShowMessageAsync("hotKeys", HotKeyContainer.Value.ToString());
+        }
+        public DelegateCommand ShowHotKeysCommand { get; }
+
+
         private IApplicationCommands _applicationCommands;
         public IApplicationCommands ApplicationCommands
         {
@@ -100,6 +107,7 @@ namespace UITest.ViewModels
             ShowSettingCommand = new DelegateCommand(async () => await ShowSettingAsync());
             ShowMenuCommand = new DelegateCommand(async () => await ShowMenuAsync());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
+            ShowHotKeysCommand = new DelegateCommand(async () => await ShowHotKeysAsync());
         }
     }
 }

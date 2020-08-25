@@ -20,6 +20,7 @@
     <WrapPanel Orientation="Vertical">
         <Button Width="100" Height="20" Command="{Binding ShowSettingCommand}" Content="設定を確認する" />
         <Button Width="100" Height="20" Command="{Binding ShowMenuCommand}" Content="現在のメニューを確認する" />
+        <Button Width="100" Height="20" Command="{Binding ShowHotKeysCommand}" Content="現在のホットキー" />
         <TextBlock Width="100" Text="メニューバー→" />
         <ContentControl Height="300" prism:RegionManager.RegionName="MenubarRegion" Background="Red" />
         <ContentControl Width="620" Height="350" prism:RegionManager.RegionName="ContentRegion" Background="Red" />
