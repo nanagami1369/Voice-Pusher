@@ -9,13 +9,13 @@
         Height="500"
         prism:ViewModelLocator.AutoWireViewModel="True">
     <Window.InputBindings>
-        <KeyBinding Command="{Binding ApplicationCommands.SetFocusCommand}" Gesture="Ctrl+F" />
-        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="0" Gesture="Alt+1" />
-        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="1" Gesture="Alt+2" />
-        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="2" Gesture="Alt+3" />
-        <KeyBinding Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="3" Gesture="Alt+4" />
-        <KeyBinding Command="{Binding ApplicationCommands.SpeakCommand}" Gesture="F5" />
-        <KeyBinding Command="{Binding ApplicationCommands.SaveCommand}" Gesture="Ctrl+S" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.SearchCharacter.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SetFocusCommand}" Modifiers="{Binding Path=HotKeyContainer.Value.SearchCharacter.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Menu1.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="0" Modifiers="{Binding Path=HotKeyContainer.Value.Menu1.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Menu2.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="1" Modifiers="{Binding Path=HotKeyContainer.Value.Menu2.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Menu3.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="2" Modifiers="{Binding Path=HotKeyContainer.Value.Menu3.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Menu4.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SelectMenuCommand}" CommandParameter="3" Modifiers="{Binding Path=HotKeyContainer.Value.Menu4.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Speak.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SpeakCommand}" Modifiers="{Binding Path=HotKeyContainer.Value.Speak.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
+        <KeyBinding Key="{Binding Path=HotKeyContainer.Value.Save.Key, UpdateSourceTrigger=PropertyChanged}" Command="{Binding ApplicationCommands.SaveCommand}" Modifiers="{Binding Path=HotKeyContainer.Value.Save.ModifierKeys, UpdateSourceTrigger=PropertyChanged}" />
     </Window.InputBindings>
     <WrapPanel Orientation="Vertical">
         <Button Width="100" Height="20" Command="{Binding ShowSettingCommand}" Content="設定を確認する" />
