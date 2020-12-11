@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using CommonLibrary;
 using CommonUILibrary.Models;
 using Prism.Commands;
 using Prism.Mvvm;

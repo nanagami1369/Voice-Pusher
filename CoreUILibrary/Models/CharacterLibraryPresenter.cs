@@ -108,7 +108,7 @@ namespace CoreUILibrary.Models
 
         public async Task LoadCharacterAsync()
         {
-            if (OriginalLibrary == null ||OriginalLibrary.Count == 0)
+            if (OriginalLibrary == null || OriginalLibrary.Count == 0)
             {
                 IsEnabled = false;
                 _statusSender.Send(StatusLevel.Log, "キャラクターの読込中しました");
