@@ -1,4 +1,3 @@
-using System;
 using CommonUILibrary.Models;
 using Prism.Regions;
 
