@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CommonLibrary;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
+using WinRT;
 
 namespace CommonUILibrary.Models
 {
@@ -12,7 +13,8 @@ namespace CommonUILibrary.Models
         public async Task ShowMessageAsync(string title, string message)
         {
             MessageDialog messageBox = new MessageDialog(message, title);
-            ((IInitializeWithWindow)(object)messageBox).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            var window = messageBox.As<IInitializeWithWindow>();
+            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
             await messageBox.ShowAsync();
         }
 
@@ -27,8 +29,8 @@ namespace CommonUILibrary.Models
             messageBox.Commands.Add(new UICommand(noButtonMessage, null, false));
             messageBox.DefaultCommandIndex = 1;
             messageBox.CancelCommandIndex = 1;
-            ((IInitializeWithWindow)(object)messageBox).Initialize(System.Diagnostics.Process.GetCurrentProcess()
-                .MainWindowHandle);
+            var window = messageBox.As<IInitializeWithWindow>();
+            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
             var selectedCommand = await messageBox.ShowAsync();
             var messageBoxResult = (bool)selectedCommand.Id;
             return messageBoxResult;
@@ -41,7 +43,8 @@ namespace CommonUILibrary.Models
                 SuggestedStartLocation = PickerLocationId.Desktop,
                 FileTypeFilter = { "*" },
             };
-            ((IInitializeWithWindow)(object)folderPicker).Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            var window = folderPicker.As<IInitializeWithWindow>();
+            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
             var folder = await folderPicker.PickSingleFolderAsync();
             if (folder == null)
             {
@@ -50,7 +53,6 @@ namespace CommonUILibrary.Models
             return folder.Path;
 
         }
-
 
         //UWP関連のAPIにウィンドウハンドルを伝えるのに使う。
         [ComImport]
