@@ -25,6 +25,7 @@ namespace CoreUILibrary
             containerRegistry.RegisterForNavigation<SettingEditorView>();
             containerRegistry.RegisterForNavigation<AboutView>();
             containerRegistry.RegisterForNavigation<UsedLibraryView>();
+            containerRegistry.RegisterForNavigation<HotKeyEditorView>();
         }
     }
 }

@@ -60,6 +60,7 @@ namespace UITest
             containerRegistry.Register<IUsedLibraryPresenter, UsedLibraryPresenter>();
             containerRegistry.Register<IHotKeyRegistry, HotKeyRegistry>();
             containerRegistry.RegisterSingleton<IHotKeyContainer, HotKeyContainer>();
+            containerRegistry.Register<IHotKeyPresenter, HotKeyPresenter>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();
