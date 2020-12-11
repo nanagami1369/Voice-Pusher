@@ -13,13 +13,16 @@ namespace SAP
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
+            var gateWay = containerProvider.Resolve<ICharacterLibraryGateway>();
+            gateWay.SetDefaultCharacters(
+                new Collection<Character>() { new SAPCharacter("Haruka", "はるか", new SAPVoiceActor("Microsoft Haruka", "ja-JP")) });
             var catalog = containerProvider.Resolve<IVoiceActorCatalog>();
             catalog.Register(VoiceActorCatalog);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.Register<ITryJsonToCharacterConverter, SAPTryJsonToCharacterConverter>(nameof(SAPTryJsonToCharacterConverter));
         }
 
         public static List<VoiceActor> VoiceActorCatalog => SpeechSynthesizer
