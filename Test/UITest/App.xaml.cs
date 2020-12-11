@@ -36,6 +36,10 @@ namespace UITest
                 new PartialCharacter("舞", "まい"),
                 new PartialCharacter("妖夢", "ようむ"),
             });
+            var hotKeyRegistry = Container.Resolve<IHotKeyRegistry>();
+            var hotkeys = hotKeyRegistry.Read(Config.HotKeyFileName, Config.ApplicationFileEncode);
+            var hotKeyContainer = Container.Resolve<IHotKeyContainer>();
+            hotKeyContainer.Value = hotkeys;
             return Container.Resolve<MainWindow>();
         }
 
@@ -51,6 +55,12 @@ namespace UITest
             containerRegistry.Register<IMenuContainerRegister, MenuContainer>();
             containerRegistry.Register<IMenuContainerReader, MenuContainer>();
             containerRegistry.Register<IMenuViewSelectable, MenuViewSelectable>();
+            containerRegistry.Register<IOtherMenuPresenter, OtherMenuPresenter>();
+            containerRegistry.Register<IOtherMenuViewSelectable, OtherMenuViewSelectable>();
+            containerRegistry.Register<IUsedLibraryPresenter, UsedLibraryPresenter>();
+            containerRegistry.Register<IHotKeyRegistry, HotKeyRegistry>();
+            containerRegistry.RegisterSingleton<IHotKeyContainer, HotKeyContainer>();
+            containerRegistry.Register<IHotKeyPresenter, HotKeyPresenter>();
             containerRegistry.Register<IDialog, Dialog>();
             containerRegistry.Register<ISpeaker, Speaker>();
             containerRegistry.Register<IRecorder, Recorder>();

@@ -23,6 +23,9 @@ namespace CoreUILibrary
             containerRegistry.RegisterForNavigation<NotSelectCharacterView>();
             containerRegistry.RegisterForNavigation<OtherMenuView>();
             containerRegistry.RegisterForNavigation<SettingEditorView>();
+            containerRegistry.RegisterForNavigation<AboutView>();
+            containerRegistry.RegisterForNavigation<UsedLibraryView>();
+            containerRegistry.RegisterForNavigation<HotKeyEditorView>();
         }
     }
 }

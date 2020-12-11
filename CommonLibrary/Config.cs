@@ -8,6 +8,8 @@ namespace CommonLibrary
         public static string Title = "Voice-Pusher";
         public static readonly string CharacterFileName = "Character.json";
         public static readonly string SettingFileName = "Setting.json";
+        public static readonly string HotKeyFileName = "keybindings.json";
+        public static readonly string UsedLibraryPath = "Licence\\Licence.json";
         public static readonly Encoding ApplicationFileEncode = new UTF8Encoding(false);
         public static readonly string CounterFileName = "count.bin";
 

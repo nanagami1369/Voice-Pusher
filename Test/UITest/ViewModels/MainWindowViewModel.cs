@@ -4,6 +4,7 @@ using CommonLibrary.Modules.MenuModule;
 using CommonLibrary.Modules.SettingModule;
 using CommonLibrary.Modules.StatusModule;
 using CommonUILibrary.Commands;
+using CommonUILibrary.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -73,6 +74,15 @@ namespace UITest.ViewModels
             }
         }
 
+        public IHotKeyContainer HotKeyContainer { get; }
+
+        private async Task ShowHotKeysAsync()
+        {
+            await _dialog.ShowMessageAsync("hotKeys", HotKeyContainer.Value.ToString());
+        }
+        public DelegateCommand ShowHotKeysCommand { get; }
+
+
         private IApplicationCommands _applicationCommands;
         public IApplicationCommands ApplicationCommands
         {
@@ -85,16 +95,19 @@ namespace UITest.ViewModels
             ISettingContainer settingManager,
             IDialog dialog,
             IMenuContainerReader menuContainer,
+            IHotKeyContainer hotKeyContainer,
             IApplicationCommands applicationCommands)
         {
             _statusSender = statusSender;
             _settingManager = settingManager;
             _dialog = dialog;
             _menuContainer = menuContainer;
+            HotKeyContainer = hotKeyContainer;
             ApplicationCommands = applicationCommands;
             ShowSettingCommand = new DelegateCommand(async () => await ShowSettingAsync());
             ShowMenuCommand = new DelegateCommand(async () => await ShowMenuAsync());
             ChangeStatusBarCommand = new DelegateCommand(ChangeStatusBar);
+            ShowHotKeysCommand = new DelegateCommand(async () => await ShowHotKeysAsync());
         }
     }
 }
