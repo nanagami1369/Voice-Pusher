@@ -7,8 +7,6 @@ namespace CoreUILibrary.Models
         private IOtherMenuViewSelectable _viewSelectable;
         public void SelectAboutView() => _viewSelectable.SelectAboutView();
 
-        public void SelectKeyboardShortcutView() => _viewSelectable.SelectKeyboardShortcutView();
-
         public void SelectSettingEditorView() => _viewSelectable.SelectSettingEditorView();
 
         public void SelectUsedLibraryView() => _viewSelectable.SelectUsedLibraryView();

@@ -12,11 +12,6 @@ namespace CommonUILibrary.ViewSelectable
             _regionManager.RequestNavigate("OtherContentRegion", "AboutView");
         }
 
-        public void SelectKeyboardShortcutView()
-        {
-            _regionManager.RequestNavigate("OtherContentRegion", "HotKeyEditorView");
-        }
-
         public void SelectSettingEditorView()
         {
             _regionManager.RequestNavigate("OtherContentRegion", "SettingEditorView");

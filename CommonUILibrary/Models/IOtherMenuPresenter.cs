@@ -4,7 +4,6 @@ namespace CommonUILibrary.Models
     {
         void ResetView();
         void SelectAboutView();
-        void SelectKeyboardShortcutView();
         void SelectSettingEditorView();
         void SelectUsedLibraryView();
     }
