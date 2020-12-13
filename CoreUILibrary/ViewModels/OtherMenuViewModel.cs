@@ -12,6 +12,8 @@ namespace CoreUILibrary.ViewModels
 
         public DelegateCommand SelectAboutViewCommand { get; }
 
+        public DelegateCommand SelectKeyboardShortcutViewCommand { get; }
+
         public DelegateCommand SelectSettingEditorViewCommand { get; }
 
         public DelegateCommand SelectUsedLibraryViewCommand { get; }
@@ -22,6 +24,7 @@ namespace CoreUILibrary.ViewModels
         {
             OtherMenu = otherMenu;
             SelectAboutViewCommand = new DelegateCommand(OtherMenu.SelectAboutView);
+            SelectKeyboardShortcutViewCommand = new DelegateCommand(OtherMenu.SelectKeyboardShortcutView);
             SelectSettingEditorViewCommand = new DelegateCommand(OtherMenu.SelectSettingEditorView);
             SelectUsedLibraryViewCommand = new DelegateCommand(OtherMenu.SelectUsedLibraryView);
             ResetViewCommand = new DelegateCommand(OtherMenu.ResetView);

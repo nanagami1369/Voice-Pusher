@@ -26,6 +26,7 @@
         </Grid.Resources>
         <StackPanel Grid.Column="0">
             <Button Command="{Binding SelectSettingEditorViewCommand}" Content="設定" />
+            <Button Command="{Binding SelectKeyboardShortcutViewCommand}" Content="キーボードショートカット" />
             <Button Command="{Binding SelectUsedLibraryViewCommand}" Content="使用ライブラリー" />
             <Button Command="{Binding SelectAboutViewCommand}" Content="{Binding Title, Mode=OneTime}" ContentStringFormat="{}{0}について" />
         </StackPanel>

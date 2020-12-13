@@ -18,8 +18,7 @@ namespace CommonLibrary
                 new MenuItem("ボイスエディタ","CharacterLibraryView", "VolumeUp"),
                 new MenuItem("キャラクタエディタ","CharacterLibraryView", "AddressBook"),
                 new MenuItem("台本エディタ",string.Empty, "FileAlt"),
-                new MenuItem("設定","OtherMenuView", "Cog"),
-                new MenuItem("キーボード設定","HotKeyEditorView","Keyboard")
+                new MenuItem("設定","OtherMenuView", "Cog")
         };
     }
 }
