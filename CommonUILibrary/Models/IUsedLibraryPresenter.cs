@@ -10,6 +10,6 @@ namespace CommonUILibrary.Models
 
         Task ReadAsync();
 
-        void OpenLicence(string path);
+        void OpenLicense(string path);
     }
 }

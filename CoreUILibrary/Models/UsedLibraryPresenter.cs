@@ -49,7 +49,7 @@ namespace CoreUILibrary.Models
             }
         }
 
-        public void OpenLicence(string path)
+        public void OpenLicense(string path)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {

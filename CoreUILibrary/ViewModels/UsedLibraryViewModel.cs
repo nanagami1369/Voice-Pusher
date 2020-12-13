@@ -8,15 +8,15 @@ namespace CoreUILibrary.ViewModels
     {
         public IUsedLibraryPresenter UsedLibrary { get; }
 
-        public DelegateCommand<string> OpenLicenceCommand { get; }
-        public DelegateCommand ReadLicenceCommand { get; }
+        public DelegateCommand<string> OpenLicenseCommand { get; }
+        public DelegateCommand ReadLicenseCommand { get; }
 
 
         public UsedLibraryViewModel(IUsedLibraryPresenter usedLibrary)
         {
             UsedLibrary = usedLibrary;
-            OpenLicenceCommand = new DelegateCommand<string>(UsedLibrary.OpenLicence);
-            ReadLicenceCommand = new DelegateCommand(async () => { await UsedLibrary.ReadAsync(); });
+            OpenLicenseCommand = new DelegateCommand<string>(UsedLibrary.OpenLicense);
+            ReadLicenseCommand = new DelegateCommand(async () => { await UsedLibrary.ReadAsync(); });
         }
     }
 }
