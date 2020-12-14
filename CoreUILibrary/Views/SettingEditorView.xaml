@@ -7,11 +7,12 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
+             d:Background="White"
              d:DesignHeight="800"
              d:DesignWidth="200"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <ScrollViewer Background="White">
+    <ScrollViewer>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="Loaded">
                 <i:InvokeCommandAction Command="{Binding LoadSettingCommand}" />
@@ -21,7 +22,7 @@
             <c:ScriptOutputModeToStringConverter x:Key="ScriptOutputModeStringConverter" />
             <ControlTemplate x:Key="ValidationTemplate">
                 <StackPanel>
-                    <TextBlock Background="White" FontSize="16" Foreground="Red" Text="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedelem}" />
+                    <TextBlock FontSize="16" Foreground="Red" Text="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedelem}" />
                     <AdornedElementPlaceholder x:Name="adornedelem" />
                 </StackPanel>
             </ControlTemplate>
