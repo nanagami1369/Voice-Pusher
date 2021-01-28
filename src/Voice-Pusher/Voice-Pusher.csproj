@@ -11,6 +11,7 @@
     <RootNamespace>Voice_Pusher</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.3" />
     <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
   </ItemGroup>
 </Project>
