@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <Authors>nasi nanagami</Authors>
+    <Platforms>x86</Platforms>
+    <Copyright>Copyright (c) 2021 nanagami</Copyright>
+    <AssemblyName>Voice-Pusher</AssemblyName>
+    <RootNamespace>Voice_Pusher</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+  </ItemGroup>
+</Project>
