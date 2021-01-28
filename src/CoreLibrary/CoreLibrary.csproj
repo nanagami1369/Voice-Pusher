@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Authors>nasi nanagami</Authors>
+    <Platforms>x86</Platforms>
+    <Copyright>Copyright (c) 2021 nanagami</Copyright>
+  </PropertyGroup>
+
+</Project>
