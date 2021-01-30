@@ -20,7 +20,7 @@
             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </i:EventTrigger>
         <i:EventTrigger EventName="Unloaded">
-            <i:InvokeCommandAction Command="{Binding UnLoadedCommand}" />
+            <i:InvokeCommandAction Command="{Binding UnloadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -73,8 +73,10 @@
     </controls:MetroWindow.Resources>
     <controls:HamburgerMenu DisplayMode="CompactOverlay"
                             IsPaneOpen="False"
+                            ItemCommand="{Binding MenuItemInvokedCommand}"
                             ItemContainerStyle="{StaticResource HumbergerMenuStyle}"
                             ItemsSource="{Binding MenuItems}"
+                            OptionsItemCommand="{Binding ButtomMenuItemInvokedCommand}"
                             OptionsItemContainerStyle="{StaticResource HumbergerMenuStyle}"
                             OptionsItemsSource="{Binding ButtomMenuItems}"
                             PaneBackground="Azure"
@@ -87,10 +89,7 @@
             </Style>
         </controls:HamburgerMenu.Style>
         <controls:HamburgerMenu.Content>
-            <Grid d:Background="Pink">
-                <TextBlock Text="{Binding Path=SelectedMenuItem.Name}" />
-                <TextBlock Text="{Binding Path=SelectedButtomMenuItem.Name}" />
-            </Grid>
+            <ContentControl x:Name="HamburgerMenuContentAria" d:Background="Pink" />
         </controls:HamburgerMenu.Content>
     </controls:HamburgerMenu>
 </controls:MetroWindow>

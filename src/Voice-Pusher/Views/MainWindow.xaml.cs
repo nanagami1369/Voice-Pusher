@@ -1,4 +1,6 @@
 using MahApps.Metro.Controls;
+using Prism.Regions;
+using Voice_Pusher.Model;
 
 namespace Voice_Pusher.Views
 {
@@ -7,9 +9,11 @@ namespace Voice_Pusher.Views
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
+            RegionManager.SetRegionName(HamburgerMenuContentAria, Regions.Main);
+            RegionManager.SetRegionManager(HamburgerMenuContentAria, regionManager);
         }
     }
 }
