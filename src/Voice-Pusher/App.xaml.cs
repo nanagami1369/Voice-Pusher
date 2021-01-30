@@ -1,11 +1,13 @@
-﻿using Prism.Ioc;
 using System.Windows;
+using Prism.Ioc;
+using Voice_Pusher.Model;
+using Voice_Pusher.ViewModels;
 using Voice_Pusher.Views;
 
 namespace Voice_Pusher
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App
     {
@@ -16,7 +18,11 @@ namespace Voice_Pusher
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<VoiceEditorPage, VoiceEditorViewModel>(PageKeys.VoiceEditor);
+            containerRegistry.RegisterForNavigation<CharacterEditorPage, CharacterEditorViewModel>(
+                PageKeys.CharacterEditor);
+            containerRegistry
+                .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
         }
     }
 }

@@ -5,20 +5,9 @@ using CoreLibrary;
 
 namespace JsonRepositoryTest
 {
-    class Program
+    internal class Program
     {
-        class TestUser
-        {
-            public TestUser(string name, DateTime birthday)
-            {
-                Name = name;
-                Birthday = birthday;
-            }
-
-            public string Name { get; set; }
-            public DateTime Birthday { get; set; }
-        }
-        static async Task Main()
+        private static async Task Main()
         {
             const string testFileName = "Test.Json";
             FileRepository<TestUser> r = new JsonRepository<TestUser>(testFileName);
@@ -27,12 +16,25 @@ namespace JsonRepositoryTest
             {
                 File.Delete(r.FullPath);
             }
+
             // 書き込み テスト
             await r.WriterAsync(new TestUser("中田", new DateTime(2000, 7, 21)));
             // 読み込み テスト
             var readTestUser = await r.ReadAsync();
             Console.WriteLine("test ok");
             Console.WriteLine($"TestUser : {{{readTestUser.Name}}} {{{readTestUser.Birthday:yyyy/MM/dd}}}");
+        }
+
+        private class TestUser
+        {
+            public TestUser(string name, DateTime birthday)
+            {
+                Name = name;
+                Birthday = birthday;
+            }
+
+            public string Name { get; }
+            public DateTime Birthday { get; }
         }
     }
 }
