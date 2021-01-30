@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
@@ -11,6 +11,7 @@
     <RootNamespace>Voice_Pusher</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.0.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.3" />
     <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
   </ItemGroup>
