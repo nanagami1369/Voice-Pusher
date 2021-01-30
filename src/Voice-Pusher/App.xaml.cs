@@ -1,4 +1,5 @@
 using System.Windows;
+using CoreLibrary;
 using Prism.Ioc;
 using Voice_Pusher.Model;
 using Voice_Pusher.ViewModels;
@@ -23,6 +24,7 @@ namespace Voice_Pusher
                 PageKeys.CharacterEditor);
             containerRegistry
                 .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
+            containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
         }
     }
 }
