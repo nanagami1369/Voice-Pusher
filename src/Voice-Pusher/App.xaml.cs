@@ -1,5 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using Prism.Ioc;
+using Voice_Pusher.Model;
+using Voice_Pusher.ViewModels;
 using Voice_Pusher.Views;
 
 namespace Voice_Pusher
@@ -16,6 +18,7 @@ namespace Voice_Pusher
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<VoiceEditorPage, VoiceEditorViewModel>(PageKeys.VoiceEditor);
         }
     }
 }

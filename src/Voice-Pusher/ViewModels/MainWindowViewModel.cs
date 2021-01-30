@@ -1,5 +1,6 @@
 using System.Linq;
 using Prism.Mvvm;
+using Voice_Pusher.Model;
 
 namespace Voice_Pusher.ViewModels
 {
@@ -36,7 +37,7 @@ namespace Voice_Pusher.ViewModels
 
         public HamburgerMenuItem[] MenuItems { get; } =
         {
-            new("ボイスエディタ", "", "VolumeUp"),
+            new("ボイスエディタ", PageKeys.VoiceEditor, "VolumeUp"),
             new("キャラクタエディタ", "", "AddressBook")
         };
 
