@@ -41,6 +41,6 @@ namespace Voice_Pusher.ViewModels
             new("キャラクタエディタ", PageKeys.CharacterEditor, "AddressBook")
         };
 
-        public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", "", "Cog")};
+        public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", PageKeys.SettingEditor, "Cog")};
     }
 }

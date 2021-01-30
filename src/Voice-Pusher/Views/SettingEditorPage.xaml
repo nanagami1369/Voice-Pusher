@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Voice_Pusher.Views.SettingEditorPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:viewmodel="clr-namespace:Voice_Pusher.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodel:SettingEditorViewModel}"
+             d:DesignHeight="200"
+             d:DesignWidth="40"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
+
+    <Grid>
+        <Label Content="設定" />
+    </Grid>
+</UserControl>

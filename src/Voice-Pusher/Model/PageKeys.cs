@@ -4,5 +4,6 @@ namespace Voice_Pusher.Model
     {
         public static string VoiceEditor { get; } = "VoiceEditor";
         public static string CharacterEditor { get; } = "CharacterEditor";
+        public static string SettingEditor { get; } = "SettingEditor";
     }
 }

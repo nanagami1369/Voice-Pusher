@@ -21,6 +21,8 @@ namespace Voice_Pusher
             containerRegistry.RegisterForNavigation<VoiceEditorPage, VoiceEditorViewModel>(PageKeys.VoiceEditor);
             containerRegistry.RegisterForNavigation<CharacterEditorPage, CharacterEditorViewModel>(
                 PageKeys.CharacterEditor);
+            containerRegistry
+                .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
         }
     }
 }
