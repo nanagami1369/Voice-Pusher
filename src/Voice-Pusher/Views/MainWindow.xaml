@@ -28,9 +28,11 @@
         <KeyBinding Key="D1" Command="{Binding MenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=MenuItems[0].PageKey}" Modifiers="Alt" />
         <KeyBinding Key="D2" Command="{Binding MenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=MenuItems[1].PageKey}" Modifiers="Alt" />
         <KeyBinding Key="OemComma" Command="{Binding ButtomMenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=ButtomMenuItems[0].PageKey}" Modifiers="Ctrl" />
+        <KeyBinding Key="OemComma" Command="{Binding ChangeIsDebugViewCommand}" CommandParameter="{Binding Path=ButtomMenuItems[0].PageKey}" Modifiers="Ctrl+Shift+Alt" />
     </controls:MetroWindow.InputBindings>
     <controls:MetroWindow.Resources>
         <c:StringFontAwesomeIconConverter x:Key="StringFontAwesomeIconConverter" />
+        <BooleanToVisibilityConverter x:Key="BoolVisibilityConverter" />
         <Style x:Key="HumbergerMenuStyle" TargetType="{x:Type ListBoxItem}">
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="ToolTip" Value="{Binding Name}" />
@@ -81,6 +83,7 @@
             <RowDefinition />
             <RowDefinition Height="23" />
         </Grid.RowDefinitions>
+        <local:DebugView Panel.ZIndex="100" Visibility="{Binding Path=DataContext.IsDebugView, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource BoolVisibilityConverter}}" />
         <controls:HamburgerMenu Grid.Row="0"
                                 DisplayMode="CompactOverlay"
                                 IsPaneOpen="False"

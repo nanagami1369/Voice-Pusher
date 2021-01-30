@@ -9,6 +9,8 @@ namespace Voice_Pusher.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        private bool _isDebugView;
+
         private HamburgerMenuItem? _selectedButtomMenuItem;
         private HamburgerMenuItem? _selectedMenuItem;
         private string _title = "Prism Application";
@@ -24,7 +26,16 @@ namespace Voice_Pusher.ViewModels
             ButtomMenuItemInvokedCommand = new DelegateCommand(ButtomMenuItemInvoked);
             MenuItemKeyInvokedCommand = new DelegateCommand<string?>(MenuItemKeyInvoked);
             ButtomMenuItemKeyInvokedCommand = new DelegateCommand<string?>(ButtomMenuItemKeyInvoked);
+            ChangeIsDebugViewCommand = new DelegateCommand(ChangeIsDebugView);
         }
+
+        public bool IsDebugView
+        {
+            get => _isDebugView;
+            set => SetProperty(ref _isDebugView, value);
+        }
+
+        public DelegateCommand ChangeIsDebugViewCommand { get; }
 
         private IRegionNavigationService? _navigationService { get; set; }
         private IRegionManager _regionManager { get; }
@@ -64,6 +75,11 @@ namespace Voice_Pusher.ViewModels
         };
 
         public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", PageKeys.SettingEditor, "Cog")};
+
+        private void ChangeIsDebugView()
+        {
+            IsDebugView = !IsDebugView;
+        }
 
         public void MenuItemKeyInvoked(string? pageKey)
         {
