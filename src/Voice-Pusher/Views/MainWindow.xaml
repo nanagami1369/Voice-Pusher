@@ -6,6 +6,7 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:fa="http://schemas.fontawesome.com/icons/"
                       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                      xmlns:local="clr-namespace:Voice_Pusher.Views"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:prism="http://prismlibrary.com/"
                       xmlns:viewmodels="clr-namespace:Voice_Pusher.ViewModels"
@@ -75,25 +76,33 @@
             </Setter>
         </Style>
     </controls:MetroWindow.Resources>
-    <controls:HamburgerMenu DisplayMode="CompactOverlay"
-                            IsPaneOpen="False"
-                            ItemCommand="{Binding MenuItemInvokedCommand}"
-                            ItemContainerStyle="{StaticResource HumbergerMenuStyle}"
-                            ItemsSource="{Binding MenuItems}"
-                            OptionsItemCommand="{Binding ButtomMenuItemInvokedCommand}"
-                            OptionsItemContainerStyle="{StaticResource HumbergerMenuStyle}"
-                            OptionsItemsSource="{Binding ButtomMenuItems}"
-                            PaneBackground="Azure"
-                            PaneForeground="#393939"
-                            SelectedItem="{Binding SelectedMenuItem}"
-                            SelectedOptionsItem="{Binding SelectedButtomMenuItem}">
-        <controls:HamburgerMenu.Style>
-            <Style TargetType="{x:Type controls:HamburgerMenu}">
-                <Setter Property="IsTabStop" Value="False" />
-            </Style>
-        </controls:HamburgerMenu.Style>
-        <controls:HamburgerMenu.Content>
-            <ContentControl x:Name="HamburgerMenuContentAria" d:Background="Pink" />
-        </controls:HamburgerMenu.Content>
-    </controls:HamburgerMenu>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="23" />
+        </Grid.RowDefinitions>
+        <controls:HamburgerMenu Grid.Row="0"
+                                DisplayMode="CompactOverlay"
+                                IsPaneOpen="False"
+                                ItemCommand="{Binding MenuItemInvokedCommand}"
+                                ItemContainerStyle="{StaticResource HumbergerMenuStyle}"
+                                ItemsSource="{Binding MenuItems}"
+                                OptionsItemCommand="{Binding ButtomMenuItemInvokedCommand}"
+                                OptionsItemContainerStyle="{StaticResource HumbergerMenuStyle}"
+                                OptionsItemsSource="{Binding ButtomMenuItems}"
+                                PaneBackground="Azure"
+                                PaneForeground="#393939"
+                                SelectedItem="{Binding SelectedMenuItem}"
+                                SelectedOptionsItem="{Binding SelectedButtomMenuItem}">
+            <controls:HamburgerMenu.Style>
+                <Style TargetType="{x:Type controls:HamburgerMenu}">
+                    <Setter Property="IsTabStop" Value="False" />
+                </Style>
+            </controls:HamburgerMenu.Style>
+            <controls:HamburgerMenu.Content>
+                <ContentControl x:Name="HamburgerMenuContentAria" d:Background="Pink" />
+            </controls:HamburgerMenu.Content>
+        </controls:HamburgerMenu>
+        <local:StatusBarControl Grid.Row="1" DataContext="{Binding Container}" />
+    </Grid>
 </controls:MetroWindow>
