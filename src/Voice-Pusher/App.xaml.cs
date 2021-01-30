@@ -19,6 +19,8 @@ namespace Voice_Pusher
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<VoiceEditorPage, VoiceEditorViewModel>(PageKeys.VoiceEditor);
+            containerRegistry.RegisterForNavigation<CharacterEditorPage, CharacterEditorViewModel>(
+                PageKeys.CharacterEditor);
         }
     }
 }

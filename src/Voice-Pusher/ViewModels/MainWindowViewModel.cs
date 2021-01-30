@@ -38,7 +38,7 @@ namespace Voice_Pusher.ViewModels
         public HamburgerMenuItem[] MenuItems { get; } =
         {
             new("ボイスエディタ", PageKeys.VoiceEditor, "VolumeUp"),
-            new("キャラクタエディタ", "", "AddressBook")
+            new("キャラクタエディタ", PageKeys.CharacterEditor, "AddressBook")
         };
 
         public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", "", "Cog")};
