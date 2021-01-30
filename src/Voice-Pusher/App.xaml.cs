@@ -1,11 +1,11 @@
-﻿using Prism.Ioc;
-using System.Windows;
+﻿using System.Windows;
+using Prism.Ioc;
 using Voice_Pusher.Views;
 
 namespace Voice_Pusher
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    ///     Interaction logic for App.xaml
     /// </summary>
     public partial class App
     {
@@ -16,7 +16,6 @@ namespace Voice_Pusher
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
         }
     }
 }

@@ -1,10 +1,9 @@
-using System.Windows;
 using MahApps.Metro.Controls;
 
 namespace Voice_Pusher.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
