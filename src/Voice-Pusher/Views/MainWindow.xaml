@@ -23,7 +23,11 @@
             <i:InvokeCommandAction Command="{Binding UnloadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
+    <controls:MetroWindow.InputBindings>
+        <KeyBinding Key="D1" Command="{Binding MenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=MenuItems[0].PageKey}" Modifiers="Alt" />
+        <KeyBinding Key="D2" Command="{Binding MenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=MenuItems[1].PageKey}" Modifiers="Alt" />
+        <KeyBinding Key="OemComma" Command="{Binding ButtomMenuItemKeyInvokedCommand}" CommandParameter="{Binding Path=ButtomMenuItems[0].PageKey}" Modifiers="Ctrl" />
+    </controls:MetroWindow.InputBindings>
     <controls:MetroWindow.Resources>
         <c:StringFontAwesomeIconConverter x:Key="StringFontAwesomeIconConverter" />
         <Style x:Key="HumbergerMenuStyle" TargetType="{x:Type ListBoxItem}">

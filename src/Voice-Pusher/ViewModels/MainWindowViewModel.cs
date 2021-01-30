@@ -21,6 +21,8 @@ namespace Voice_Pusher.ViewModels
             UnloadedCommand = new DelegateCommand(Unloaded);
             MenuItemInvokedCommand = new DelegateCommand(MenuItemInvoked);
             ButtomMenuItemInvokedCommand = new DelegateCommand(ButtomMenuItemInvoked);
+            MenuItemKeyInvokedCommand = new DelegateCommand<string?>(MenuItemKeyInvoked);
+            ButtomMenuItemKeyInvokedCommand = new DelegateCommand<string?>(ButtomMenuItemKeyInvoked);
         }
 
         private IRegionNavigationService? _navigationService { get; set; }
@@ -32,7 +34,8 @@ namespace Voice_Pusher.ViewModels
         public DelegateCommand MenuItemInvokedCommand { get; }
 
         public DelegateCommand ButtomMenuItemInvokedCommand { get; }
-
+        public DelegateCommand<string?> MenuItemKeyInvokedCommand { get; }
+        public DelegateCommand<string?> ButtomMenuItemKeyInvokedCommand { get; }
 
         public HamburgerMenuItem? SelectedMenuItem
         {
@@ -59,6 +62,40 @@ namespace Voice_Pusher.ViewModels
         };
 
         public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", PageKeys.SettingEditor, "Cog")};
+
+        public void MenuItemKeyInvoked(string? pageKey)
+        {
+            if (pageKey is null)
+            {
+                return;
+            }
+
+            var menuItem = MenuItems.FirstOrDefault(i => i.PageKey == pageKey);
+            if (menuItem is null)
+            {
+                return;
+            }
+
+            SelectedMenuItem = menuItem;
+            SelectedButtomMenuItem = null;
+        }
+
+        public void ButtomMenuItemKeyInvoked(string? pageKey)
+        {
+            if (pageKey is null)
+            {
+                return;
+            }
+
+            var menuItem = ButtomMenuItems.FirstOrDefault(i => i.PageKey == pageKey);
+            if (menuItem is null)
+            {
+                return;
+            }
+
+            SelectedMenuItem = null;
+            SelectedButtomMenuItem = menuItem;
+        }
 
         private void Loaded()
         {
