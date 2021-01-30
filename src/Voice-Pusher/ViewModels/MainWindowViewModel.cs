@@ -64,7 +64,8 @@ namespace Voice_Pusher.ViewModels
         {
             _navigationService = _regionManager.Regions[Regions.Main].NavigationService;
             _navigationService.Navigated += OnNavigated;
-            SelectedMenuItem = MenuItems.First();
+            // MainAriaの初期化
+            MenuItemInvoked();
         }
 
         private void Unloaded()
