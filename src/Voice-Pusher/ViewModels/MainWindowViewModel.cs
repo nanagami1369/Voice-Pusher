@@ -34,8 +34,12 @@ namespace Voice_Pusher.ViewModels
             set => SetProperty(ref _title, value);
         }
 
-        public HamburgerMenuItem[] MenuItems { get; } = {new("ボイスエディタ", "VolumeUp"), new("キャラクタエディタ", "AddressBook")};
+        public HamburgerMenuItem[] MenuItems { get; } =
+        {
+            new("ボイスエディタ", "", "VolumeUp"),
+            new("キャラクタエディタ", "", "AddressBook")
+        };
 
-        public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", "Cog")};
+        public HamburgerMenuItem[] ButtomMenuItems { get; } = {new("設定", "", "Cog")};
     }
 }
