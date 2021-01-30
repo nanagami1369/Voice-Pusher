@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Voice_Pusher.Views.StatusBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:Voice_Pusher.Views.Converter"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:CoreLibrary;assembly=CoreLibrary"
+             d:DataContext="{d:DesignInstance Type=viewmodel:DataContainer}"
+             d:DesignHeight="200"
+             d:DesignWidth="40"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <c:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    </UserControl.Resources>
+    <StatusBar Name="StatusBar">
+        <StatusBar.ToolTip>
+            <TextBlock>
+                <Run FontWeight="Bold" Foreground="{Binding Path=CurrentStatus.Level.ColorCode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=CurrentStatus.Level.Text, StringFormat=【{0}】, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                <Run Text="{Binding Path=CurrentStatus.Message, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+            </TextBlock>
+        </StatusBar.ToolTip>
+        <StatusBarItem>
+            <TextBlock>
+                <Run FontWeight="Bold" Foreground="{Binding Path=CurrentStatus.Level.ColorCode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="{Binding Path=CurrentStatus.Level.Text, StringFormat=【{0}】, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                <Run Text="{Binding Path=CurrentStatus.Message, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+            </TextBlock>
+        </StatusBarItem>
+    </StatusBar>
+</UserControl>
