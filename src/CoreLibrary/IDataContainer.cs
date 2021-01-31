@@ -1,3 +1,4 @@
+using CoreLibrary.SettingModels;
 using CoreLibrary.StatusModels;
 
 namespace CoreLibrary
@@ -5,5 +6,6 @@ namespace CoreLibrary
     public interface IDataContainer
     {
         public Status? CurrentStatus { get; set; }
+        public Settings Setting { get; set; }
     }
 }
