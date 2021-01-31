@@ -9,10 +9,7 @@ namespace SettingsTest
         [Fact]
         public void ファイルパスが存在する場合にファイルパスを返すか()
         {
-            var settings = new Settings
-            {
-                OutputDirectoryPath = @"C:\"
-            };
+            var settings = new Settings {OutputDirectoryPath = @"C:\"};
             Assert.Equal(@"C:\", settings.OutputDirectoryPath);
         }
 
@@ -20,10 +17,7 @@ namespace SettingsTest
         public void ファイルパスが存在しない場合にディスクトップのパスを返すか()
         {
             var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            var settings = new Settings
-            {
-                OutputDirectoryPath = @""
-            };
+            var settings = new Settings {OutputDirectoryPath = @""};
             Assert.Equal(desktopPath, settings.OutputDirectoryPath);
         }
     }
