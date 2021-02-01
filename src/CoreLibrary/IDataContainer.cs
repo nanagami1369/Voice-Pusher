@@ -7,5 +7,7 @@ namespace CoreLibrary
     {
         public Status? CurrentStatus { get; set; }
         public Settings Setting { get; set; }
+
+        public ICounter Counter { get; }
     }
 }

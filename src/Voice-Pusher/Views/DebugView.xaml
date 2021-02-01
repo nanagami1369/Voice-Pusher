@@ -57,6 +57,13 @@
             <TextBlock>
                 <Run Text="命名規則=" /><Run Text="{Binding Path=Container.Setting.NameScript}" />
             </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="カウンタ" />
+                <Button Command="{Binding Path=Container.Counter.IncrementCommand}" Content="インクリメント" />
+            </StackPanel>
+            <TextBlock>
+                <Run Text="カウント=" /><Run Text="{Binding Path=Container.Counter.Count, Mode=OneWay, FallbackValue=無し}" />
+            </TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

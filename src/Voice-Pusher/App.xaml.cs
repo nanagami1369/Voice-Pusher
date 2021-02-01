@@ -2,6 +2,8 @@ using System.IO;
 using System.Windows;
 using CoreLibrary;
 using CoreLibrary.SettingModels;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Prism.Ioc;
 using Voice_Pusher.Model;
 using Voice_Pusher.ViewModels;
@@ -15,6 +17,7 @@ namespace Voice_Pusher
     public partial class App
     {
         public Settings? InitialSettings { get; set; }
+        public int InitialCounter { get; set; }
 
         protected override Window CreateShell()
         {
@@ -30,6 +33,7 @@ namespace Voice_Pusher
             }
 
             container.Setting = InitialSettings;
+            container.Counter.Init(InitialCounter);
             base.OnInitialized();
         }
 
@@ -43,20 +47,35 @@ namespace Voice_Pusher
             containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
         }
 
+        private async Task<T> FileRead<T>(string fileName, T defaultItem)
+        {
+            var repository = new JsonRepository<T>(fileName);
+            try
+            {
+                if (File.Exists(repository.FullPath))
+                {
+                    return await repository.ReadAsync();
+                }
+                return defaultItem;
+            }
+            catch (JsonReaderException)
+            {
+                return defaultItem;
+            }
+        }
+
         protected override async void OnStartup(StartupEventArgs e)
         {
-            var repository = new JsonRepository<Settings>(Config.SettingFileName);
-            if (File.Exists(repository.FullPath))
-            {
-                InitialSettings = await repository.ReadAsync();
-            }
-            else
-            {
-                InitialSettings = new Settings();
-                await repository.WriterAsync(new Settings());
-            }
-
+            InitialSettings = await FileRead(Config.SettingFileName, new Settings());
+            InitialCounter = await FileRead(Config.CounterFileName, 0);
             base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            var container = Container.Resolve<IDataContainer>();
+            container.Counter.Dispose();
+            base.OnExit(e);
         }
     }
 }

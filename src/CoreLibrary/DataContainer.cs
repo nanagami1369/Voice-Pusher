@@ -14,5 +14,7 @@ namespace CoreLibrary
             set => SetProperty(ref _currentStatus, value);
         }
         public Settings Setting { get; set; } = new();
+
+        public ICounter Counter { get; } = new Counter();
     }
 }

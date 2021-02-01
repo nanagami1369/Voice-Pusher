@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace CoreLibrary
 {
-    public class JsonRepository<T> : FileRepository<T>, IRepository<T> where T : class
+    public class JsonRepository<T> : FileRepository<T>, IRepository<T>
     {
         private static readonly SemaphoreSlim _semaphoreSlim = new(1, 1);
 

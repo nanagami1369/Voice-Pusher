@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CoreLibrary
 {
-    public abstract class FileRepository<T> : IRepository<T> where T : class
+    public abstract class FileRepository<T> : IRepository<T>
     {
         public FileRepository(string fileName)
         {
