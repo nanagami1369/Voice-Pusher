@@ -1,8 +1,8 @@
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using CoreLibrary;
 using CoreLibrary.SettingModels;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Prism.Ioc;
 using Voice_Pusher.Model;
@@ -56,6 +56,7 @@ namespace Voice_Pusher
                 {
                     return await repository.ReadAsync();
                 }
+
                 return defaultItem;
             }
             catch (JsonReaderException)
