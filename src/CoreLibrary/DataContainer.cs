@@ -12,5 +12,7 @@ namespace CoreLibrary
             get => _currentStatus;
             set => SetProperty(ref _currentStatus, value);
         }
+
+        public ICounter Counter { get; } = new Counter();
     }
 }
