@@ -13,7 +13,12 @@ namespace CoreLibrary
             get => _currentStatus;
             set => SetProperty(ref _currentStatus, value);
         }
-        public Settings Setting { get; set; } = new();
+        private Settings _settings = new();
+        public Settings Setting
+        {
+            get => _settings;
+            set => SetProperty(ref _settings, value);
+        }
 
         public ICounter Counter { get; } = new Counter();
     }
