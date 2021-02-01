@@ -1,5 +1,8 @@
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using CoreLibrary;
+using Newtonsoft.Json;
 using Prism.Ioc;
 using Voice_Pusher.Model;
 using Voice_Pusher.ViewModels;
@@ -12,9 +15,18 @@ namespace Voice_Pusher
     /// </summary>
     public partial class App
     {
+        public int InitialCounter { get; set; }
+
         protected override Window CreateShell()
         {
             return Container.Resolve<MainWindow>();
+        }
+
+        protected override void OnInitialized()
+        {
+            var container = Container.Resolve<IDataContainer>();
+            container.Counter.Init(InitialCounter);
+            base.OnInitialized();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -25,6 +37,37 @@ namespace Voice_Pusher
             containerRegistry
                 .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
             containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
+        }
+
+        private async Task<T> FileRead<T>(string fileName, T defaultItem)
+        {
+            var repository = new JsonRepository<T>(fileName);
+            try
+            {
+                if (File.Exists(repository.FullPath))
+                {
+                    return await repository.ReadAsync();
+                }
+
+                return defaultItem;
+            }
+            catch (JsonReaderException)
+            {
+                return defaultItem;
+            }
+        }
+
+        protected override async void OnStartup(StartupEventArgs e)
+        {
+            InitialCounter = await FileRead(Config.CounterFileName, 0);
+            base.OnStartup(e);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            var container = Container.Resolve<IDataContainer>();
+            container.Counter.Dispose();
+            base.OnExit(e);
         }
     }
 }
