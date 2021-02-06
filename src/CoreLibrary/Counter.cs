@@ -106,11 +106,12 @@ namespace CoreLibrary
                     {
                         _count = await Repository.ReadAsync();
                         RaisePropertyChanged(nameof(Count));
+                        return;
                     }
                     catch (JsonReaderException) { }
                     catch (IOException exception)
                     {
-                        if (exception.HResult != -2147024864)
+                        if (!exception.Message.Contains("used by another process"))
                         {
                             throw;
                         }
