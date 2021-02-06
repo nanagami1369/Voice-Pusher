@@ -26,7 +26,13 @@
                         </Grid>
                         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
                         <Label Content="出力時に使用する文字コード" />
-                        <ComboBox />
+                        <ComboBox ItemsSource="{Binding EncodingList, Mode=OneTime}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding EncodingName, Mode=OneTime}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                         <Label Content="命名規則" />
                         <TextBlock>
                             <Run Text="テスト→" />
