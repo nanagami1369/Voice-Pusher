@@ -10,8 +10,44 @@
              d:DesignWidth="40"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-
-    <Grid>
-        <Label Content="設定" />
-    </Grid>
+    <ScrollViewer d:Background="Pink">
+        <StackPanel>
+            <Expander Header="設定" IsExpanded="True">
+                <Expander Header="出力設定" IsExpanded="True">
+                    <StackPanel>
+                        <Label Content="出力するフォルダ" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="27" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" Grid.Column="0" BorderThickness="0" IsReadOnly="True" Text="%HOME%\Desktop" />
+                            <Button Grid.Row="0" Grid.Column="1" Width="27" Height="27" HorizontalAlignment="Right" Content="📂" />
+                        </Grid>
+                        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
+                        <Label Content="出力時に使用する文字コード" />
+                        <ComboBox />
+                        <Label Content="命名規則" />
+                        <TextBlock>
+                            <Run Text="テスト→" />
+                            <Run Text="{}{Number}_{Name}_{Script}" />
+                        </TextBlock>
+                        <WrapPanel>
+                            <Button CommandParameter="{}{Number}" Content="連番" />
+                            <Button CommandParameter="{}{Name}" Content="名前" />
+                            <Button CommandParameter="{}{Script}" Content="台本" />
+                            <Button CommandParameter="{}{VoiceActorName}" Content="声優" />
+                            <Button CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
+                            <Button CommandParameter="{}{yyyy}" Content="年" />
+                            <Button CommandParameter="{}{MM}" Content="月" />
+                            <Button CommandParameter="{}{dd}" Content="日" />
+                            <Button CommandParameter="{}{HH}" Content="時" />
+                            <Button CommandParameter="{}{mm}" Content="分" />
+                            <Button CommandParameter="{}{ss}" Content="秒" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Expander>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
