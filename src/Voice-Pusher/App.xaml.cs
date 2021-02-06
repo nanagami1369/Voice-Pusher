@@ -43,7 +43,7 @@ namespace Voice_Pusher
             containerRegistry.RegisterForNavigation<CharacterEditorPage, CharacterEditorViewModel>(
                 PageKeys.CharacterEditor);
             containerRegistry
-                .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
+                .RegisterForNavigation<SettingEditorPage, SettingEditorViewModel>(PageKeys.SettingEditor);
             containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
         }
 
