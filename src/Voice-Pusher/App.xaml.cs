@@ -44,6 +44,7 @@ namespace Voice_Pusher
             containerRegistry
                 .RegisterForNavigation<SettingEditorPage, SettingEditorViewModel>(PageKeys.SettingEditor);
             containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
+            containerRegistry.Register<IDialog, Dialog>();
         }
 
         private async Task<T> FileRead<T>(string fileName, T defaultItem)
