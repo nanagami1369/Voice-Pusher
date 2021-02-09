@@ -111,7 +111,7 @@ namespace CoreLibrary.SettingModels
 
         public void Dispose()
         {
-            Watcher.Dispose();
+            Disposable.Dispose();
         }
 
         public void Init(Settings setting)
