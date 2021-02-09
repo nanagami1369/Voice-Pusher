@@ -27,12 +27,11 @@ namespace Voice_Pusher
         protected override void OnInitialized()
         {
             var container = Container.Resolve<IDataContainer>();
-            if (InitialSettings is null)
+            if (InitialSettings is not null)
             {
-                return;
+                container.SettingsManager.Init(InitialSettings);
             }
 
-            container.Setting = InitialSettings;
             container.Counter.Init(InitialCounter);
             base.OnInitialized();
         }
@@ -76,6 +75,7 @@ namespace Voice_Pusher
         {
             var container = Container.Resolve<IDataContainer>();
             container.Counter.Dispose();
+            container.SettingsManager.Dispose();
             base.OnExit(e);
         }
     }

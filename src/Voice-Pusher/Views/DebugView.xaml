@@ -49,13 +49,13 @@
             </TextBlock>
             <Label Content="設定" />
             <TextBlock>
-                <Run Text="出力ディレクトリ=" /><Run Text="{Binding Path=Container.Setting.OutputDirectoryPath}" />
+                <Run Text="出力ディレクトリ=" /><Run Text="{Binding Path=Container.SettingsManager.Settings.Value.OutputDirectoryPath}" />
             </TextBlock>
             <TextBlock>
-                <Run Text="出力エンコード=" /><Run Text="{Binding Path=Container.Setting.OutputEncode.EncodingName, Mode=OneWay}" />
+                <Run Text="出力エンコード=" /><Run Text="{Binding Path=Container.SettingsManager.Settings.Value.OutputEncode.EncodingName, Mode=OneWay}" />
             </TextBlock>
             <TextBlock>
-                <Run Text="命名規則=" /><Run Text="{Binding Path=Container.Setting.NameScript}" />
+                <Run Text="命名規則=" /><Run Text="{Binding Path=Container.SettingsManager.Settings.Value.NameScript}" />
             </TextBlock>
             <StackPanel Orientation="Horizontal">
                 <Label Content="カウンタ" />

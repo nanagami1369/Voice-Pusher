@@ -6,7 +6,7 @@ namespace CoreLibrary
     public interface IDataContainer
     {
         public Status? CurrentStatus { get; set; }
-        public Settings Setting { get; set; }
+        public SettingsManager SettingsManager { get; }
 
         public ICounter Counter { get; }
     }
