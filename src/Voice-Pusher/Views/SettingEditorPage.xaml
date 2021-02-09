@@ -26,7 +26,7 @@
                         </Grid>
                         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
                         <Label Content="出力時に使用する文字コード" />
-                        <ComboBox ItemsSource="{Binding EncodingList, Mode=OneTime}">
+                        <ComboBox ItemsSource="{Binding EncodingList, Mode=OneTime}" SelectedItem="{Binding Path=Container.SettingsManager.OutputEncodeCache.Value}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding EncodingName, Mode=OneTime}" />

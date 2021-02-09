@@ -45,6 +45,16 @@ namespace CoreLibrary.SettingModels
                 .Subscribe(OnChangFile)
                 .AddTo(Disposable);
             Watcher.AddTo(Disposable);
+            OutputEncodeCache
+                .Throttle(TimeSpan.FromMilliseconds(300))
+                .Where(x => x is not null)
+                .Where(encode => encode != Settings.Value.OutputEncode)
+                .Subscribe(async encode =>
+                {
+                    Settings.Value.OutputEncode = encode;
+                    await WriterSettingsAsync();
+                })
+                .AddTo(Disposable);
         }
 
         private CompositeDisposable Disposable { get; } = new();
@@ -54,6 +64,12 @@ namespace CoreLibrary.SettingModels
         ///     現在の設定ファイルの値
         /// </summary>
         public ReactivePropertySlim<Settings> Settings { get; } = new();
+
+        /// <summary>
+        ///     ユーザー入力を設定ファイルに書き込む時に、
+        ///     連投を避けるために使う一時プロパティ
+        /// </summary>
+        public ReactiveProperty<Encoding> OutputEncodeCache { get; } = new();
 
         private FileRepository<Settings> Repository { get; }
         private bool IsWatched => Watcher.EnableRaisingEvents;
@@ -68,6 +84,7 @@ namespace CoreLibrary.SettingModels
         public void Init(Settings setting)
         {
             Settings.Value = setting;
+            OutputEncodeCache.Value = setting.OutputEncode;
             StartWatcher();
         }
 
@@ -75,6 +92,7 @@ namespace CoreLibrary.SettingModels
         {
             var setting = await Repository.ReadAsync();
             Settings.Value = setting;
+            OutputEncodeCache.Value = setting.OutputEncode;
         }
 
         private async Task WriterSettingsAsync()
