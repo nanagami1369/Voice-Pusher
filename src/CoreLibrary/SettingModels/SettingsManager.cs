@@ -66,6 +66,16 @@ namespace CoreLibrary.SettingModels
                     await WriterSettingsAsync();
                 })
                 .AddTo(Disposable);
+            NameScriptCache
+                .Throttle(TimeSpan.FromMilliseconds(300))
+                .Where(x => x is not null)
+                .Where(script => script != Settings.Value.NameScript)
+                .Subscribe(async script =>
+                {
+                    Settings.Value.NameScript = script;
+                    await WriterSettingsAsync();
+                })
+                .AddTo(Disposable);
         }
 
         private CompositeDisposable Disposable { get; } = new();
@@ -88,6 +98,11 @@ namespace CoreLibrary.SettingModels
         /// </summary>
         public ReactiveProperty<Encoding> OutputEncodeCache { get; } = new();
 
+        /// <summary>
+        ///     ユーザー入力を設定ファイルに書き込む時に、
+        ///     連投を避けるために使う一時プロパティ
+        /// </summary>
+        public ReactiveProperty<string> NameScriptCache { get; } = new();
         private FileRepository<Settings> Repository { get; }
         private bool IsWatched => Watcher.EnableRaisingEvents;
 
@@ -103,6 +118,7 @@ namespace CoreLibrary.SettingModels
             Settings.Value = setting;
             OutputDirectoryPathCache.Value = setting.OutputDirectoryPath;
             OutputEncodeCache.Value = setting.OutputEncode;
+            NameScriptCache.Value = setting.NameScript;
             StartWatcher();
         }
 
@@ -112,6 +128,7 @@ namespace CoreLibrary.SettingModels
             Settings.Value = setting;
             OutputDirectoryPathCache.Value = setting.OutputDirectoryPath;
             OutputEncodeCache.Value = setting.OutputEncode;
+            NameScriptCache.Value = setting.NameScript;
         }
 
         private async Task WriterSettingsAsync()

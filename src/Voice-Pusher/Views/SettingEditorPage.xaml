@@ -1,7 +1,9 @@
-<UserControl x:Class="Voice_Pusher.Views.SettingEditorPage"
+﻿<UserControl x:Class="Voice_Pusher.Views.SettingEditorPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ap="clr-namespace:Voice_Pusher.Views.AttachedProperties"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:viewmodel="clr-namespace:Voice_Pusher.ViewModels"
@@ -38,19 +40,23 @@
                             <Run Text="テスト→" />
                             <Run Text="1_霊夢_ゆっくりしていってね!!!" />
                         </TextBlock>
-                        <TextBox Text="{}{Number}_{Name}_{Script}" />
+                        <TextBox Text="{Binding Path=Container.SettingsManager.NameScriptCache.Value, UpdateSourceTrigger=PropertyChanged}">
+                            <i:Interaction.Behaviors>
+                                <ap:InsertTextForTextBoxProperty InsertText="{Binding Path=TemplateInserterForNameScript.Text.Value}" SetFlag="{Binding Path=TemplateInserterForNameScript.Flag.Value}" />
+                            </i:Interaction.Behaviors>
+                        </TextBox>
                         <WrapPanel>
-                            <Button CommandParameter="{}{Number}" Content="連番" />
-                            <Button CommandParameter="{}{Name}" Content="名前" />
-                            <Button CommandParameter="{}{Script}" Content="台本" />
-                            <Button CommandParameter="{}{VoiceActorName}" Content="声優" />
-                            <Button CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
-                            <Button CommandParameter="{}{yyyy}" Content="年" />
-                            <Button CommandParameter="{}{MM}" Content="月" />
-                            <Button CommandParameter="{}{dd}" Content="日" />
-                            <Button CommandParameter="{}{HH}" Content="時" />
-                            <Button CommandParameter="{}{mm}" Content="分" />
-                            <Button CommandParameter="{}{ss}" Content="秒" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{Number}" Content="連番" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{Name}" Content="名前" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{Script}" Content="台本" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{VoiceActorName}" Content="声優" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{LibraryName}" Content="ライブラリ名" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{yyyy}" Content="年" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{MM}" Content="月" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{dd}" Content="日" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{HH}" Content="時" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{mm}" Content="分" />
+                            <Button Command="{Binding InsertTemplateCommand}" CommandParameter="{}{ss}" Content="秒" />
                         </WrapPanel>
                     </StackPanel>
                 </Expander>

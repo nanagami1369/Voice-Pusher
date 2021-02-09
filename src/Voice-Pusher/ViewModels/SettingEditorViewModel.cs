@@ -20,8 +20,19 @@ namespace Voice_Pusher.ViewModels
             EncodingList = new[] { shiftJis, utf8 };
             OpenDirectoryPickerCommand
                 = new DelegateCommand(async () => { await OpenDirectoryPicker(); });
+            InsertTemplateCommand = new DelegateCommand<string?>(InsertTemplate);
         }
 
+        public TextInserter TemplateInserterForNameScript { get; } = new();
+
+        public DelegateCommand<string?> InsertTemplateCommand { get; }
+        public void InsertTemplate(string? template)
+        {
+            if (template is not null)
+            {
+                TemplateInserterForNameScript.Insert(template);
+            }
+        }
         public IDataContainer Container { get; }
 
         public Encoding[] EncodingList { get; }
