@@ -45,6 +45,17 @@ namespace CoreLibrary.SettingModels
                 .Subscribe(OnChangFile)
                 .AddTo(Disposable);
             Watcher.AddTo(Disposable);
+            OutputDirectoryPathCache
+                .Throttle(TimeSpan.FromMilliseconds(300))
+                .Where(x => x is not null)
+                .Where(path => path != Settings.Value.OutputDirectoryPath)
+                .Subscribe(async path =>
+                {
+                    Settings.Value.OutputDirectoryPath = path;
+                    await WriterSettingsAsync();
+                })
+                .AddTo(Disposable);
+            ;
             OutputEncodeCache
                 .Throttle(TimeSpan.FromMilliseconds(300))
                 .Where(x => x is not null)
@@ -69,6 +80,12 @@ namespace CoreLibrary.SettingModels
         ///     ユーザー入力を設定ファイルに書き込む時に、
         ///     連投を避けるために使う一時プロパティ
         /// </summary>
+        public ReactiveProperty<string> OutputDirectoryPathCache { get; } = new();
+
+        /// <summary>
+        ///     ユーザー入力を設定ファイルに書き込む時に、
+        ///     連投を避けるために使う一時プロパティ
+        /// </summary>
         public ReactiveProperty<Encoding> OutputEncodeCache { get; } = new();
 
         private FileRepository<Settings> Repository { get; }
@@ -84,6 +101,7 @@ namespace CoreLibrary.SettingModels
         public void Init(Settings setting)
         {
             Settings.Value = setting;
+            OutputDirectoryPathCache.Value = setting.OutputDirectoryPath;
             OutputEncodeCache.Value = setting.OutputEncode;
             StartWatcher();
         }
@@ -92,6 +110,7 @@ namespace CoreLibrary.SettingModels
         {
             var setting = await Repository.ReadAsync();
             Settings.Value = setting;
+            OutputDirectoryPathCache.Value = setting.OutputDirectoryPath;
             OutputEncodeCache.Value = setting.OutputEncode;
         }
 

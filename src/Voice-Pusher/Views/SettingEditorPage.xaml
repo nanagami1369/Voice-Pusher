@@ -21,8 +21,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="27" />
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" BorderThickness="0" IsReadOnly="True" Text="%HOME%\Desktop" />
-                            <Button Grid.Row="0" Grid.Column="1" Width="27" Height="27" HorizontalAlignment="Right" Content="📂" />
+                            <TextBox Grid.Row="0" Grid.Column="0" BorderThickness="0" IsReadOnly="True" Text="{Binding Path=Container.SettingsManager.OutputDirectoryPathCache.Value}" />
+                            <Button Grid.Row="0" Grid.Column="1" Width="27" Height="27" HorizontalAlignment="Right" Command="{Binding OpenDirectoryPickerCommand}" Content="📂" />
                         </Grid>
                         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#393939" BorderThickness="1" />
                         <Label Content="出力時に使用する文字コード" />
