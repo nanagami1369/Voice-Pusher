@@ -2,6 +2,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using CoreLibrary;
+using CoreLibrary.SettingModels;
 using Newtonsoft.Json;
 using Prism.Ioc;
 using Voice_Pusher.Model;
@@ -15,6 +16,7 @@ namespace Voice_Pusher
     /// </summary>
     public partial class App
     {
+        public Settings? InitialSettings { get; set; }
         public int InitialCounter { get; set; }
 
         protected override Window CreateShell()
@@ -25,6 +27,11 @@ namespace Voice_Pusher
         protected override void OnInitialized()
         {
             var container = Container.Resolve<IDataContainer>();
+            if (InitialSettings is not null)
+            {
+                container.SettingsManager.Init(InitialSettings);
+            }
+
             container.Counter.Init(InitialCounter);
             base.OnInitialized();
         }
@@ -35,8 +42,9 @@ namespace Voice_Pusher
             containerRegistry.RegisterForNavigation<CharacterEditorPage, CharacterEditorViewModel>(
                 PageKeys.CharacterEditor);
             containerRegistry
-                .RegisterForNavigation<SettingEditorPage, CharacterEditorViewModel>(PageKeys.SettingEditor);
+                .RegisterForNavigation<SettingEditorPage, SettingEditorViewModel>(PageKeys.SettingEditor);
             containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
+            containerRegistry.Register<IDialog, Dialog>();
         }
 
         private async Task<T> FileRead<T>(string fileName, T defaultItem)
@@ -59,6 +67,7 @@ namespace Voice_Pusher
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            InitialSettings = await FileRead(Config.SettingFileName, new Settings());
             InitialCounter = await FileRead(Config.CounterFileName, 0);
             base.OnStartup(e);
         }
@@ -67,6 +76,7 @@ namespace Voice_Pusher
         {
             var container = Container.Resolve<IDataContainer>();
             container.Counter.Dispose();
+            container.SettingsManager.Dispose();
             base.OnExit(e);
         }
     }

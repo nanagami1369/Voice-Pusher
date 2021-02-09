@@ -1,3 +1,4 @@
+using CoreLibrary.SettingModels;
 using CoreLibrary.StatusModels;
 using Prism.Mvvm;
 
@@ -12,6 +13,8 @@ namespace CoreLibrary
             get => _currentStatus;
             set => SetProperty(ref _currentStatus, value);
         }
+
+        public SettingsManager SettingsManager { get; } = new();
 
         public ICounter Counter { get; } = new Counter();
     }
