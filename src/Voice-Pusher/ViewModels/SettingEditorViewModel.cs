@@ -17,7 +17,7 @@ namespace Voice_Pusher.ViewModels
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var shiftJis = Encoding.GetEncoding(932);
             var utf8 = new UTF8Encoding(false);
-            EncodingList = new[] { shiftJis, utf8 };
+            EncodingList = new[] {shiftJis, utf8};
             OpenDirectoryPickerCommand
                 = new DelegateCommand(async () => { await OpenDirectoryPicker(); });
             InsertTemplateCommand = new DelegateCommand<string?>(InsertTemplate);
@@ -26,6 +26,12 @@ namespace Voice_Pusher.ViewModels
         public TextInserter TemplateInserterForNameScript { get; } = new();
 
         public DelegateCommand<string?> InsertTemplateCommand { get; }
+        public IDataContainer Container { get; }
+
+        public Encoding[] EncodingList { get; }
+        private IDialog Dialog { get; }
+        public DelegateCommand OpenDirectoryPickerCommand { get; }
+
         public void InsertTemplate(string? template)
         {
             if (template is not null)
@@ -33,11 +39,7 @@ namespace Voice_Pusher.ViewModels
                 TemplateInserterForNameScript.Insert(template);
             }
         }
-        public IDataContainer Container { get; }
 
-        public Encoding[] EncodingList { get; }
-        private IDialog Dialog { get; }
-        public DelegateCommand OpenDirectoryPickerCommand { get; }
         private async Task OpenDirectoryPicker()
         {
             var outputDirectoryPath = await Dialog.OpenFolderAsync();

@@ -103,6 +103,7 @@ namespace CoreLibrary.SettingModels
         ///     連投を避けるために使う一時プロパティ
         /// </summary>
         public ReactiveProperty<string> NameScriptCache { get; } = new();
+
         private FileRepository<Settings> Repository { get; }
         private bool IsWatched => Watcher.EnableRaisingEvents;
 

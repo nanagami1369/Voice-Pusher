@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
@@ -13,7 +14,7 @@ namespace Voice_Pusher.Model
         {
             var messageBox = new MessageDialog(message, title);
             var window = messageBox.As<IInitializeWithWindow>();
-            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            window.Initialize(Process.GetCurrentProcess().MainWindowHandle);
             await messageBox.ShowAsync();
         }
 
@@ -29,7 +30,7 @@ namespace Voice_Pusher.Model
             messageBox.DefaultCommandIndex = 1;
             messageBox.CancelCommandIndex = 1;
             var window = messageBox.As<IInitializeWithWindow>();
-            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            window.Initialize(Process.GetCurrentProcess().MainWindowHandle);
             var selectedCommand = await messageBox.ShowAsync();
             var messageBoxResult = (bool)selectedCommand.Id;
             return messageBoxResult;
@@ -37,20 +38,19 @@ namespace Voice_Pusher.Model
 
         public async Task<string?> OpenFolderAsync()
         {
-            var folderPicker = new FolderPicker()
+            var folderPicker = new FolderPicker
             {
-                SuggestedStartLocation = PickerLocationId.Desktop,
-                FileTypeFilter = { "*" },
+                SuggestedStartLocation = PickerLocationId.Desktop, FileTypeFilter = {"*"}
             };
             var window = folderPicker.As<IInitializeWithWindow>();
-            window.Initialize(System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            window.Initialize(Process.GetCurrentProcess().MainWindowHandle);
             var folder = await folderPicker.PickSingleFolderAsync();
             if (folder == null)
             {
                 return null;
             }
-            return folder.Path;
 
+            return folder.Path;
         }
 
         //UWP関連のAPIにウィンドウハンドルを伝えるのに使う。
@@ -61,7 +61,5 @@ namespace Voice_Pusher.Model
         {
             void Initialize(IntPtr hwnd);
         }
-
     }
-
 }
