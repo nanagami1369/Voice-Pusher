@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Prism.Commands;
@@ -28,6 +30,10 @@ namespace CoreLibrary
             Watcher.Created += OnChangFile;
             Watcher.Deleted += OnChangFile;
             Watcher.Renamed += OnChangFile;
+            WriterSubject
+                .Throttle(TimeSpan.FromMilliseconds(500))
+                .Subscribe(
+                    async count => await WriterCountAsync(count));
             IncrementCommand = new DelegateCommand(Increment);
         }
 
@@ -35,6 +41,8 @@ namespace CoreLibrary
         private bool IsWatched => Watcher.EnableRaisingEvents;
 
         private FileSystemWatcher Watcher { get; }
+
+        public Subject<int> WriterSubject { get; } = new();
 
         public DelegateCommand IncrementCommand { get; }
 
@@ -45,7 +53,7 @@ namespace CoreLibrary
             set
             {
                 var inputData = Math.Abs(value);
-                WriterCountAsync(inputData).ConfigureAwait(false);
+                WriterSubject.OnNext(inputData);
                 SetProperty(ref _count, inputData);
             }
         }
@@ -57,6 +65,7 @@ namespace CoreLibrary
 
         public void Dispose()
         {
+            WriterSubject.Dispose();
             Watcher.Dispose();
         }
 
@@ -96,8 +105,6 @@ namespace CoreLibrary
 
         private async void OnChangFile(object sender, FileSystemEventArgs e)
         {
-            const int afterSecondDo = 500;
-            await Task.Delay(afterSecondDo);
             switch (e.ChangeType)
             {
                 case WatcherChangeTypes.Created:
