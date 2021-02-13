@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using CoreLibrary;
 using CoreLibrary.CharacterModels;
+using CoreLibrary.CharacterModels.SilentVoiceLibrary;
 using CoreLibrary.SettingModels;
 using Newtonsoft.Json;
 using Prism.Ioc;
@@ -78,6 +79,18 @@ namespace Voice_Pusher
             InitialCounter = await FileRead(Config.CounterFileName, 0);
 
             var factory = new CharacterLibraryFactory();
+            factory.RegisterVoiceLibrary<SilentCharacter>(
+                "Silent",
+                new[]
+                {
+                    new SilentVoiceActor("Silent1", "Silent", "0.0"),
+                    new SilentVoiceActor("Silent2", "Silent", "0.0")
+                },
+                new[]
+                {
+                    new SilentCharacter("霊夢", "れいむ", new SilentVoiceActor("Silent1", "Silent", "0.0")),
+                    new SilentCharacter("魔理沙", "まりさ", new SilentVoiceActor("Silent2", "Silent", "0.0"))
+                });
             InitialCharacterLibrary = await factory.CreateLibraryAsync();
             base.OnStartup(e);
         }
