@@ -29,6 +29,11 @@ namespace CoreLibrary.CharacterModels
             set => SetProperty(ref _originalLibrary, value);
         }
 
+        public void AddCharacter(Character character)
+        {
+            OriginalLibrary.Add(character);
+        }
+
         public async Task ReadCharacterLibraryAsync()
         {
             var library = await Repository.ReadAsync();

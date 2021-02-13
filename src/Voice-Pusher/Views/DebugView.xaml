@@ -65,8 +65,10 @@
             <TextBlock>
                 <Run Text="カウント=" /><Run Text="{Binding Path=Container.Counter.Count, Mode=OneWay, FallbackValue=無し}" />
             </TextBlock>
+            <StackPanel Orientation="Horizontal">
             <Label Content="キャラクタ" />
-            <ListBox Foreground="White" ItemsSource="{Binding Path=Container.CharacterLibrary.OriginalLibrary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <Button Command="{Binding AddCharacterCommand}" Content="追加" />
+            </StackPanel>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="{x:Type ListBoxItem}">
                         <Setter Property="Template">
