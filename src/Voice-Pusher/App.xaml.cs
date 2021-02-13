@@ -2,6 +2,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using CoreLibrary;
+using CoreLibrary.CharacterModels;
 using CoreLibrary.SettingModels;
 using Newtonsoft.Json;
 using Prism.Ioc;
@@ -18,6 +19,7 @@ namespace Voice_Pusher
     {
         public Settings? InitialSettings { get; set; }
         public int InitialCounter { get; set; }
+        public CharacterLibrary? InitialCharacterLibrary { get; set; }
 
         protected override Window CreateShell()
         {
@@ -30,6 +32,11 @@ namespace Voice_Pusher
             if (InitialSettings is not null)
             {
                 container.SettingsManager.Init(InitialSettings);
+            }
+
+            if (InitialCharacterLibrary is not null)
+            {
+                container.CharacterLibrary = InitialCharacterLibrary;
             }
 
             container.Counter.Init(InitialCounter);
@@ -69,6 +76,9 @@ namespace Voice_Pusher
         {
             InitialSettings = await FileRead(Config.SettingFileName, new Settings());
             InitialCounter = await FileRead(Config.CounterFileName, 0);
+
+            var factory = new CharacterLibraryFactory();
+            InitialCharacterLibrary = await factory.CreateLibraryAsync();
             base.OnStartup(e);
         }
 
