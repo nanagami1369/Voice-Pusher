@@ -11,8 +11,8 @@
              d:DesignWidth="40"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <Grid Background="Black" Opacity="0.85">
-        <Grid.Resources>
+    <ScrollViewer Background="Black" Opacity="0.85">
+        <ScrollViewer.Resources>
             <Style TargetType="{x:Type TextBlock}">
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="Foreground" Value="White" />
@@ -21,7 +21,7 @@
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="Foreground" Value="White" />
             </Style>
-        </Grid.Resources>
+        </ScrollViewer.Resources>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="ステータス" />
@@ -86,5 +86,5 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
         </StackPanel>
-    </Grid>
+    </ScrollViewer>
 </UserControl>
