@@ -1,3 +1,4 @@
+using CoreLibrary.CharacterModels;
 using CoreLibrary.SettingModels;
 using CoreLibrary.StatusModels;
 
@@ -9,5 +10,6 @@ namespace CoreLibrary
         public SettingsManager SettingsManager { get; }
 
         public ICounter Counter { get; }
+        public ICharacterLibrary? CharacterLibrary { get; set; }
     }
 }
